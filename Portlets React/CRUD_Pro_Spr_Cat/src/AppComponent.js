@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 
 function AppComponent(props) {
@@ -9,95 +9,192 @@ function AppComponent(props) {
   const [endDate, setEndDate] = useState("");
   const [status, setStatus] = useState("");
   const [project, setProject] = useState("");
+  const [data, setData] = useState([]);
+  const [selectedOption, setSelectedOption] = useState("Proyecto");
+
+  //Estados para validar los campos del formulario
+  const [nameError, setNameError] = useState("");
+  const [statusError, setStatusError] = useState("");
+  const [startDateError, setStartDateError] = useState("");
+  const [endDateError, setEndDateError] = useState("");
+  //const [projectError, setProjectError] = useState("");
+
+  const nameInputRef = useRef(null);
+  const statusInputRef = useRef(null);
+  const startDateInputRef = useRef(null);
+  const endDateInputRef = useRef(null);
+  //const projectInputRef = useRef(null);
 
   //funciónes para manejar el cambio de los campos del formulario
   const handleNameChange = (event) => {
     setName(event.target.value);
+    setNameError(""); // Restablecer el estado de error a una cadena vacía
   };
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
+  const handleStatusChange = (event) => {
+    setStatus(event.target.value);
+    setStatusError(""); // Restablecer el estado de error a una cadena vacía
+  };
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
+    setStartDateError(""); // Restablecer el estado de error a una cadena vacía
   };
   const handleEndDateChange = (event) => {
     setEndDate(event.target.value);
+    setEndDateError(""); // Restablecer el estado de error a una cadena vacía
   };
-  const handleStatusChange = (event) => {
-    setStatus(event.target.value);
-  };
+
   const handleProjectChange = (event) => {
     setProject(event.target.value);
   };
 
-  //Función para enviar los datos del formulario
-  // Función para enviar los datos del formulario
+  // Función para cargar los datos de la API según el valor de selectedOption
+  const loadData = async () => {
+    try {
+      let apiUrl = "";
+      switch (selectedOption) {
+        case "Proyecto":
+          apiUrl = "http://localhost:3000/proyectos";
+          break;
+        case "Sprint":
+          apiUrl = "http://localhost:3000/sprints";
+          break;
+        case "Categoria":
+          apiUrl = "http://localhost:3000/categorias";
+          break;
+        default:
+          apiUrl = "";
+          break;
+      }
+
+      if (apiUrl) {
+        const response = await fetch(apiUrl);
+        const jsonData = await response.json();
+        setData(jsonData);
+        console.log(jsonData);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, [selectedOption]);
+
+  //Función para enviar los datos del formulario y aplicar validación de campos
   const handleSubmit = () => {
     if (selectedOption === "Proyecto") {
-      if (name === "" || startDate === "" || endDate === "" || status === "") {
-        alert("Por favor, ingrese todos los campos obligatorios");
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
-        console.log("Fecha de Inicio:", startDate);
-        console.log("Fecha de Final:", endDate);
-        console.log("Estado:", status);
-        console.log("Proyecto:", project);
-      } else {
-        // Imprimir los datos en la consola
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
-        console.log("Fecha de Inicio:", startDate);
-        console.log("Fecha de Final:", endDate);
-        console.log("Estado:", status);
-        console.log("Proyecto:", project);
+      let isValid = true;
 
-        alert("Se ha registrado correctamente");
+      if (name === "") {
+        setNameError("Ingresa el Nombre del Proyecto");
+        nameInputRef.current.focus();
+        isValid = false;
+      } else {
+        setNameError("");
+      }
+
+      if (status === "SeleccionaStatus" || status === "") {
+        setStatusError("Selecciona un Estado válido");
+        statusInputRef.current.focus();
+        isValid = false;
+      } else {
+        setStatusError("");
+      }
+
+      if (startDate === "") {
+        setStartDateError("Ingresa una Fecha de Inicio");
+        startDateInputRef.current.focus();
+        isValid = false;
+      } else {
+        setStartDateError("");
+      }
+
+      if (endDate === "") {
+        setEndDateError("Ingresa una Fecha de Finalización");
+        endDateInputRef.current.focus();
+        isValid = false;
+      } else {
+        setEndDateError("");
+      }
+      if (isValid) {
+        alert("Se ha registrado correctamente un Proyecto");
       }
     }
     if (selectedOption === "Sprint") {
-      if (
-        name === "" ||
-        startDate === "" ||
-        endDate === "" ||
-        status === "" ||
-        project === ""
-      ) {
-        alert("Por favor, ingrese todos los campos obligatorios");
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
-        console.log("Fecha de Inicio:", startDate);
-        console.log("Fecha de Final:", endDate);
+      let isValid = true;
+
+      if (name === "") {
+        setNameError("Ingresa el Nombre del Sprint");
+        nameInputRef.current.focus();
+        isValid = false;
       } else {
-        // Imprimir los datos en la consola
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
-        console.log("Fecha de Inicio:", startDate);
-        console.log("Fecha de Final:", endDate);
-        console.log("Estado:", status);
-        console.log("Proyecto:", project);
-        alert("Se ha registrado correctamente");
+        setNameError("");
+      }
+
+      if (status === "SeleccionaStatus" || status === "") {
+        setStatusError("Selecciona un Estado válido");
+        statusInputRef.current.focus();
+        isValid = false;
+      } else {
+        setStatusError("");
+      }
+
+      if (startDate === "") {
+        setStartDateError("Ingresa una Fecha de Inicio");
+        startDateInputRef.current.focus();
+        isValid = false;
+      } else {
+        setStartDateError("");
+      }
+
+      if (endDate === "") {
+        setEndDateError("Ingresa una Fecha de Finalización");
+        endDateInputRef.current.focus();
+        isValid = false;
+      } else {
+        setEndDateError("");
+      }
+      if (isValid) {
+        alert("Se ha registrado correctamente un Sprint");
       }
     }
     if (selectedOption === "Categoria") {
+      let isValid = true;
+
       if (name === "") {
-        alert("Por favor, ingrese todos los campos obligatorios");
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
+        setNameError("Ingresa el Nombre de la Categoría");
+        nameInputRef.current.focus();
+        isValid = false;
       } else {
-        // Imprimir los datos en la consola
-        console.log("Nombre:", name);
-        console.log("Descripción:", description);
-        alert("Se ha registrado correctamente");
+        setNameError("");
+      }
+
+      if (isValid) {
+        alert("Se ha registrado correctamente una Categoría");
       }
     }
   };
 
-  //Estado para campos de la tabla
-  const [selectedOption, setSelectedOption] = useState("Proyecto");
-
-  //Función para validar los campos del formulario
+  //Función para manejar el cambio del selectfather del formulario
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
+    // Restablecer el estado de los campos del formulario
+    setName("");
+    setDescription("");
+    setStartDate("");
+    setEndDate("");
+    setStatus("");
+    setProject("");
+    // Restablecer el estado de error a una cadena vacía
+    setNameError("");
+    setStatusError("");
+    setStartDateError("");
+    setEndDateError("");
+    setProjectError("");
   };
 
   const renderFields = () => {
@@ -107,13 +204,15 @@ function AppComponent(props) {
           <>
             <input
               name="name"
-              className="input-crudcsp"
+              className={`input-crudcsp ${nameError ? "input-crudcsp2" : ""}`}
               type="text"
-              placeholder="Nombre del Proyecto*"
+              placeholder={nameError ? nameError : "Nombre del Proyecto*"}
               required
               value={name}
               onChange={handleNameChange}
+              ref={nameInputRef}
             />
+
             <input
               name="description"
               className="input-crudcsp-textarea"
@@ -122,32 +221,52 @@ function AppComponent(props) {
               value={description}
               onChange={handleDescriptionChange}
             />
-            <input
+            <select
               name="status"
-              className="input-crudcsp"
-              type="text"
-              placeholder="Estado del Proyecto*"
+              className={`input-crudcsp ${statusError ? "input-crudcsp3" : ""}`}
               required
               value={status}
               onChange={handleStatusChange}
-            />
-            <label className="label-crudcsp">Fecha de Inicio*</label>
+              ref={statusInputRef}
+            >
+              <option value="SeleccionaStatus">
+                {statusError ? statusError : "Selecciona un Estado... *"}
+              </option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="En progreso">En progreso</option>
+              <option value="Realizado">Realizado</option>
+            </select>
+            <label
+              className={`label-crudcsp ${startDateError ? "error-label" : ""}`}
+            >
+              {startDateError ? startDateError : "Fecha de Inicio*"}
+            </label>
             <input
               name="startDate"
-              className="input-crudcsp"
+              className={`input-crudcsp ${
+                startDateError ? "input-crudcsp3" : ""
+              }`}
               type="date"
               required
               value={startDate}
               onChange={handleStartDateChange}
+              ref={startDateInputRef}
             />
-            <label className="label-crudcsp">Fecha de Final*</label>
+            <label
+              className={`label-crudcsp ${endDateError ? "error-label" : ""}`}
+            >
+              {endDateError ? endDateError : "Fecha de Final*"}
+            </label>
             <input
               name="endDate"
-              className="input-crudcsp"
+              className={`input-crudcsp ${
+                endDateError ? "input-crudcsp3" : ""
+              }`}
               type="date"
               required
               value={endDate}
               onChange={handleEndDateChange}
+              ref={endDateInputRef}
             />
           </>
         );
@@ -156,12 +275,13 @@ function AppComponent(props) {
           <>
             <input
               name="name"
-              className="input-crudcsp"
+              className={`input-crudcsp ${nameError ? "input-crudcsp2" : ""}`}
               type="text"
-              placeholder="Nombre del Sprint*"
+              placeholder={nameError ? nameError : "Nombre del Sprint*"}
               required
               value={name}
               onChange={handleNameChange}
+              ref={nameInputRef}
             />
             <input
               name="description"
@@ -171,15 +291,21 @@ function AppComponent(props) {
               value={description}
               onChange={handleDescriptionChange}
             />
-            <input
+            <select
               name="status"
-              className="input-crudcsp"
-              type="text"
-              placeholder="Estado*"
+              className={`input-crudcsp ${statusError ? "input-crudcsp3" : ""}`}
               required
               value={status}
               onChange={handleStatusChange}
-            />
+              ref={statusInputRef}
+            >
+              <option value="SeleccionaStatus">
+                {statusError ? statusError : "Selecciona un Estado... *"}
+              </option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="En progreso">En progreso</option>
+              <option value="Realizado">Realizado</option>
+            </select>
             <input
               name="project"
               className="input-crudcsp"
@@ -189,25 +315,37 @@ function AppComponent(props) {
               value={project}
               onChange={handleProjectChange}
             />
-            <label className="label-crudcsp">Fecha de Inicio*</label>
+            <label
+              className={`label-crudcsp ${startDateError ? "error-label" : ""}`}
+            >
+              {startDateError ? startDateError : "Fecha de Inicio*"}
+            </label>
             <input
               name="startDate"
-              className="input-crudcsp"
+              className={`input-crudcsp ${
+                startDateError ? "input-crudcsp3" : ""
+              }`}
               type="date"
-              placeholder="Fecha de Inicio"
               required
               value={startDate}
               onChange={handleStartDateChange}
+              ref={startDateInputRef}
             />
-            <label className="label-crudcsp">Fecha de Final*</label>
+            <label
+              className={`label-crudcsp ${endDateError ? "error-label" : ""}`}
+            >
+              {endDateError ? endDateError : "Fecha de Final*"}
+            </label>
             <input
               name="endDate"
-              className="input-crudcsp"
+              className={`input-crudcsp ${
+                endDateError ? "input-crudcsp3" : ""
+              }`}
               type="date"
-              placeholder="Fecha de Final"
               required
               value={endDate}
               onChange={handleEndDateChange}
+              ref={endDateInputRef}
             />
           </>
         );
@@ -217,12 +355,13 @@ function AppComponent(props) {
           <>
             <input
               name="name"
-              className="input-crudcsp"
+              className={`input-crudcsp ${nameError ? "input-crudcsp2" : ""}`}
               type="text"
-              placeholder="Nombre de Categoría*"
+              placeholder={nameError ? nameError : "Nombre de la Categoría*"}
               required
               value={name}
               onChange={handleNameChange}
+              ref={nameInputRef}
             />
             <input
               name="description"
@@ -248,7 +387,7 @@ function AppComponent(props) {
                 <span className="span-crudcsp">¿Qué Deseas Registrar??</span>
                 <select
                   name="select-crudcsp"
-                  id="input-crudcsp"
+                  id="fatheselect-crudcsp"
                   className="input-crudcsp"
                   value={selectedOption}
                   onChange={handleChange}
@@ -296,44 +435,80 @@ function AppComponent(props) {
               </div>
             </div>
 
-            {/* Tabla que muestra los detalles de los personajes */}
+            {/* Tabla que muestra los detalles de los datos cargados */}
             <table className="table table-striped table-hover custom-table">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
                   {selectedOption === "Proyecto" && (
                     <>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
                       <th>Fecha de Inicio</th>
                       <th>Fecha de Final</th>
+                      <th>Estado</th>
                     </>
                   )}
                   {selectedOption === "Sprint" && (
                     <>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
                       <th>Fecha de Inicio</th>
                       <th>Fecha de Final</th>
                       <th>Estado</th>
                       <th>Proyecto</th>
                     </>
                   )}
+                  {selectedOption === "Categoria" && (
+                    <>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                    </>
+                  )}
+                  {/* Resto de las columnas específicas */}
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  {selectedOption === "Proyecto" && <td></td>}
-                  {selectedOption === "Proyecto" && <td></td>}
-                  {selectedOption === "Sprint" && <td></td>}
-                  {selectedOption === "Sprint" && <td></td>}
-                  {selectedOption === "Sprint" && <td></td>}
-                  {selectedOption === "Sprint" && <td></td>}
-                  <td>
-                    <button className="btntblupd">Editar</button>
-                    <button className="btntbldel">Eliminar</button>
-                  </td>
-                </tr>
+                {data.map((item) => (
+                  <tr
+                    key={
+                      item.Id_Proyecto || item.Id_Sprint || item.Id_Categoria
+                    }
+                  >
+                    {selectedOption === "Proyecto" && (
+                      <>
+                        <td>{item.Nombre_Proyecto}</td>
+                        <td>{item.Descripcion}</td>
+                        <td>{item.Fecha_Inicio}</td>
+                        <td>{item.Fecha_Final}</td>
+                        <td>{item.Estado}</td>
+                      </>
+                    )}
+                    {selectedOption === "Sprint" && (
+                      <>
+                        <td>{item.Nombre_Sprint}</td>
+                        <td>{item.Descripcion}</td>
+                        <td>{item.Fecha_Inicio}</td>
+                        <td>{item.Fecha_Final}</td>
+                        <td>{item.Estado}</td>
+                        <td>
+                          {item.Proyecto && item.Proyecto.Nombre_Proyecto}
+                        </td>
+                      </>
+                    )}
+                    {selectedOption === "Categoria" && (
+                      <>
+                        <td>{item.Nombre_Categoria}</td>
+                        <td>{item.Descripcion}</td>
+                      </>
+                    )}
+                    {/* Resto de las columnas específicas */}
+                    <td>
+                      <button className="btntblupd">Editar</button>
+                      <button className="btntbldel">Eliminar</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
