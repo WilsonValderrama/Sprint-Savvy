@@ -1,3 +1,5 @@
+/* Estilos para Formulario Principal al crear y editar */
+
 .container-center {
   display: flex;
   justify-content: center;
@@ -7,7 +9,7 @@
 
 .container-form {
   max-width: 300px;
-  background-color: #f1f7fe;
+  background-color: #e5eef8;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -25,6 +27,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+#fatheselect-crudcsp {
+  font-weight: bold;
 }
 
 .crudcsp-form .head .span-crudcsp {
@@ -75,6 +81,31 @@
   font-weight: 200;
 }
 
+.crudcsp-form .input-crudcsp2 {
+  border: 1px solid red;
+  border-radius: 8px 8px 0 0;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  background-color: #f9e1e1;
+  font-weight: 200;
+}
+
+.crudcsp-form .input-crudcsp3 {
+  border: 1px solid red;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  background-color: #f9e1e1;
+  font-weight: 200;
+}
+
+.error-label {
+  font-weight: bold;
+}
+
 .crudcsp-form .inputs .input-crudcsp-textarea {
   border: none;
   outline: none;
@@ -86,7 +117,7 @@
 }
 
 .crudcsp-form .button-crudcsp {
-  background-color: #4287ef;
+  background-color: #176b87;
   color: white;
   width: 100%;
   height: 40px;
@@ -102,7 +133,8 @@
 }
 
 .crudcsp-form .button-crudcsp:hover {
-  background-color: #005ce6;
+  transform: scale(1.05);
+  background-color: #053b50;
 }
 
 .crudcsp-form .button-crudcsp2 {
@@ -124,6 +156,8 @@
 .crudcsp-form .button-crudcsp2:hover {
   background-color: #e60000;
 }
+
+/* Estilos para barra de búsqueda */
 
 .search {
   display: inline-block;
@@ -147,7 +181,7 @@
 .search button[type="submit"] {
   margin-top: 3px;
   margin-bottom: 3px;
-  background-color: #4e99e9;
+  background-color: #176b87;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -161,15 +195,9 @@
 }
 
 .search button[type="submit"]:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: rgb(255, 255, 255);
-  background-color: blue;
-}
-
-:focus {
-  outline: 0;
-  border-color: #2260ff;
-  box-shadow: 0 0 0 4px #b5c9fc;
+  background-color: #053b50;
 }
 
 button.limpiarfiltros {
@@ -199,7 +227,7 @@ button.limpiarfiltros {
   transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
-  background-color: #0c66ed;
+  background-color: #64ccc5;
   border-radius: 50%;
   transition: 0.6s ease;
 }
@@ -232,6 +260,8 @@ button.limpiarfiltros {
   transform: translate(-50%, -50%) scale(4);
   transition: 1.5s ease;
 }
+
+/* Estilos para botones de tabla */
 
 .btntbldel {
   width: 95px;
