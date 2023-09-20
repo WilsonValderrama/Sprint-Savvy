@@ -1,0 +1,136 @@
+.tag {
+	font-weight: bold; margin-right: 1em;
+}
+
+.value {
+	font-family: monospace;
+}
+
+.pre {
+	font-family: monospace; white-space: pre;
+}
+
+/* Task.css */
+
+.task {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task input[type="text"],
+.task textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.task .properties .property {
+	display: flex;
+
+	margin-bottom: 8px; 
+}
+
+.task .property input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.text-area{
+	margin-top: 40px;
+}
+
+.task button {
+  background-color: #91C8E4;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background-color: #4682A9;
+}
+
+.task-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.task-card p {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.task-card button {
+  background-color: #4eb7dd;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.task-card button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para la tarjeta de tarea */
+.task-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.task-card p {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.task-card button {
+  background-color: #4eb7dd;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.task-card button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
