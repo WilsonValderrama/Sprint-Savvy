@@ -117,7 +117,7 @@
 }
 
 .crudcsp-form .button-crudcsp {
-  background-color: #176b87;
+  background-color: #64ccc5;
   color: white;
   width: 100%;
   height: 40px;
@@ -125,7 +125,7 @@
   padding-bottom: 8px;
   border: 0;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 5px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -133,7 +133,6 @@
 }
 
 .crudcsp-form .button-crudcsp:hover {
-  transform: scale(1.05);
   background-color: #053b50;
 }
 
@@ -169,24 +168,27 @@
 }
 
 .search input[type="text"] {
+  border: none;
+  border-color: #fff;
   margin-top: 3px;
   margin-bottom: 3px;
   width: 200px;
   padding: 10px;
-  border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .search button[type="submit"] {
+  outline: none;
+  border: none;
+  border-color: #fff;
   margin-top: 3px;
   margin-bottom: 3px;
-  background-color: #176b87;
-  border: none;
+  background-color: #64ccc5;
   color: #fff;
   cursor: pointer;
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0;
@@ -194,8 +196,12 @@
   transition: 0.9s ease;
 }
 
+.search input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
+
 .search button[type="submit"]:hover {
-  transform: scale(1.05);
   color: rgb(255, 255, 255);
   background-color: #053b50;
 }
@@ -211,10 +217,10 @@ button.limpiarfiltros {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: white;
-  background-color: #171717;
+  background-color: #053b50;
   padding: 1em 1em;
   border: none;
-  border-radius: 0.6rem;
+  border-radius: 5px;
   position: relative;
   cursor: pointer;
   overflow: hidden;

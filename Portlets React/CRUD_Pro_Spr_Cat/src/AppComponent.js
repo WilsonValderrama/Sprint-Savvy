@@ -419,7 +419,11 @@ function AppComponent(props) {
                   <h2>Detalles Tbl {selectedOption}</h2>
                 </div>
                 <div className="search">
-                  <input placeholder="Filtrar por nombre" type="text" />
+                  <input
+                    className="input-search"
+                    placeholder="Filtrar por nombre"
+                    type="text"
+                  />
                   <button type="submit">Ir</button>
                 </div>
 
