@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 function AppComponent(props) {
   //Estado para campos del formulario
   const [name, setName] = useState("");
+  const [color, setColor] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -17,13 +18,15 @@ function AppComponent(props) {
   const [statusError, setStatusError] = useState("");
   const [startDateError, setStartDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
-  //const [projectError, setProjectError] = useState("");
+  const [colorError, setColorError] = useState("");
+  const [projectError, setProjectError] = useState("");
 
   const nameInputRef = useRef(null);
   const statusInputRef = useRef(null);
   const startDateInputRef = useRef(null);
   const endDateInputRef = useRef(null);
-  //const projectInputRef = useRef(null);
+  const colorInputRef = useRef(null);
+  const projectInputRef = useRef(null);
 
   //funciónes para manejar el cambio de los campos del formulario
   const handleNameChange = (event) => {
@@ -50,6 +53,11 @@ function AppComponent(props) {
     setProject(event.target.value);
   };
 
+  const handleColorChange = (event) => {
+    setColor(event.target.value);
+    setColorError(""); // Restablecer el estado de error a una cadena vacía
+  };
+
   // Función para cargar los datos de la API según el valor de selectedOption
   const loadData = async () => {
     try {
@@ -64,8 +72,8 @@ function AppComponent(props) {
         case "Categoria":
           apiUrl = "http://localhost:3000/categorias";
           break;
-        default:
-          apiUrl = "";
+        case "Etiqueta":
+          apiUrl = "http://localhost:3000/etiquetas";
           break;
       }
 
@@ -143,6 +151,14 @@ function AppComponent(props) {
         setStatusError("");
       }
 
+      if (project === "") {
+        setProjectError("Ingresa el Nombre del Proyecto");
+        projectInputRef.current.focus();
+        isValid = false;
+      } else {
+        setProjectError("");
+      }
+
       if (startDate === "") {
         setStartDateError("Ingresa una Fecha de Inicio");
         startDateInputRef.current.focus();
@@ -177,6 +193,30 @@ function AppComponent(props) {
         alert("Se ha registrado correctamente una Categoría");
       }
     }
+    if (selectedOption == "Etiqueta") {
+      let isValid = true;
+
+      if (name === "") {
+        setNameError("Ingresa el Nombre del Proyecto");
+        nameInputRef.current.focus();
+        isValid = false;
+      } else {
+        setNameError("");
+      }
+
+      if (color === "") {
+        setColorError("Debes seleccionar un Color");
+        colorInputRef.current.focus();
+        isValid = false;
+        console.log(color);
+      } else {
+        setColorError("");
+      }
+      if (isValid) {
+        console.log(color);
+        alert("Se ha registrado correctamente una Etiqueta");
+      }
+    }
   };
 
   //Función para manejar el cambio del selectfather del formulario
@@ -189,12 +229,14 @@ function AppComponent(props) {
     setEndDate("");
     setStatus("");
     setProject("");
+    setColor("");
     // Restablecer el estado de error a una cadena vacía
     setNameError("");
     setStatusError("");
     setStartDateError("");
     setEndDateError("");
     setProjectError("");
+    setColorError("");
   };
 
   const renderFields = () => {
@@ -350,7 +392,6 @@ function AppComponent(props) {
           </>
         );
       case "Categoria":
-      default:
         return (
           <>
             <input
@@ -371,6 +412,37 @@ function AppComponent(props) {
               required
               value={description}
               onChange={handleDescriptionChange}
+            />
+          </>
+        );
+      case "Etiqueta":
+        return (
+          <>
+            <input
+              name="name"
+              className={`input-crudcsp ${nameError ? "input-crudcsp2" : ""}`}
+              type="text"
+              placeholder={nameError ? nameError : "Nombre de Etiqueta*"}
+              required
+              value={name}
+              onChange={handleNameChange}
+              ref={nameInputRef}
+            />
+            <label
+              className={`label-crudcsp ${colorError ? "error-label" : ""}`}
+            >
+              {" "}
+              {colorError ? colorError : "Color*"}
+            </label>
+            <input
+              name="color"
+              className={`input-crudcsp ${colorError ? "input-crudcsp2" : ""}`}
+              type="color"
+              placeholder={colorError ? colorError : "Color:"}
+              required
+              value={color}
+              onChange={handleColorChange}
+              ref={colorInputRef}
             />
           </>
         );
@@ -395,6 +467,7 @@ function AppComponent(props) {
                   <option value="Proyecto">Proyecto</option>
                   <option value="Sprint">Sprint</option>
                   <option value="Categoria">Categoría</option>
+                  <option value="Etiqueta">Etiqueta</option>
                 </select>
                 <p>Ingresa la información solicitada a continuación</p>
               </div>
@@ -419,11 +492,7 @@ function AppComponent(props) {
                   <h2>Detalles Tbl {selectedOption}</h2>
                 </div>
                 <div className="search">
-                  <input
-                    className="input-search"
-                    placeholder="Filtrar por nombre"
-                    type="text"
-                  />
+                  <input placeholder="Filtrar por nombre" type="text" />
                   <button type="submit">Ir</button>
                 </div>
 
@@ -468,6 +537,12 @@ function AppComponent(props) {
                       <th>Descripción</th>
                     </>
                   )}
+                  {selectedOption === "Etiqueta" && (
+                    <>
+                      <th>Nombre</th>
+                      <th>Color</th>
+                    </>
+                  )}
                   {/* Resto de las columnas específicas */}
                   <th>Acciones</th>
                 </tr>
@@ -504,6 +579,12 @@ function AppComponent(props) {
                       <>
                         <td>{item.Nombre_Categoria}</td>
                         <td>{item.Descripcion}</td>
+                      </>
+                    )}
+                    {selectedOption === "Etiqueta" && (
+                      <>
+                        <td>{item.Nombre_Etiqueta}</td>
+                        <td>{item.Color}</td>
                       </>
                     )}
                     {/* Resto de las columnas específicas */}
