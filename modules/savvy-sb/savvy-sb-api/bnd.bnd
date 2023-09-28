@@ -1,0 +1,10 @@
+Bundle-Name: savvy-sb-api
+Bundle-SymbolicName: com.savvy.sb.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.savvy.sb.exception,\
+	com.savvy.sb.model,\
+	com.savvy.sb.service,\
+	com.savvy.sb.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../savvy-sb-service/service.xml
