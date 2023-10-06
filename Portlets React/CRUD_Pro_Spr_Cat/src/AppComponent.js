@@ -544,13 +544,15 @@ function AppComponent(props) {
                 <p>Ingresa la información solicitada a continuación</p>
               </div>
               <div className="inputs">{renderFields()}</div>
-              <button
-                className="button-crudcsp"
-                type="button"
-                onClick={handleCategoriaAdd}
-              >
-                {categoriaId ? "Actualizar Categoría" : "Agregar"}
-              </button>
+              {selectedOption === "Categoria" && (
+                <button
+                  className="button-crudcsp"
+                  type="button"
+                  onClick={handleCategoriaAdd}
+                >
+                  {categoriaId ? "Actualizar Categoría" : "Agregar"}
+                </button>
+              )}
               {categoriaId && (
                 <button
                   className="button-crudcsp2"
