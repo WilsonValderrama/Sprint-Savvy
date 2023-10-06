@@ -10,8 +10,10 @@ function AppComponent(props) {
   const [endDate, setEndDate] = useState("");
   const [status, setStatus] = useState("");
   const [project, setProject] = useState("");
-  const [data, setData] = useState([]);
   const [selectedOption, setSelectedOption] = useState("Proyecto");
+
+  //Estado para datos de la tabla
+  const [categorias, setCategorias] = React.useState([]);
 
   //Estados para validar los campos del formulario
   const [nameError, setNameError] = useState("");
@@ -27,6 +29,21 @@ function AppComponent(props) {
   const endDateInputRef = useRef(null);
   const colorInputRef = useRef(null);
   const projectInputRef = useRef(null);
+
+  // Estados para almacenar la información del formulario de categoría
+  const [categoriaId, setCategoriaId] = useState(null);
+  const [categoriaName, setCategoriaName] = useState("");
+  const [categoriaDescription, setCategoriaDescription] = useState("");
+
+  // Función para manejar el cambio del nombre de categoría
+  const handleCategoriaNameChange = (event) => {
+    setCategoriaName(event.target.value);
+  };
+
+  // Función para manejar el cambio de la descripción de categoría
+  const handleCategoriaDescriptionChange = (event) => {
+    setCategoriaDescription(event.target.value);
+  };
 
   //funciónes para manejar el cambio de los campos del formulario
   const handleNameChange = (event) => {
@@ -48,49 +65,13 @@ function AppComponent(props) {
     setEndDate(event.target.value);
     setEndDateError(""); // Restablecer el estado de error a una cadena vacía
   };
-
   const handleProjectChange = (event) => {
     setProject(event.target.value);
   };
-
   const handleColorChange = (event) => {
     setColor(event.target.value);
     setColorError(""); // Restablecer el estado de error a una cadena vacía
   };
-
-  // Función para cargar los datos de la API según el valor de selectedOption
-  const loadData = async () => {
-    try {
-      let apiUrl = "";
-      switch (selectedOption) {
-        case "Proyecto":
-          apiUrl = "http://localhost:3000/proyectos";
-          break;
-        case "Sprint":
-          apiUrl = "http://localhost:3000/sprints";
-          break;
-        case "Categoria":
-          apiUrl = "http://localhost:3000/categorias";
-          break;
-        case "Etiqueta":
-          apiUrl = "http://localhost:3000/etiquetas";
-          break;
-      }
-
-      if (apiUrl) {
-        const response = await fetch(apiUrl);
-        const jsonData = await response.json();
-        setData(jsonData);
-        console.log(jsonData);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    loadData();
-  }, [selectedOption]);
 
   //Función para enviar los datos del formulario y aplicar validación de campos
   const handleSubmit = () => {
@@ -178,21 +159,6 @@ function AppComponent(props) {
         alert("Se ha registrado correctamente un Sprint");
       }
     }
-    if (selectedOption === "Categoria") {
-      let isValid = true;
-
-      if (name === "") {
-        setNameError("Ingresa el Nombre de la Categoría");
-        nameInputRef.current.focus();
-        isValid = false;
-      } else {
-        setNameError("");
-      }
-
-      if (isValid) {
-        alert("Se ha registrado correctamente una Categoría");
-      }
-    }
     if (selectedOption == "Etiqueta") {
       let isValid = true;
 
@@ -219,6 +185,108 @@ function AppComponent(props) {
     }
   };
 
+  //CRUD Categorías
+  // Función para obtener la lista de categorías del servidor
+  const fetchCategorias = () => {
+    Liferay.Service(
+      "/servicio_savvy.categoria/get-all-categorias",
+      function (obj) {
+        // Verifica si los datos se imprimen correctamente en la consola
+        console.log(obj);
+
+        // Actualiza el estado con los datos recibidos
+        setCategorias(obj);
+      }
+    );
+  };
+
+  useEffect(() => {
+    fetchCategorias();
+  }, []);
+
+  // Función para agregar o actualizar una categoría
+  const handleCategoriaAdd = () => {
+    // Si hay una categoría en edición, actualizamos sus datos
+    if (categoriaId) {
+      Liferay.Service(
+        "/servicio_savvy.categoria/update-categoria",
+        {
+          categoriaId: categoriaId,
+          nombreCategoria: categoriaName,
+          descripcion: categoriaDescription,
+        },
+        function (obj) {
+          fetchCategorias(); // Actualizamos la lista de categorías
+          clearCategoriaForm(); // Limpia el formulario de categoría
+          setNameError(""); // Restablecer el estado de error a una cadena vacía porque ya hay un dato
+        }
+      );
+      // Si no hay una categoría en edición, agregamos una nueva categoría
+    } else {
+      let isValid = true;
+
+      if (categoriaName === "") {
+        setNameError("Ingresa el Nombre de la Categoría");
+        nameInputRef.current.focus();
+        isValid = false;
+      } else {
+        setNameError("");
+      }
+
+      if (isValid) {
+        Liferay.Service(
+          "/servicio_savvy.categoria/create-categoria",
+          {
+            nombreCategoria: categoriaName,
+            descripcion: categoriaDescription,
+          },
+          function (obj) {
+            fetchCategorias(); // Actualizamos la lista de categorías
+            clearCategoriaForm(); // Limpia el formulario de categoría
+          }
+        );
+      }
+    }
+  };
+
+  //Función para cancelar la edición de categoría
+  const handleCancel = () => {
+    setCategoriaId(null);
+    clearCategoriaForm();
+  };
+
+  // Función para editar una categoría
+  const handleEditCategoria = (categoriaId, nombreCategoria, descripcion) => {
+    setCategoriaId(categoriaId);
+    setCategoriaName(nombreCategoria);
+    setCategoriaDescription(descripcion);
+    setNameError(""); // Restablecer el estado de error a una cadena vacía porque ya hay un dato
+  };
+
+  // Función para eliminar una categoría
+  const handleDeleteCategoria = (categoriaId) => {
+    Liferay.Service(
+      "/servicio_savvy.categoria/delete-categoria",
+      {
+        categoriaId: categoriaId,
+      },
+      function (obj) {
+        console.log(obj);
+        if (obj) {
+          fetchCategorias(); // Actualizamos la lista de categorías
+          clearCategoriaForm(); // Limpia el formulario de categoría
+        }
+      }
+    );
+  };
+
+  // Función para limpiar el formulario de categoría
+  const clearCategoriaForm = () => {
+    setCategoriaId(null);
+    setCategoriaName("");
+    setCategoriaDescription("");
+  };
+
   //Función para manejar el cambio del selectfather del formulario
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -237,6 +305,10 @@ function AppComponent(props) {
     setEndDateError("");
     setProjectError("");
     setColorError("");
+
+    if (event.target.value === "Categoria") {
+      fetchCategorias();
+    }
   };
 
   const renderFields = () => {
@@ -395,23 +467,23 @@ function AppComponent(props) {
         return (
           <>
             <input
-              name="name"
+              name="categoriaName"
               className={`input-crudcsp ${nameError ? "input-crudcsp2" : ""}`}
               type="text"
               placeholder={nameError ? nameError : "Nombre de la Categoría*"}
               required
-              value={name}
-              onChange={handleNameChange}
+              value={categoriaName}
+              onChange={handleCategoriaNameChange}
               ref={nameInputRef}
             />
             <input
-              name="description"
+              name="categoriaDescription"
               className="input-crudcsp-textarea"
               type="textarea"
               placeholder="Descripción"
               required
-              value={description}
-              onChange={handleDescriptionChange}
+              value={categoriaDescription}
+              onChange={handleCategoriaDescriptionChange}
             />
           </>
         );
@@ -475,10 +547,19 @@ function AppComponent(props) {
               <button
                 className="button-crudcsp"
                 type="button"
-                onClick={handleSubmit}
+                onClick={handleCategoriaAdd}
               >
-                Enviar
+                {categoriaId ? "Actualizar Categoría" : "Agregar"}
               </button>
+              {categoriaId && (
+                <button
+                  className="button-crudcsp2"
+                  type="button"
+                  onClick={handleCancel}
+                >
+                  Cancelar
+                </button>
+              )}
             </form>
           </div>
         </div>
@@ -547,54 +628,39 @@ function AppComponent(props) {
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                {data.map((item) => (
-                  <tr
-                    key={
-                      item.Id_Proyecto || item.Id_Sprint || item.Id_Categoria
-                    }
-                  >
-                    {selectedOption === "Proyecto" && (
-                      <>
-                        <td>{item.Nombre_Proyecto}</td>
-                        <td>{item.Descripcion}</td>
-                        <td>{item.Fecha_Inicio}</td>
-                        <td>{item.Fecha_Final}</td>
-                        <td>{item.Estado}</td>
-                      </>
-                    )}
-                    {selectedOption === "Sprint" && (
-                      <>
-                        <td>{item.Nombre_Sprint}</td>
-                        <td>{item.Descripcion}</td>
-                        <td>{item.Fecha_Inicio}</td>
-                        <td>{item.Fecha_Final}</td>
-                        <td>{item.Estado}</td>
-                        <td>
-                          {item.Proyecto && item.Proyecto.Nombre_Proyecto}
-                        </td>
-                      </>
-                    )}
-                    {selectedOption === "Categoria" && (
-                      <>
-                        <td>{item.Nombre_Categoria}</td>
-                        <td>{item.Descripcion}</td>
-                      </>
-                    )}
-                    {selectedOption === "Etiqueta" && (
-                      <>
-                        <td>{item.Nombre_Etiqueta}</td>
-                        <td>{item.Color}</td>
-                      </>
-                    )}
-                    {/* Resto de las columnas específicas */}
-                    <td>
-                      <button className="btntblupd">Editar</button>
-                      <button className="btntbldel">Eliminar</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+              {selectedOption === "Categoria" && (
+                <tbody>
+                  {categorias.map((categoria) => (
+                    <tr key={categoria.categoriaId}>
+                      <td>{categoria.nombreCategoria}</td>
+                      <td>{categoria.descripcion}</td>
+                      {/* Otras columnas específicas de categoría si las hay */}
+                      <td>
+                        <button
+                          className="btntblupd"
+                          onClick={() =>
+                            handleEditCategoria(
+                              categoria.categoriaId,
+                              categoria.nombreCategoria,
+                              categoria.descripcion
+                            )
+                          }
+                        >
+                          Editar
+                        </button>
+                        <button
+                          className="btntbldel"
+                          onClick={() =>
+                            handleDeleteCategoria(categoria.categoriaId)
+                          }
+                        >
+                          Eliminar
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              )}
             </table>
           </div>
         </div>
