@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -85,6 +86,11 @@ public interface CategoriaLocalService
 	 */
 	@Transactional(enabled = false)
 	public Categoria createCategoria(long categoriaId);
+
+	public Categoria createCategoria(
+			String nombreCategoria, String descripcion,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -208,6 +214,9 @@ public interface CategoriaLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Categoria> getAllCategorias();
+
 	/**
 	 * Returns the categoria with the primary key.
 	 *
@@ -312,5 +321,10 @@ public interface CategoriaLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Categoria updateCategoria(Categoria categoria);
+
+	public Categoria updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 }

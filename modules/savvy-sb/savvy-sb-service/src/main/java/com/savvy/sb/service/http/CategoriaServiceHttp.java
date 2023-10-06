@@ -14,13 +14,22 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.HttpPrincipal;
+import com.liferay.portal.kernel.service.http.TunnelUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
+
+import com.savvy.sb.service.CategoriaServiceUtil;
+
 /**
  * Provides the HTTP utility for the
- * <code>com.savvy.sb.service.CategoriaServiceUtil</code> service
+ * <code>CategoriaServiceUtil</code> service
  * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -42,4 +51,178 @@ package com.savvy.sb.service.http;
  * @generated
  */
 public class CategoriaServiceHttp {
+
+	public static com.savvy.sb.model.Categoria createCategoria(
+			HttpPrincipal httpPrincipal, String nombreCategoria,
+			String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				CategoriaServiceUtil.class, "createCategoria",
+				_createCategoriaParameterTypes0);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, nombreCategoria, descripcion, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.savvy.sb.model.Categoria)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.savvy.sb.model.Categoria updateCategoria(
+			HttpPrincipal httpPrincipal, long categoriaId,
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				CategoriaServiceUtil.class, "updateCategoria",
+				_updateCategoriaParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, categoriaId, nombreCategoria, descripcion,
+				serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.savvy.sb.model.Categoria)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.savvy.sb.model.Categoria deleteCategoria(
+			HttpPrincipal httpPrincipal, long categoriaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				CategoriaServiceUtil.class, "deleteCategoria",
+				_deleteCategoriaParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, categoriaId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.savvy.sb.model.Categoria)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.savvy.sb.model.Categoria> getAllCategorias(
+		HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				CategoriaServiceUtil.class, "getAllCategorias",
+				_getAllCategoriasParameterTypes3);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.savvy.sb.model.Categoria>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(CategoriaServiceHttp.class);
+
+	private static final Class<?>[] _createCategoriaParameterTypes0 =
+		new Class[] {
+			String.class, String.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
+	private static final Class<?>[] _updateCategoriaParameterTypes1 =
+		new Class[] {
+			long.class, String.class, String.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
+	private static final Class<?>[] _deleteCategoriaParameterTypes2 =
+		new Class[] {long.class};
+	private static final Class<?>[] _getAllCategoriasParameterTypes3 =
+		new Class[] {};
+
 }

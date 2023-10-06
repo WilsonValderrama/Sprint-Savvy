@@ -69,6 +69,15 @@ public class CategoriaLocalServiceUtil {
 		return getService().createCategoria(categoriaId);
 	}
 
+	public static Categoria createCategoria(
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createCategoria(
+			nombreCategoria, descripcion, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -220,6 +229,10 @@ public class CategoriaLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Categoria> getAllCategorias() {
+		return getService().getAllCategorias();
+	}
+
 	/**
 	 * Returns the categoria with the primary key.
 	 *
@@ -348,6 +361,15 @@ public class CategoriaLocalServiceUtil {
 	 */
 	public static Categoria updateCategoria(Categoria categoria) {
 		return getService().updateCategoria(categoria);
+	}
+
+	public static Categoria updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateCategoria(
+			categoriaId, nombreCategoria, descripcion, serviceContext);
 	}
 
 	public static CategoriaLocalService getService() {

@@ -14,9 +14,16 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import com.savvy.sb.service.CategoriaServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.savvy.sb.service.CategoriaServiceUtil</code> service
+ * <code>CategoriaServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,78 @@ package com.savvy.sb.service.http;
  */
 @Deprecated
 public class CategoriaServiceSoap {
+
+	public static com.savvy.sb.model.CategoriaSoap createCategoria(
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Categoria returnValue =
+				CategoriaServiceUtil.createCategoria(
+					nombreCategoria, descripcion, serviceContext);
+
+			return com.savvy.sb.model.CategoriaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.CategoriaSoap updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Categoria returnValue =
+				CategoriaServiceUtil.updateCategoria(
+					categoriaId, nombreCategoria, descripcion, serviceContext);
+
+			return com.savvy.sb.model.CategoriaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.CategoriaSoap deleteCategoria(
+			long categoriaId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Categoria returnValue =
+				CategoriaServiceUtil.deleteCategoria(categoriaId);
+
+			return com.savvy.sb.model.CategoriaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.CategoriaSoap[] getAllCategorias()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Categoria> returnValue =
+				CategoriaServiceUtil.getAllCategorias();
+
+			return com.savvy.sb.model.CategoriaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(CategoriaServiceSoap.class);
+
 }

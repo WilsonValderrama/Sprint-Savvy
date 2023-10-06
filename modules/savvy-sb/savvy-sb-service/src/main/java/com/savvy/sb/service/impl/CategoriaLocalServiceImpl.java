@@ -15,8 +15,17 @@
 package com.savvy.sb.service.impl;
 
 import com.liferay.portal.aop.AopService;
-
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.savvy.sb.model.Categoria;
 import com.savvy.sb.service.base.CategoriaLocalServiceBaseImpl;
+
+import java.util.Date;
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -28,4 +37,81 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class CategoriaLocalServiceImpl extends CategoriaLocalServiceBaseImpl {
+	private final Log log = LogFactoryUtil.getLog(CategoriaLocalServiceImpl.class);
+
+	 
+
+	public Categoria createCategoria(String nombreCategoria, String descripcion,
+																  ServiceContext serviceContext) throws PortalException {
+
+ 
+
+		Long categoriaId = counterLocalService.increment();
+
+ 
+
+		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
+		Categoria categoria = categoriaPersistence.create(categoriaId);
+		categoria.setNombreCategoria(nombreCategoria);
+		categoria.setDescripcion(descripcion);
+
+ 
+
+		categoria.setUserId(serviceContext.getUserId());
+		categoria.setGroupId(serviceContext.getScopeGroupId());
+		categoria.setUserName(user.getFullName());
+		categoria.setCreateDate(new Date());
+
+ 
+
+		log.info(serviceContext.getUserId());
+		log.info(serviceContext.getScopeGroupId());
+		log.info(user.getFullName());
+		categoriaPersistence.update(categoria);
+
+ 
+
+		return categoria;
+	}
+
+ 
+
+	public Categoria updateCategoria(long categoriaId, String nombreCategoria, String descripcion,
+																  ServiceContext serviceContext) throws PortalException {
+
+ 
+
+		Categoria categoria = categoriaPersistence.findByPrimaryKey(categoriaId);
+		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
+		categoria.setNombreCategoria(nombreCategoria);
+		categoria.setDescripcion(descripcion);
+
+ 
+
+		categoria.setUserId(serviceContext.getUserId());
+		categoria.setGroupId(serviceContext.getScopeGroupId());
+		categoria.setUserName(user.getFullName());
+		categoria.setModifiedDate(new Date());
+
+ 
+
+		return categoriaPersistence.update(categoria);
+	}
+
+ 
+
+	public Categoria deleteCategoria(long categoriaId) throws PortalException {
+
+ 
+
+		return categoriaPersistence.remove(categoriaId);
+	}
+
+ 
+
+ 
+
+	public List<Categoria> getAllCategorias() {
+		return categoriaPersistence.findAll();
+	}
 }

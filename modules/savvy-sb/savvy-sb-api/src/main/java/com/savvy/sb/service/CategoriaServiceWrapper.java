@@ -30,6 +30,28 @@ public class CategoriaServiceWrapper
 		_categoriaService = categoriaService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Categoria createCategoria(
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _categoriaService.createCategoria(
+			nombreCategoria, descripcion, serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Categoria deleteCategoria(long categoriaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _categoriaService.deleteCategoria(categoriaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Categoria> getAllCategorias() {
+		return _categoriaService.getAllCategorias();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +60,16 @@ public class CategoriaServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _categoriaService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.savvy.sb.model.Categoria updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _categoriaService.updateCategoria(
+			categoriaId, nombreCategoria, descripcion, serviceContext);
 	}
 
 	@Override

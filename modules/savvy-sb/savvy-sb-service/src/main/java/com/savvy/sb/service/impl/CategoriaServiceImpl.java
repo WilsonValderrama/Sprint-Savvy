@@ -15,8 +15,13 @@
 package com.savvy.sb.service.impl;
 
 import com.liferay.portal.aop.AopService;
-
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.savvy.sb.model.Categoria;
+import com.savvy.sb.service.CategoriaLocalServiceUtil;
 import com.savvy.sb.service.base.CategoriaServiceBaseImpl;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -31,4 +36,25 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class CategoriaServiceImpl extends CategoriaServiceBaseImpl {
+	public Categoria createCategoria(String nombreCategoria, String descripcion,
+			  ServiceContext serviceContext) throws PortalException {
+return CategoriaLocalServiceUtil.createCategoria(nombreCategoria, descripcion, serviceContext);
+}
+
+
+
+public Categoria updateCategoria(long categoriaId, String nombreCategoria, String descripcion,
+			  ServiceContext serviceContext) throws PortalException  {
+return CategoriaLocalServiceUtil.updateCategoria(categoriaId, nombreCategoria, descripcion, serviceContext);
+}
+
+
+
+public Categoria deleteCategoria(long categoriaId) throws PortalException {
+return CategoriaLocalServiceUtil.deleteCategoria(categoriaId);
+}
+
+public List<Categoria> getAllCategorias() {
+return CategoriaLocalServiceUtil.getAllCategorias();
+}
 }
