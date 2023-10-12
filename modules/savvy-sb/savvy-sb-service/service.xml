@@ -10,39 +10,23 @@
 	<entity local-service="true" name="Tarea" remote-service="true"
 		uuid="true">
 
-
-
 		<!-- PK fields -->
-
-
 
 		<column name="tareaId" primary="true" type="long" />
 
-
-
 		<!-- Group instance -->
-
-
 
 		<column name="groupId" type="long" />
 
-
-
 		<!-- Audit fields -->
-
-
-
+		
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
 		<column name="userName" type="String" />
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
-
-
 		<!-- Other fields -->
-
-
 
 		<column name="nombreTarea" type="String" />
 		<column name="proyecto" type="String" />
@@ -56,63 +40,38 @@
 		<column name="categoria" type="String" />
 		<column name="etiqueta" type="String" />
 
-
-
 		<!-- Order -->
-
-
 
 		<order by="asc">
 			<order-column name="nombreTarea" />
 		</order>
 
-
-
 		<!-- Finder methods -->
-
-
 
 		<finder name="NombreTarea" return-type="Collection">
 			<finder-column name="nombreTarea" />
 		</finder>
 
-
-
 		<!-- References -->
-
-
 
 		<reference entity="AssetEntry"
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
-
 	</entity>
 
 	<entity local-service="true" name="Sprint" remote-service="true"
 		uuid="true">
-
-
-
+		
 		<!-- PK fields -->
-
-
 
 		<column name="sprintId" primary="true" type="long" />
 
-
-
 		<!-- Group instance -->
-
-
 
 		<column name="groupId" type="long" />
 
-
-
 		<!-- Audit fields -->
-
-
 
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
@@ -120,11 +79,7 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
-
-
 		<!-- Other fields -->
-
-
 
 		<column name="tituloSprint" type="String" />
 		<column name="fechaInicio" type="Date" />
@@ -133,67 +88,39 @@
 		<column name="estado" type="String" />
 		<column name="proyecto" type="String" />
 
-
-
 		<!-- Order -->
-
-
 
 		<order by="asc">
 			<order-column name="tituloSprint" />
 		</order>
 
-
-
 		<!-- Finder methods -->
-
-
 
 		<finder name="TituloSprint" return-type="Collection">
 			<finder-column name="tituloSprint" />
 		</finder>
 
-
-
 		<!-- References -->
-
-
 
 		<reference entity="AssetEntry"
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
 
-
-
-
-
 	</entity>
 
 	<entity local-service="true" name="Proyecto"
 		remote-service="true" uuid="true">
 
-
-
 		<!-- PK fields -->
 
-
-
 		<column name="proyectoId" primary="true" type="long" />
-
-
-
+	
 		<!-- Group instance -->
-
-
 
 		<column name="groupId" type="long" />
 
-
-
 		<!-- Audit fields -->
-
-
 
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
@@ -201,11 +128,7 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
-
-
 		<!-- Other fields -->
-
-
 
 		<column name="tituloProyecto" type="String" />
 		<column name="descripcion" type="String" />
@@ -213,67 +136,39 @@
 		<column name="fechaFinal" type="Date" />
 		<column name="estado" type="String" />
 
-
-
 		<!-- Order -->
-
-
 
 		<order by="asc">
 			<order-column name="tituloProyecto" />
 		</order>
 
-
-
 		<!-- Finder methods -->
-
-
 
 		<finder name="TituloProyecto" return-type="Collection">
 			<finder-column name="tituloProyecto" />
 		</finder>
 
-
-
 		<!-- References -->
-
-
 
 		<reference entity="AssetEntry"
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
-
-
-
-
 
 	</entity>
 
 	<entity local-service="true" name="Categoria"
 		remote-service="true" uuid="true">
 
-
-
 		<!-- PK fields -->
-
-
 
 		<column name="categoriaId" primary="true" type="long" />
 
-
-
 		<!-- Group instance -->
-
-
 
 		<column name="groupId" type="long" />
 
-
-
 		<!-- Audit fields -->
-
-
 
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
@@ -281,126 +176,72 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
-
-
 		<!-- Other fields -->
-
-
 
 		<column name="nombreCategoria" type="String" />
 		<column name="descripcion" type="String" />
 
-
-
 		<!-- Order -->
-
-
 
 		<order by="asc">
 			<order-column name="nombreCategoria" />
 		</order>
 
-
-
 		<!-- Finder methods -->
-
-
 
 		<finder name="NombreCategoria" return-type="Collection">
 			<finder-column name="nombreCategoria" />
 		</finder>
 
-
-
 		<!-- References -->
-
-
 
 		<reference entity="AssetEntry"
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
-
-
-
-
-
 	</entity>
 
 	<entity local-service="true" name="Etiqueta"
 		remote-service="true" uuid="true">
 
-
-
 		<!-- PK fields -->
-
-
 
 		<column name="etiquetaId" primary="true" type="long" />
 
-
-
 		<!-- Group instance -->
-
-
 
 		<column name="groupId" type="long" />
 
-
-
 		<!-- Audit fields -->
-
-
-
+		
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
 		<column name="userName" type="String" />
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
-
-
 		<!-- Other fields -->
-
-
-
+		
 		<column name="tituloEtiqueta" type="String" />
-
-
-
+		
 		<!-- Order -->
-
-
 
 		<order by="asc">
 			<order-column name="tituloEtiqueta" />
 		</order>
 
-
-
 		<!-- Finder methods -->
-
-
 
 		<finder name="TituloEtiqueta" return-type="Collection">
 			<finder-column name="tituloEtiqueta" />
 		</finder>
 
-
-
 		<!-- References -->
-
-
 
 		<reference entity="AssetEntry"
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
-
-
-
-
-
 	</entity>
 
 </service-builder>

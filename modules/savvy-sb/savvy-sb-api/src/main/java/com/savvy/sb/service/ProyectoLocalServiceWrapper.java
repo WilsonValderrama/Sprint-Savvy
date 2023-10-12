@@ -32,6 +32,19 @@ public class ProyectoLocalServiceWrapper
 		_proyectoLocalService = proyectoLocalService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			java.util.Date fechaInicio, java.util.Date fechaFinal,
+			String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoLocalService.actualizarProyecto(
+			proyectoId, tituloProyecto, descripcion, fechaInicio, fechaFinal,
+			estado, serviceContext);
+	}
+
 	/**
 	 * Adds the proyecto to the database. Also notifies the appropriate model listeners.
 	 *
@@ -47,6 +60,19 @@ public class ProyectoLocalServiceWrapper
 		com.savvy.sb.model.Proyecto proyecto) {
 
 		return _proyectoLocalService.addProyecto(proyecto);
+	}
+
+	@Override
+	public com.savvy.sb.model.Proyecto crearProyecto(
+			String tituloProyecto, String descripcion,
+			java.util.Date fechaInicio, java.util.Date fechaFinal,
+			String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoLocalService.crearProyecto(
+			tituloProyecto, descripcion, fechaInicio, fechaFinal, estado,
+			serviceContext);
 	}
 
 	/**
@@ -208,6 +234,13 @@ public class ProyectoLocalServiceWrapper
 	}
 
 	@Override
+	public com.savvy.sb.model.Proyecto eliminarProyecto(long proyectoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoLocalService.eliminarProyecto(proyectoId);
+	}
+
+	@Override
 	public com.savvy.sb.model.Proyecto fetchProyecto(long proyectoId) {
 		return _proyectoLocalService.fetchProyecto(proyectoId);
 	}
@@ -232,6 +265,11 @@ public class ProyectoLocalServiceWrapper
 		getActionableDynamicQuery() {
 
 		return _proyectoLocalService.getActionableDynamicQuery();
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Proyecto> getAllProyectos() {
+		return _proyectoLocalService.getAllProyectos();
 	}
 
 	@Override
@@ -284,6 +322,13 @@ public class ProyectoLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _proyectoLocalService.getProyecto(proyectoId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Proyecto> getProyectoByNombre(
+		String tituloProyecto) {
+
+		return _proyectoLocalService.getProyectoByNombre(tituloProyecto);
 	}
 
 	/**
