@@ -14,9 +14,16 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import com.savvy.sb.service.ProyectoServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.savvy.sb.service.ProyectoServiceUtil</code> service
+ * <code>ProyectoServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,117 @@ package com.savvy.sb.service.http;
  */
 @Deprecated
 public class ProyectoServiceSoap {
+
+	public static com.savvy.sb.model.ProyectoSoap crearProyecto(
+			String tituloProyecto, String descripcion,
+			java.util.Date fechaInicio, java.util.Date fechaFinal,
+			String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Proyecto returnValue =
+				ProyectoServiceUtil.crearProyecto(
+					tituloProyecto, descripcion, fechaInicio, fechaFinal,
+					estado, serviceContext);
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.ProyectoSoap actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			java.util.Date fechaInicio, java.util.Date fechaFinal,
+			String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Proyecto returnValue =
+				ProyectoServiceUtil.actualizarProyecto(
+					proyectoId, tituloProyecto, descripcion, fechaInicio,
+					fechaFinal, estado, serviceContext);
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.ProyectoSoap eliminarProyecto(
+			long proyectoId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Proyecto returnValue =
+				ProyectoServiceUtil.eliminarProyecto(proyectoId);
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.ProyectoSoap getProyecto(long proyectoId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Proyecto returnValue =
+				ProyectoServiceUtil.getProyecto(proyectoId);
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.ProyectoSoap[] getProyectoByNombre(
+			String tituloProyecto)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Proyecto> returnValue =
+				ProyectoServiceUtil.getProyectoByNombre(tituloProyecto);
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.ProyectoSoap[] getAllProyecto()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Proyecto> returnValue =
+				ProyectoServiceUtil.getAllProyecto();
+
+			return com.savvy.sb.model.ProyectoSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(ProyectoServiceSoap.class);
+
 }
