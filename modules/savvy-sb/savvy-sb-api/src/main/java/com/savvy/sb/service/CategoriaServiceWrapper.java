@@ -52,6 +52,13 @@ public class CategoriaServiceWrapper
 		return _categoriaService.getAllCategorias();
 	}
 
+	@Override
+	public java.util.List<com.savvy.sb.model.Categoria> getCategoriaByNombre(
+		String nombreCategoria) {
+
+		return _categoriaService.getCategoriaByNombre(nombreCategoria);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

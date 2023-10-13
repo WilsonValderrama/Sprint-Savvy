@@ -14,6 +14,12 @@
 
 package com.savvy.sb.service;
 
+import com.liferay.portal.kernel.exception.PortalException;
+
+import com.savvy.sb.model.Etiqueta;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Etiqueta. This utility wraps
  * <code>com.savvy.sb.service.impl.EtiquetaServiceImpl</code> and is an
@@ -33,13 +39,47 @@ public class EtiquetaServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.EtiquetaServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Etiqueta actualizarEtiqueta(
+			long etiquetaId, String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().actualizarEtiqueta(
+			etiquetaId, tituloEtiqueta, serviceContext);
+	}
+
+	public static Etiqueta crearEtiqueta(
+			String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().crearEtiqueta(tituloEtiqueta, serviceContext);
+	}
+
+	public static Etiqueta eliminarEtiqueta(long etiquetaId)
+		throws PortalException {
+
+		return getService().eliminarEtiqueta(etiquetaId);
+	}
+
+	public static List<Etiqueta> getAllEtiqueta() {
+		return getService().getAllEtiqueta();
+	}
+
+	public static Etiqueta getEtiqueta(long etiquetaId) throws PortalException {
+		return getService().getEtiqueta(etiquetaId);
+	}
+
+	public static List<Etiqueta> getEtiquetaByNombre(String tituloEtiqueta) {
+		return getService().getEtiquetaByNombre(tituloEtiqueta);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

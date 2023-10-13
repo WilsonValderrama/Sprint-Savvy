@@ -58,6 +58,10 @@ public class CategoriaServiceUtil {
 		return getService().getAllCategorias();
 	}
 
+	public static List<Categoria> getCategoriaByNombre(String nombreCategoria) {
+		return getService().getCategoriaByNombre(nombreCategoria);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

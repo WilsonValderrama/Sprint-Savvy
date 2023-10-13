@@ -227,6 +227,9 @@ public interface CategoriaLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Categoria getCategoria(long categoriaId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Categoria> getCategoriaByNombre(String nombreCategoria);
+
 	/**
 	 * Returns the categoria matching the UUID and group.
 	 *

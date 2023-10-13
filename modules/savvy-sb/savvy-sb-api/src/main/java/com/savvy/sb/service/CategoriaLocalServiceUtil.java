@@ -246,6 +246,10 @@ public class CategoriaLocalServiceUtil {
 		return getService().getCategoria(categoriaId);
 	}
 
+	public static List<Categoria> getCategoriaByNombre(String nombreCategoria) {
+		return getService().getCategoriaByNombre(nombreCategoria);
+	}
+
 	/**
 	 * Returns the categoria matching the UUID and group.
 	 *

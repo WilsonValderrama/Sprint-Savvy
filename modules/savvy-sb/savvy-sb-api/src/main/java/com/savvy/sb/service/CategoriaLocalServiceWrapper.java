@@ -263,6 +263,13 @@ public class CategoriaLocalServiceWrapper
 		return _categoriaLocalService.getCategoria(categoriaId);
 	}
 
+	@Override
+	public java.util.List<com.savvy.sb.model.Categoria> getCategoriaByNombre(
+		String nombreCategoria) {
+
+		return _categoriaLocalService.getCategoriaByNombre(nombreCategoria);
+	}
+
 	/**
 	 * Returns the categoria matching the UUID and group.
 	 *

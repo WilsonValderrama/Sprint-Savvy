@@ -57,4 +57,9 @@ return CategoriaLocalServiceUtil.deleteCategoria(categoriaId);
 public List<Categoria> getAllCategorias() {
 return CategoriaLocalServiceUtil.getAllCategorias();
 }
+
+public List<Categoria> getCategoriaByNombre(String nombreCategoria) {
+	return CategoriaLocalServiceUtil.getCategoriaByNombre(nombreCategoria);
+}
+
 }

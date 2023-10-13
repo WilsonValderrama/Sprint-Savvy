@@ -208,6 +208,39 @@ public class CategoriaServiceHttp {
 		}
 	}
 
+	public static java.util.List<com.savvy.sb.model.Categoria>
+		getCategoriaByNombre(
+			HttpPrincipal httpPrincipal, String nombreCategoria) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				CategoriaServiceUtil.class, "getCategoriaByNombre",
+				_getCategoriaByNombreParameterTypes4);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, nombreCategoria);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.savvy.sb.model.Categoria>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(CategoriaServiceHttp.class);
 
 	private static final Class<?>[] _createCategoriaParameterTypes0 =
@@ -224,5 +257,7 @@ public class CategoriaServiceHttp {
 		new Class[] {long.class};
 	private static final Class<?>[] _getAllCategoriasParameterTypes3 =
 		new Class[] {};
+	private static final Class<?>[] _getCategoriaByNombreParameterTypes4 =
+		new Class[] {String.class};
 
 }

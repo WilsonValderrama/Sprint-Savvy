@@ -14,9 +14,16 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import com.savvy.sb.service.EtiquetaServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.savvy.sb.service.EtiquetaServiceUtil</code> service
+ * <code>EtiquetaServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,111 @@ package com.savvy.sb.service.http;
  */
 @Deprecated
 public class EtiquetaServiceSoap {
+
+	public static com.savvy.sb.model.EtiquetaSoap crearEtiqueta(
+			String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Etiqueta returnValue =
+				EtiquetaServiceUtil.crearEtiqueta(
+					tituloEtiqueta, serviceContext);
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.EtiquetaSoap actualizarEtiqueta(
+			long etiquetaId, String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Etiqueta returnValue =
+				EtiquetaServiceUtil.actualizarEtiqueta(
+					etiquetaId, tituloEtiqueta, serviceContext);
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.EtiquetaSoap eliminarEtiqueta(
+			long etiquetaId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Etiqueta returnValue =
+				EtiquetaServiceUtil.eliminarEtiqueta(etiquetaId);
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.EtiquetaSoap getEtiqueta(long etiquetaId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Etiqueta returnValue =
+				EtiquetaServiceUtil.getEtiqueta(etiquetaId);
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.EtiquetaSoap[] getEtiquetaByNombre(
+			String tituloEtiqueta)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Etiqueta> returnValue =
+				EtiquetaServiceUtil.getEtiquetaByNombre(tituloEtiqueta);
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.EtiquetaSoap[] getAllEtiqueta()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Etiqueta> returnValue =
+				EtiquetaServiceUtil.getAllEtiqueta();
+
+			return com.savvy.sb.model.EtiquetaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(EtiquetaServiceSoap.class);
+
 }

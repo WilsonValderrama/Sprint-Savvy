@@ -135,6 +135,23 @@ public class CategoriaServiceSoap {
 		}
 	}
 
+	public static com.savvy.sb.model.CategoriaSoap[] getCategoriaByNombre(
+			String nombreCategoria)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Categoria> returnValue =
+				CategoriaServiceUtil.getCategoriaByNombre(nombreCategoria);
+
+			return com.savvy.sb.model.CategoriaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(CategoriaServiceSoap.class);
 
 }

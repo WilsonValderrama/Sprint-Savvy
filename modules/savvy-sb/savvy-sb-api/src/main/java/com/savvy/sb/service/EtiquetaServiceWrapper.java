@@ -30,6 +30,51 @@ public class EtiquetaServiceWrapper
 		_etiquetaService = etiquetaService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Etiqueta actualizarEtiqueta(
+			long etiquetaId, String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaService.actualizarEtiqueta(
+			etiquetaId, tituloEtiqueta, serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Etiqueta crearEtiqueta(
+			String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaService.crearEtiqueta(tituloEtiqueta, serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Etiqueta eliminarEtiqueta(long etiquetaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaService.eliminarEtiqueta(etiquetaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Etiqueta> getAllEtiqueta() {
+		return _etiquetaService.getAllEtiqueta();
+	}
+
+	@Override
+	public com.savvy.sb.model.Etiqueta getEtiqueta(long etiquetaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaService.getEtiqueta(etiquetaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Etiqueta> getEtiquetaByNombre(
+		String tituloEtiqueta) {
+
+		return _etiquetaService.getEtiquetaByNombre(tituloEtiqueta);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

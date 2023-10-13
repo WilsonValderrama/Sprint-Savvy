@@ -107,7 +107,9 @@ public class CategoriaLocalServiceImpl extends CategoriaLocalServiceBaseImpl {
 		return categoriaPersistence.remove(categoriaId);
 	}
 
- 
+	public List<Categoria> getCategoriaByNombre(String nombreCategoria) {
+		return categoriaPersistence.findByNombreCategoria(nombreCategoria);
+	}
 
  
 

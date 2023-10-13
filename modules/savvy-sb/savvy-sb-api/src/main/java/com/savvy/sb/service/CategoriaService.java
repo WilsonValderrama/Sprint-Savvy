@@ -63,6 +63,9 @@ public interface CategoriaService extends BaseService {
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Categoria> getAllCategorias();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Categoria> getCategoriaByNombre(String nombreCategoria);
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
