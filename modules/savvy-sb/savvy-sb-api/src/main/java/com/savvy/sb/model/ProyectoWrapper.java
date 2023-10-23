@@ -122,13 +122,13 @@ public class ProyectoWrapper
 			setDescripcion(descripcion);
 		}
 
-		Date fechaInicio = (Date)attributes.get("fechaInicio");
+		String fechaInicio = (String)attributes.get("fechaInicio");
 
 		if (fechaInicio != null) {
 			setFechaInicio(fechaInicio);
 		}
 
-		Date fechaFinal = (Date)attributes.get("fechaFinal");
+		String fechaFinal = (String)attributes.get("fechaFinal");
 
 		if (fechaFinal != null) {
 			setFechaFinal(fechaFinal);
@@ -187,7 +187,7 @@ public class ProyectoWrapper
 	 * @return the fecha final of this proyecto
 	 */
 	@Override
-	public Date getFechaFinal() {
+	public String getFechaFinal() {
 		return model.getFechaFinal();
 	}
 
@@ -197,7 +197,7 @@ public class ProyectoWrapper
 	 * @return the fecha inicio of this proyecto
 	 */
 	@Override
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return model.getFechaInicio();
 	}
 
@@ -342,7 +342,7 @@ public class ProyectoWrapper
 	 * @param fechaFinal the fecha final of this proyecto
 	 */
 	@Override
-	public void setFechaFinal(Date fechaFinal) {
+	public void setFechaFinal(String fechaFinal) {
 		model.setFechaFinal(fechaFinal);
 	}
 
@@ -352,7 +352,7 @@ public class ProyectoWrapper
 	 * @param fechaInicio the fecha inicio of this proyecto
 	 */
 	@Override
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		model.setFechaInicio(fechaInicio);
 	}
 

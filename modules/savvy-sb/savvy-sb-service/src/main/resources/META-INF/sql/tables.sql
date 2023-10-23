@@ -34,8 +34,8 @@ create table Servicio_Savvy_Proyecto (
 	modifiedDate DATE null,
 	tituloProyecto VARCHAR(75) null,
 	descripcion VARCHAR(75) null,
-	fechaInicio DATE null,
-	fechaFinal DATE null,
+	fechaInicio VARCHAR(75) null,
+	fechaFinal VARCHAR(75) null,
 	estado VARCHAR(75) null
 );
 

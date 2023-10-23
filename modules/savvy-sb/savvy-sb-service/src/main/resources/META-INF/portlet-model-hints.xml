@@ -39,8 +39,8 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="tituloProyecto" type="String" />
 		<field name="descripcion" type="String" />
-		<field name="fechaInicio" type="Date" />
-		<field name="fechaFinal" type="Date" />
+		<field name="fechaInicio" type="String" />
+		<field name="fechaFinal" type="String" />
 		<field name="estado" type="String" />
 	</model>
 	<model name="com.savvy.sb.model.Sprint">

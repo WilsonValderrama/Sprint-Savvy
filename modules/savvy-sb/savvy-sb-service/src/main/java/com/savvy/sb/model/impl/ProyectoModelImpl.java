@@ -82,7 +82,7 @@ public class ProyectoModelImpl
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
 		{"tituloProyecto", Types.VARCHAR}, {"descripcion", Types.VARCHAR},
-		{"fechaInicio", Types.TIMESTAMP}, {"fechaFinal", Types.TIMESTAMP},
+		{"fechaInicio", Types.VARCHAR}, {"fechaFinal", Types.VARCHAR},
 		{"estado", Types.VARCHAR}
 	};
 
@@ -100,13 +100,13 @@ public class ProyectoModelImpl
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("tituloProyecto", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("descripcion", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("fechaInicio", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("fechaFinal", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("fechaInicio", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("fechaFinal", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("estado", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Servicio_Savvy_Proyecto (uuid_ VARCHAR(75) null,proyectoId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,tituloProyecto VARCHAR(75) null,descripcion VARCHAR(75) null,fechaInicio DATE null,fechaFinal DATE null,estado VARCHAR(75) null)";
+		"create table Servicio_Savvy_Proyecto (uuid_ VARCHAR(75) null,proyectoId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,tituloProyecto VARCHAR(75) null,descripcion VARCHAR(75) null,fechaInicio VARCHAR(75) null,fechaFinal VARCHAR(75) null,estado VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table Servicio_Savvy_Proyecto";
@@ -357,9 +357,10 @@ public class ProyectoModelImpl
 			(BiConsumer<Proyecto, String>)Proyecto::setDescripcion);
 		attributeSetterBiConsumers.put(
 			"fechaInicio",
-			(BiConsumer<Proyecto, Date>)Proyecto::setFechaInicio);
+			(BiConsumer<Proyecto, String>)Proyecto::setFechaInicio);
 		attributeSetterBiConsumers.put(
-			"fechaFinal", (BiConsumer<Proyecto, Date>)Proyecto::setFechaFinal);
+			"fechaFinal",
+			(BiConsumer<Proyecto, String>)Proyecto::setFechaFinal);
 		attributeSetterBiConsumers.put(
 			"estado", (BiConsumer<Proyecto, String>)Proyecto::setEstado);
 
@@ -598,12 +599,17 @@ public class ProyectoModelImpl
 
 	@JSON
 	@Override
-	public Date getFechaInicio() {
-		return _fechaInicio;
+	public String getFechaInicio() {
+		if (_fechaInicio == null) {
+			return "";
+		}
+		else {
+			return _fechaInicio;
+		}
 	}
 
 	@Override
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -613,12 +619,17 @@ public class ProyectoModelImpl
 
 	@JSON
 	@Override
-	public Date getFechaFinal() {
-		return _fechaFinal;
+	public String getFechaFinal() {
+		if (_fechaFinal == null) {
+			return "";
+		}
+		else {
+			return _fechaFinal;
+		}
 	}
 
 	@Override
-	public void setFechaFinal(Date fechaFinal) {
+	public void setFechaFinal(String fechaFinal) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -856,22 +867,20 @@ public class ProyectoModelImpl
 			proyectoCacheModel.descripcion = null;
 		}
 
-		Date fechaInicio = getFechaInicio();
+		proyectoCacheModel.fechaInicio = getFechaInicio();
 
-		if (fechaInicio != null) {
-			proyectoCacheModel.fechaInicio = fechaInicio.getTime();
-		}
-		else {
-			proyectoCacheModel.fechaInicio = Long.MIN_VALUE;
+		String fechaInicio = proyectoCacheModel.fechaInicio;
+
+		if ((fechaInicio != null) && (fechaInicio.length() == 0)) {
+			proyectoCacheModel.fechaInicio = null;
 		}
 
-		Date fechaFinal = getFechaFinal();
+		proyectoCacheModel.fechaFinal = getFechaFinal();
 
-		if (fechaFinal != null) {
-			proyectoCacheModel.fechaFinal = fechaFinal.getTime();
-		}
-		else {
-			proyectoCacheModel.fechaFinal = Long.MIN_VALUE;
+		String fechaFinal = proyectoCacheModel.fechaFinal;
+
+		if ((fechaFinal != null) && (fechaFinal.length() == 0)) {
+			proyectoCacheModel.fechaFinal = null;
 		}
 
 		proyectoCacheModel.estado = getEstado();
@@ -985,8 +994,8 @@ public class ProyectoModelImpl
 	private boolean _setModifiedDate;
 	private String _tituloProyecto;
 	private String _descripcion;
-	private Date _fechaInicio;
-	private Date _fechaFinal;
+	private String _fechaInicio;
+	private String _fechaFinal;
 	private String _estado;
 
 	public <T> T getColumnValue(String columnName) {

@@ -146,18 +146,18 @@ public class ProyectoCacheModel
 			proyectoImpl.setDescripcion(descripcion);
 		}
 
-		if (fechaInicio == Long.MIN_VALUE) {
-			proyectoImpl.setFechaInicio(null);
+		if (fechaInicio == null) {
+			proyectoImpl.setFechaInicio("");
 		}
 		else {
-			proyectoImpl.setFechaInicio(new Date(fechaInicio));
+			proyectoImpl.setFechaInicio(fechaInicio);
 		}
 
-		if (fechaFinal == Long.MIN_VALUE) {
-			proyectoImpl.setFechaFinal(null);
+		if (fechaFinal == null) {
+			proyectoImpl.setFechaFinal("");
 		}
 		else {
-			proyectoImpl.setFechaFinal(new Date(fechaFinal));
+			proyectoImpl.setFechaFinal(fechaFinal);
 		}
 
 		if (estado == null) {
@@ -188,8 +188,8 @@ public class ProyectoCacheModel
 		modifiedDate = objectInput.readLong();
 		tituloProyecto = objectInput.readUTF();
 		descripcion = objectInput.readUTF();
-		fechaInicio = objectInput.readLong();
-		fechaFinal = objectInput.readLong();
+		fechaInicio = objectInput.readUTF();
+		fechaFinal = objectInput.readUTF();
 		estado = objectInput.readUTF();
 	}
 
@@ -234,8 +234,19 @@ public class ProyectoCacheModel
 			objectOutput.writeUTF(descripcion);
 		}
 
-		objectOutput.writeLong(fechaInicio);
-		objectOutput.writeLong(fechaFinal);
+		if (fechaInicio == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fechaInicio);
+		}
+
+		if (fechaFinal == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fechaFinal);
+		}
 
 		if (estado == null) {
 			objectOutput.writeUTF("");
@@ -255,8 +266,8 @@ public class ProyectoCacheModel
 	public long modifiedDate;
 	public String tituloProyecto;
 	public String descripcion;
-	public long fechaInicio;
-	public long fechaFinal;
+	public String fechaInicio;
+	public String fechaFinal;
 	public String estado;
 
 }

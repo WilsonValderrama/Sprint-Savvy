@@ -65,9 +65,8 @@ import java.rmi.RemoteException;
 public class ProyectoServiceSoap {
 
 	public static com.savvy.sb.model.ProyectoSoap crearProyecto(
-			String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
@@ -88,8 +87,7 @@ public class ProyectoServiceSoap {
 
 	public static com.savvy.sb.model.ProyectoSoap actualizarProyecto(
 			long proyectoId, String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String fechaInicio, String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 

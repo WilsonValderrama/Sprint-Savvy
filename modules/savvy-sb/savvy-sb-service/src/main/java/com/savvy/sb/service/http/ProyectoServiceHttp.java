@@ -54,8 +54,8 @@ public class ProyectoServiceHttp {
 
 	public static com.savvy.sb.model.Proyecto crearProyecto(
 			HttpPrincipal httpPrincipal, String tituloProyecto,
-			String descripcion, java.util.Date fechaInicio,
-			java.util.Date fechaFinal, String estado,
+			String descripcion, String fechaInicio, String fechaFinal,
+			String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -98,8 +98,8 @@ public class ProyectoServiceHttp {
 
 	public static com.savvy.sb.model.Proyecto actualizarProyecto(
 			HttpPrincipal httpPrincipal, long proyectoId, String tituloProyecto,
-			String descripcion, java.util.Date fechaInicio,
-			java.util.Date fechaFinal, String estado,
+			String descripcion, String fechaInicio, String fechaFinal,
+			String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -288,15 +288,13 @@ public class ProyectoServiceHttp {
 
 	private static final Class<?>[] _crearProyectoParameterTypes0 =
 		new Class[] {
-			String.class, String.class, java.util.Date.class,
-			java.util.Date.class, String.class,
-			com.liferay.portal.kernel.service.ServiceContext.class
+			String.class, String.class, String.class, String.class,
+			String.class, com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _actualizarProyectoParameterTypes1 =
 		new Class[] {
-			long.class, String.class, String.class, java.util.Date.class,
-			java.util.Date.class, String.class,
-			com.liferay.portal.kernel.service.ServiceContext.class
+			long.class, String.class, String.class, String.class, String.class,
+			String.class, com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _eliminarProyectoParameterTypes2 =
 		new Class[] {long.class};

@@ -41,8 +41,7 @@ public class ProyectoServiceUtil {
 	 */
 	public static Proyecto actualizarProyecto(
 			long proyectoId, String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String fechaInicio, String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
@@ -52,9 +51,8 @@ public class ProyectoServiceUtil {
 	}
 
 	public static Proyecto crearProyecto(
-			String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
