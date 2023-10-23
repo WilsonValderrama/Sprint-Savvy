@@ -37,7 +37,6 @@ import com.savvy.sb.model.Proyecto;
 
 import java.io.Serializable;
 
-import java.util.Date;
 import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -67,7 +66,7 @@ public interface ProyectoLocalService
 	 */
 	public Proyecto actualizarProyecto(
 			long proyectoId, String tituloProyecto, String descripcion,
-			Date fechaInicio, Date fechaFinal, String estado,
+			String fechaInicio, String fechaFinal, String estado,
 			ServiceContext serviceContext)
 		throws PortalException;
 
@@ -85,8 +84,8 @@ public interface ProyectoLocalService
 	public Proyecto addProyecto(Proyecto proyecto);
 
 	public Proyecto crearProyecto(
-			String tituloProyecto, String descripcion, Date fechaInicio,
-			Date fechaFinal, String estado, ServiceContext serviceContext)
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext)
 		throws PortalException;
 
 	/**

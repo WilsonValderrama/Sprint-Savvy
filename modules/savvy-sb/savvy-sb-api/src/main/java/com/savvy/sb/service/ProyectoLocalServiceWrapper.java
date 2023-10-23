@@ -35,8 +35,7 @@ public class ProyectoLocalServiceWrapper
 	@Override
 	public com.savvy.sb.model.Proyecto actualizarProyecto(
 			long proyectoId, String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String fechaInicio, String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -64,9 +63,8 @@ public class ProyectoLocalServiceWrapper
 
 	@Override
 	public com.savvy.sb.model.Proyecto crearProyecto(
-			String tituloProyecto, String descripcion,
-			java.util.Date fechaInicio, java.util.Date fechaFinal,
-			String estado,
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

@@ -239,28 +239,30 @@ public interface ProyectoModel
 	 *
 	 * @return the fecha inicio of this proyecto
 	 */
-	public Date getFechaInicio();
+	@AutoEscape
+	public String getFechaInicio();
 
 	/**
 	 * Sets the fecha inicio of this proyecto.
 	 *
 	 * @param fechaInicio the fecha inicio of this proyecto
 	 */
-	public void setFechaInicio(Date fechaInicio);
+	public void setFechaInicio(String fechaInicio);
 
 	/**
 	 * Returns the fecha final of this proyecto.
 	 *
 	 * @return the fecha final of this proyecto
 	 */
-	public Date getFechaFinal();
+	@AutoEscape
+	public String getFechaFinal();
 
 	/**
 	 * Sets the fecha final of this proyecto.
 	 *
 	 * @param fechaFinal the fecha final of this proyecto
 	 */
-	public void setFechaFinal(Date fechaFinal);
+	public void setFechaFinal(String fechaFinal);
 
 	/**
 	 * Returns the estado of this proyecto.

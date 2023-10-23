@@ -23,7 +23,6 @@ import com.savvy.sb.model.Proyecto;
 import com.savvy.sb.service.ProyectoLocalServiceUtil;
 import com.savvy.sb.service.base.ProyectoServiceBaseImpl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
@@ -42,13 +41,13 @@ public class ProyectoServiceImpl extends ProyectoServiceBaseImpl {
 	
 private final Log log = LogFactoryUtil.getLog(ProyectoServiceImpl.class);
 	
-	public Proyecto crearProyecto(String tituloProyecto, String descripcion, Date fechaInicio,
-			Date fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
+	public Proyecto crearProyecto(String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
 		return ProyectoLocalServiceUtil.crearProyecto(tituloProyecto, descripcion, fechaInicio, fechaFinal, estado, serviceContext);
 	}
 	
-	public Proyecto actualizarProyecto(long proyectoId, String tituloProyecto, String descripcion, Date fechaInicio,
-			Date fechaFinal, String estado, ServiceContext serviceContext) throws PortalException  {
+	public Proyecto actualizarProyecto(long proyectoId, String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException  {
 		return ProyectoLocalServiceUtil.actualizarProyecto(proyectoId, tituloProyecto, descripcion, fechaInicio, fechaFinal, estado, serviceContext);
 		}
 	

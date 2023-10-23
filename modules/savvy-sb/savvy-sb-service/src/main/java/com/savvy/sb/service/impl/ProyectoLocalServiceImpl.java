@@ -24,7 +24,6 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.savvy.sb.model.Proyecto;
 import com.savvy.sb.service.base.ProyectoLocalServiceBaseImpl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
@@ -40,14 +39,18 @@ public class ProyectoLocalServiceImpl extends ProyectoLocalServiceBaseImpl {
 	
 private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 	
-	public Proyecto crearProyecto(String tituloProyecto, String descripcion, Date fechaInicio,
-			Date fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
+	public Proyecto crearProyecto(String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
 	
 		Long proyectoId = counterLocalService.increment();
 		
 		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
 		Proyecto proyecto = proyectoPersistence.create(proyectoId);
 		proyecto.setTituloProyecto(tituloProyecto);
+		proyecto.setDescripcion(descripcion);
+		proyecto.setFechaInicio(fechaInicio);
+		proyecto.setFechaFinal(fechaFinal);
+		proyecto.setEstado(estado);
 		
 		proyecto.setUserId(serviceContext.getUserId());
 		proyecto.setGroupId(serviceContext.getScopeGroupId());
@@ -61,8 +64,8 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		return proyecto;
 		}
 	
-	public Proyecto actualizarProyecto(long proyectoId, String tituloProyecto, String descripcion, Date fechaInicio,
-			Date fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
+	public Proyecto actualizarProyecto(long proyectoId, String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
 		
 		Proyecto proyecto = proyectoPersistence.findByPrimaryKey(proyectoId);
 		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());

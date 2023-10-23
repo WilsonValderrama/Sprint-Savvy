@@ -133,8 +133,8 @@
 
 		<column name="tituloProyecto" type="String" />
 		<column name="descripcion" type="String" />
-		<column name="fechaInicio" type="Date" />
-		<column name="fechaFinal" type="Date" />
+		<column name="fechaInicio" type="String" />
+		<column name="fechaFinal" type="String" />
 		<column name="estado" type="String" />
 
 		<!-- Order -->

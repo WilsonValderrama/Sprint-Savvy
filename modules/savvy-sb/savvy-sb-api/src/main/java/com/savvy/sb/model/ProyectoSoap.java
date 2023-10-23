@@ -179,19 +179,19 @@ public class ProyectoSoap implements Serializable {
 		_descripcion = descripcion;
 	}
 
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return _fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		_fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFinal() {
+	public String getFechaFinal() {
 		return _fechaFinal;
 	}
 
-	public void setFechaFinal(Date fechaFinal) {
+	public void setFechaFinal(String fechaFinal) {
 		_fechaFinal = fechaFinal;
 	}
 
@@ -213,8 +213,8 @@ public class ProyectoSoap implements Serializable {
 	private Date _modifiedDate;
 	private String _tituloProyecto;
 	private String _descripcion;
-	private Date _fechaInicio;
-	private Date _fechaFinal;
+	private String _fechaInicio;
+	private String _fechaFinal;
 	private String _estado;
 
 }
