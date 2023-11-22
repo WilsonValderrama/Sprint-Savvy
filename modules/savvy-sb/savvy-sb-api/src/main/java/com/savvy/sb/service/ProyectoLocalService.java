@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -63,6 +64,11 @@ public interface ProyectoLocalService
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.savvy.sb.service.impl.ProyectoLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the proyecto local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link ProyectoLocalServiceUtil} if injection and service tracking are not available.
 	 */
+	public Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			String fechaInicio, String fechaFinal, String estado,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Adds the proyecto to the database. Also notifies the appropriate model listeners.
@@ -76,6 +82,11 @@ public interface ProyectoLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Proyecto addProyecto(Proyecto proyecto);
+
+	public Proyecto crearProyecto(
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -192,6 +203,8 @@ public interface ProyectoLocalService
 	public long dynamicQueryCount(
 		DynamicQuery dynamicQuery, Projection projection);
 
+	public Proyecto eliminarProyecto(long proyectoId) throws PortalException;
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Proyecto fetchProyecto(long proyectoId);
 
@@ -207,6 +220,9 @@ public interface ProyectoLocalService
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Proyecto> getAllProyectos();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
@@ -239,6 +255,9 @@ public interface ProyectoLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Proyecto getProyecto(long proyectoId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Proyecto> getProyectoByNombre(String tituloProyecto);
 
 	/**
 	 * Returns the proyecto matching the UUID and group.

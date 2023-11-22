@@ -19,8 +19,14 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import com.savvy.sb.model.Proyecto;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +53,21 @@ public interface ProyectoService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.savvy.sb.service.impl.ProyectoServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the proyecto remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link ProyectoServiceUtil} if injection and service tracking are not available.
 	 */
+	public Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			String fechaInicio, String fechaFinal, String estado,
+			ServiceContext serviceContext)
+		throws PortalException;
+
+	public Proyecto crearProyecto(
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado, ServiceContext serviceContext)
+		throws PortalException;
+
+	public Proyecto eliminarProyecto(long proyectoId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Proyecto> getAllProyecto();
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -54,5 +75,11 @@ public interface ProyectoService extends BaseService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public Proyecto getProyecto(long proyectoId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Proyecto> getProyectoByNombre(String tituloProyecto);
 
 }

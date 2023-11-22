@@ -32,6 +32,16 @@ public class EtiquetaLocalServiceWrapper
 		_etiquetaLocalService = etiquetaLocalService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Etiqueta actualizarEtiqueta(
+			long etiquetaId, String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaLocalService.actualizarEtiqueta(
+			etiquetaId, tituloEtiqueta, serviceContext);
+	}
+
 	/**
 	 * Adds the etiqueta to the database. Also notifies the appropriate model listeners.
 	 *
@@ -47,6 +57,16 @@ public class EtiquetaLocalServiceWrapper
 		com.savvy.sb.model.Etiqueta etiqueta) {
 
 		return _etiquetaLocalService.addEtiqueta(etiqueta);
+	}
+
+	@Override
+	public com.savvy.sb.model.Etiqueta crearEtiqueta(
+			String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaLocalService.crearEtiqueta(
+			tituloEtiqueta, serviceContext);
 	}
 
 	/**
@@ -208,6 +228,13 @@ public class EtiquetaLocalServiceWrapper
 	}
 
 	@Override
+	public com.savvy.sb.model.Etiqueta eliminarEtiqueta(long etiquetaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _etiquetaLocalService.eliminarEtiqueta(etiquetaId);
+	}
+
+	@Override
 	public com.savvy.sb.model.Etiqueta fetchEtiqueta(long etiquetaId) {
 		return _etiquetaLocalService.fetchEtiqueta(etiquetaId);
 	}
@@ -234,6 +261,11 @@ public class EtiquetaLocalServiceWrapper
 		return _etiquetaLocalService.getActionableDynamicQuery();
 	}
 
+	@Override
+	public java.util.List<com.savvy.sb.model.Etiqueta> getAllEtiquetas() {
+		return _etiquetaLocalService.getAllEtiquetas();
+	}
+
 	/**
 	 * Returns the etiqueta with the primary key.
 	 *
@@ -246,6 +278,13 @@ public class EtiquetaLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _etiquetaLocalService.getEtiqueta(etiquetaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Etiqueta> getEtiquetaByNombre(
+		String tituloEtiqueta) {
+
+		return _etiquetaLocalService.getEtiquetaByNombre(tituloEtiqueta);
 	}
 
 	/**

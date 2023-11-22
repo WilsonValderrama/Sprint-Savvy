@@ -44,6 +44,14 @@ public class EtiquetaLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.EtiquetaLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Etiqueta actualizarEtiqueta(
+			long etiquetaId, String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().actualizarEtiqueta(
+			etiquetaId, tituloEtiqueta, serviceContext);
+	}
 
 	/**
 	 * Adds the etiqueta to the database. Also notifies the appropriate model listeners.
@@ -57,6 +65,14 @@ public class EtiquetaLocalServiceUtil {
 	 */
 	public static Etiqueta addEtiqueta(Etiqueta etiqueta) {
 		return getService().addEtiqueta(etiqueta);
+	}
+
+	public static Etiqueta crearEtiqueta(
+			String tituloEtiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().crearEtiqueta(tituloEtiqueta, serviceContext);
 	}
 
 	/**
@@ -197,6 +213,12 @@ public class EtiquetaLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
+	public static Etiqueta eliminarEtiqueta(long etiquetaId)
+		throws PortalException {
+
+		return getService().eliminarEtiqueta(etiquetaId);
+	}
+
 	public static Etiqueta fetchEtiqueta(long etiquetaId) {
 		return getService().fetchEtiqueta(etiquetaId);
 	}
@@ -220,6 +242,10 @@ public class EtiquetaLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Etiqueta> getAllEtiquetas() {
+		return getService().getAllEtiquetas();
+	}
+
 	/**
 	 * Returns the etiqueta with the primary key.
 	 *
@@ -229,6 +255,10 @@ public class EtiquetaLocalServiceUtil {
 	 */
 	public static Etiqueta getEtiqueta(long etiquetaId) throws PortalException {
 		return getService().getEtiqueta(etiquetaId);
+	}
+
+	public static List<Etiqueta> getEtiquetaByNombre(String tituloEtiqueta) {
+		return getService().getEtiquetaByNombre(tituloEtiqueta);
 	}
 
 	/**

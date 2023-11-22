@@ -30,6 +30,42 @@ public class ProyectoServiceWrapper
 		_proyectoService = proyectoService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			String fechaInicio, String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoService.actualizarProyecto(
+			proyectoId, tituloProyecto, descripcion, fechaInicio, fechaFinal,
+			estado, serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Proyecto crearProyecto(
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoService.crearProyecto(
+			tituloProyecto, descripcion, fechaInicio, fechaFinal, estado,
+			serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Proyecto eliminarProyecto(long proyectoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoService.eliminarProyecto(proyectoId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Proyecto> getAllProyecto() {
+		return _proyectoService.getAllProyecto();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +74,20 @@ public class ProyectoServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _proyectoService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.savvy.sb.model.Proyecto getProyecto(long proyectoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _proyectoService.getProyecto(proyectoId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Proyecto> getProyectoByNombre(
+		String tituloProyecto) {
+
+		return _proyectoService.getProyectoByNombre(tituloProyecto);
 	}
 
 	@Override

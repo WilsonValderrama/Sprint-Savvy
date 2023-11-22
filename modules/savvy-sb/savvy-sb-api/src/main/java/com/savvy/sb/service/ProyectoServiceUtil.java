@@ -14,6 +14,12 @@
 
 package com.savvy.sb.service;
 
+import com.liferay.portal.kernel.exception.PortalException;
+
+import com.savvy.sb.model.Proyecto;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Proyecto. This utility wraps
  * <code>com.savvy.sb.service.impl.ProyectoServiceImpl</code> and is an
@@ -33,14 +39,53 @@ public class ProyectoServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.ProyectoServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			String fechaInicio, String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().actualizarProyecto(
+			proyectoId, tituloProyecto, descripcion, fechaInicio, fechaFinal,
+			estado, serviceContext);
+	}
+
+	public static Proyecto crearProyecto(
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().crearProyecto(
+			tituloProyecto, descripcion, fechaInicio, fechaFinal, estado,
+			serviceContext);
+	}
+
+	public static Proyecto eliminarProyecto(long proyectoId)
+		throws PortalException {
+
+		return getService().eliminarProyecto(proyectoId);
+	}
+
+	public static List<Proyecto> getAllProyecto() {
+		return getService().getAllProyecto();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static Proyecto getProyecto(long proyectoId) throws PortalException {
+		return getService().getProyecto(proyectoId);
+	}
+
+	public static List<Proyecto> getProyectoByNombre(String tituloProyecto) {
+		return getService().getProyectoByNombre(tituloProyecto);
 	}
 
 	public static ProyectoService getService() {

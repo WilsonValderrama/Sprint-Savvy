@@ -44,6 +44,16 @@ public class ProyectoLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.ProyectoLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Proyecto actualizarProyecto(
+			long proyectoId, String tituloProyecto, String descripcion,
+			String fechaInicio, String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().actualizarProyecto(
+			proyectoId, tituloProyecto, descripcion, fechaInicio, fechaFinal,
+			estado, serviceContext);
+	}
 
 	/**
 	 * Adds the proyecto to the database. Also notifies the appropriate model listeners.
@@ -57,6 +67,17 @@ public class ProyectoLocalServiceUtil {
 	 */
 	public static Proyecto addProyecto(Proyecto proyecto) {
 		return getService().addProyecto(proyecto);
+	}
+
+	public static Proyecto crearProyecto(
+			String tituloProyecto, String descripcion, String fechaInicio,
+			String fechaFinal, String estado,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().crearProyecto(
+			tituloProyecto, descripcion, fechaInicio, fechaFinal, estado,
+			serviceContext);
 	}
 
 	/**
@@ -197,6 +218,12 @@ public class ProyectoLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
+	public static Proyecto eliminarProyecto(long proyectoId)
+		throws PortalException {
+
+		return getService().eliminarProyecto(proyectoId);
+	}
+
 	public static Proyecto fetchProyecto(long proyectoId) {
 		return getService().fetchProyecto(proyectoId);
 	}
@@ -218,6 +245,10 @@ public class ProyectoLocalServiceUtil {
 		getActionableDynamicQuery() {
 
 		return getService().getActionableDynamicQuery();
+	}
+
+	public static List<Proyecto> getAllProyectos() {
+		return getService().getAllProyectos();
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
@@ -262,6 +293,10 @@ public class ProyectoLocalServiceUtil {
 	 */
 	public static Proyecto getProyecto(long proyectoId) throws PortalException {
 		return getService().getProyecto(proyectoId);
+	}
+
+	public static List<Proyecto> getProyectoByNombre(String tituloProyecto) {
+		return getService().getProyectoByNombre(tituloProyecto);
 	}
 
 	/**
