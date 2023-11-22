@@ -14,9 +14,16 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import com.savvy.sb.service.SprintServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.savvy.sb.service.SprintServiceUtil</code> service
+ * <code>SprintServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,99 @@ package com.savvy.sb.service.http;
  */
 @Deprecated
 public class SprintServiceSoap {
+
+	public static com.savvy.sb.model.SprintSoap createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Sprint returnValue =
+				SprintServiceUtil.createSprint(
+					tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+					proyecto, serviceContext);
+
+			return com.savvy.sb.model.SprintSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.SprintSoap updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Sprint returnValue =
+				SprintServiceUtil.updateSprint(
+					sprintId, tituloSprint, fechaInicio, fechaFinal,
+					descripcion, estado, proyecto, serviceContext);
+
+			return com.savvy.sb.model.SprintSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.SprintSoap deleteSprint(long sprintId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Sprint returnValue =
+				SprintServiceUtil.deleteSprint(sprintId);
+
+			return com.savvy.sb.model.SprintSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.SprintSoap[] getAllSprints()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Sprint> returnValue =
+				SprintServiceUtil.getAllSprints();
+
+			return com.savvy.sb.model.SprintSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.SprintSoap[] getSprintByNombre(
+			String tituloSprint)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Sprint> returnValue =
+				SprintServiceUtil.getSprintByNombre(tituloSprint);
+
+			return com.savvy.sb.model.SprintSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(SprintServiceSoap.class);
+
 }

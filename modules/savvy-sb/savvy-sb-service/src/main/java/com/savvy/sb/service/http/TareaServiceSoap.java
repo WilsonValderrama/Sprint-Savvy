@@ -14,9 +14,16 @@
 
 package com.savvy.sb.service.http;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import com.savvy.sb.service.TareaServiceUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.savvy.sb.service.TareaServiceUtil</code> service
+ * <code>TareaServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,102 @@ package com.savvy.sb.service.http;
  */
 @Deprecated
 public class TareaServiceSoap {
+
+	public static com.savvy.sb.model.TareaSoap createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Tarea returnValue = TareaServiceUtil.createTarea(
+				nombreTarea, proyecto, responsable, prioridad, sprint, estado,
+				fechaLimite, resumen, descripcion, categoria, etiqueta,
+				serviceContext);
+
+			return com.savvy.sb.model.TareaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.TareaSoap updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Tarea returnValue = TareaServiceUtil.updateTarea(
+				tareaId, nombreTarea, proyecto, responsable, prioridad, sprint,
+				estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+				serviceContext);
+
+			return com.savvy.sb.model.TareaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.TareaSoap deleteTarea(long tareaId)
+		throws RemoteException {
+
+		try {
+			com.savvy.sb.model.Tarea returnValue = TareaServiceUtil.deleteTarea(
+				tareaId);
+
+			return com.savvy.sb.model.TareaSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.TareaSoap[] getAllTareas()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Tarea> returnValue =
+				TareaServiceUtil.getAllTareas();
+
+			return com.savvy.sb.model.TareaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.savvy.sb.model.TareaSoap[] getTareaByNombre(
+			String nombreTarea)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.savvy.sb.model.Tarea> returnValue =
+				TareaServiceUtil.getTareaByNombre(nombreTarea);
+
+			return com.savvy.sb.model.TareaSoap.toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(TareaServiceSoap.class);
+
 }

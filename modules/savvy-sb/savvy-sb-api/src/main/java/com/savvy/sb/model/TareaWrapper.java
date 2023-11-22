@@ -151,7 +151,7 @@ public class TareaWrapper
 			setEstado(estado);
 		}
 
-		Date fechaLimite = (Date)attributes.get("fechaLimite");
+		String fechaLimite = (String)attributes.get("fechaLimite");
 
 		if (fechaLimite != null) {
 			setFechaLimite(fechaLimite);
@@ -248,7 +248,7 @@ public class TareaWrapper
 	 * @return the fecha limite of this tarea
 	 */
 	@Override
-	public Date getFechaLimite() {
+	public String getFechaLimite() {
 		return model.getFechaLimite();
 	}
 
@@ -463,7 +463,7 @@ public class TareaWrapper
 	 * @param fechaLimite the fecha limite of this tarea
 	 */
 	@Override
-	public void setFechaLimite(Date fechaLimite) {
+	public void setFechaLimite(String fechaLimite) {
 		model.setFechaLimite(fechaLimite);
 	}
 

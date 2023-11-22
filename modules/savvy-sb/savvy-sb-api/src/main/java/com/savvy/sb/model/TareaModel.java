@@ -298,14 +298,15 @@ public interface TareaModel
 	 *
 	 * @return the fecha limite of this tarea
 	 */
-	public Date getFechaLimite();
+	@AutoEscape
+	public String getFechaLimite();
 
 	/**
 	 * Sets the fecha limite of this tarea.
 	 *
 	 * @param fechaLimite the fecha limite of this tarea
 	 */
-	public void setFechaLimite(Date fechaLimite);
+	public void setFechaLimite(String fechaLimite);
 
 	/**
 	 * Returns the resumen of this tarea.

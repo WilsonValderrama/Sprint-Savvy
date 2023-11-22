@@ -14,6 +14,12 @@
 
 package com.savvy.sb.service;
 
+import com.liferay.portal.kernel.exception.PortalException;
+
+import com.savvy.sb.model.Sprint;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Sprint. This utility wraps
  * <code>com.savvy.sb.service.impl.SprintServiceImpl</code> and is an
@@ -33,14 +39,48 @@ public class SprintServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.SprintServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Sprint createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createSprint(
+			tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+			proyecto, serviceContext);
+	}
+
+	public static Sprint deleteSprint(long sprintId) throws PortalException {
+		return getService().deleteSprint(sprintId);
+	}
+
+	public static List<Sprint> getAllSprints() {
+		return getService().getAllSprints();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static List<Sprint> getSprintByNombre(String tituloSprint) {
+		return getService().getSprintByNombre(tituloSprint);
+	}
+
+	public static Sprint updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateSprint(
+			sprintId, tituloSprint, fechaInicio, fechaFinal, descripcion,
+			estado, proyecto, serviceContext);
 	}
 
 	public static SprintService getService() {

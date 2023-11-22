@@ -81,8 +81,8 @@ public class SprintModelImpl
 		{"groupId", Types.BIGINT}, {"companyId", Types.BIGINT},
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
-		{"tituloSprint", Types.VARCHAR}, {"fechaInicio", Types.TIMESTAMP},
-		{"fechaFinal", Types.TIMESTAMP}, {"descripcion", Types.VARCHAR},
+		{"tituloSprint", Types.VARCHAR}, {"fechaInicio", Types.VARCHAR},
+		{"fechaFinal", Types.VARCHAR}, {"descripcion", Types.VARCHAR},
 		{"estado", Types.VARCHAR}, {"proyecto", Types.VARCHAR}
 	};
 
@@ -99,15 +99,15 @@ public class SprintModelImpl
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("tituloSprint", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("fechaInicio", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("fechaFinal", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("fechaInicio", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("fechaFinal", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("descripcion", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("estado", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("proyecto", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Servicio_Savvy_Sprint (uuid_ VARCHAR(75) null,sprintId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,tituloSprint VARCHAR(75) null,fechaInicio DATE null,fechaFinal DATE null,descripcion VARCHAR(75) null,estado VARCHAR(75) null,proyecto VARCHAR(75) null)";
+		"create table Servicio_Savvy_Sprint (uuid_ VARCHAR(75) null,sprintId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,tituloSprint VARCHAR(75) null,fechaInicio VARCHAR(75) null,fechaFinal VARCHAR(75) null,descripcion VARCHAR(999) null,estado VARCHAR(75) null,proyecto VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table Servicio_Savvy_Sprint";
@@ -351,9 +351,9 @@ public class SprintModelImpl
 			"tituloSprint",
 			(BiConsumer<Sprint, String>)Sprint::setTituloSprint);
 		attributeSetterBiConsumers.put(
-			"fechaInicio", (BiConsumer<Sprint, Date>)Sprint::setFechaInicio);
+			"fechaInicio", (BiConsumer<Sprint, String>)Sprint::setFechaInicio);
 		attributeSetterBiConsumers.put(
-			"fechaFinal", (BiConsumer<Sprint, Date>)Sprint::setFechaFinal);
+			"fechaFinal", (BiConsumer<Sprint, String>)Sprint::setFechaFinal);
 		attributeSetterBiConsumers.put(
 			"descripcion", (BiConsumer<Sprint, String>)Sprint::setDescripcion);
 		attributeSetterBiConsumers.put(
@@ -576,12 +576,17 @@ public class SprintModelImpl
 
 	@JSON
 	@Override
-	public Date getFechaInicio() {
-		return _fechaInicio;
+	public String getFechaInicio() {
+		if (_fechaInicio == null) {
+			return "";
+		}
+		else {
+			return _fechaInicio;
+		}
 	}
 
 	@Override
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -591,12 +596,17 @@ public class SprintModelImpl
 
 	@JSON
 	@Override
-	public Date getFechaFinal() {
-		return _fechaFinal;
+	public String getFechaFinal() {
+		if (_fechaFinal == null) {
+			return "";
+		}
+		else {
+			return _fechaFinal;
+		}
 	}
 
 	@Override
-	public void setFechaFinal(Date fechaFinal) {
+	public void setFechaFinal(String fechaFinal) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -867,22 +877,20 @@ public class SprintModelImpl
 			sprintCacheModel.tituloSprint = null;
 		}
 
-		Date fechaInicio = getFechaInicio();
+		sprintCacheModel.fechaInicio = getFechaInicio();
 
-		if (fechaInicio != null) {
-			sprintCacheModel.fechaInicio = fechaInicio.getTime();
-		}
-		else {
-			sprintCacheModel.fechaInicio = Long.MIN_VALUE;
+		String fechaInicio = sprintCacheModel.fechaInicio;
+
+		if ((fechaInicio != null) && (fechaInicio.length() == 0)) {
+			sprintCacheModel.fechaInicio = null;
 		}
 
-		Date fechaFinal = getFechaFinal();
+		sprintCacheModel.fechaFinal = getFechaFinal();
 
-		if (fechaFinal != null) {
-			sprintCacheModel.fechaFinal = fechaFinal.getTime();
-		}
-		else {
-			sprintCacheModel.fechaFinal = Long.MIN_VALUE;
+		String fechaFinal = sprintCacheModel.fechaFinal;
+
+		if ((fechaFinal != null) && (fechaFinal.length() == 0)) {
+			sprintCacheModel.fechaFinal = null;
 		}
 
 		sprintCacheModel.descripcion = getDescripcion();
@@ -1009,8 +1017,8 @@ public class SprintModelImpl
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private String _tituloSprint;
-	private Date _fechaInicio;
-	private Date _fechaFinal;
+	private String _fechaInicio;
+	private String _fechaFinal;
 	private String _descripcion;
 	private String _estado;
 	private String _proyecto;

@@ -24,7 +24,9 @@ import org.osgi.service.component.annotations.Component;
 )
 public class EtiquetaLocalServiceImpl extends EtiquetaLocalServiceBaseImpl {
 	
-	private final Log log = LogFactoryUtil.getLog(EtiquetaLocalServiceBaseImpl.class);
+
+private final Log log = LogFactoryUtil.getLog(EtiquetaLocalServiceBaseImpl.class);
+
 	
 	public Etiqueta crearEtiqueta(String tituloEtiqueta, 
 			ServiceContext serviceContext) throws PortalException {
@@ -76,5 +78,5 @@ public class EtiquetaLocalServiceImpl extends EtiquetaLocalServiceBaseImpl {
 	public List<Etiqueta> getAllEtiquetas() {
 		return etiquetaPersistence.findAll();
 	}
-		
+
 }

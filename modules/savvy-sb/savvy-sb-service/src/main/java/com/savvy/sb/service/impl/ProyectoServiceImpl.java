@@ -10,6 +10,8 @@ import com.savvy.sb.service.ProyectoLocalServiceUtil;
 import com.savvy.sb.service.base.ProyectoServiceBaseImpl;
 import java.util.List;
 
+import java.util.List;
+
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -24,7 +26,9 @@ import org.osgi.service.component.annotations.Component;
 )
 public class ProyectoServiceImpl extends ProyectoServiceBaseImpl {
 	
-	private final Log log = LogFactoryUtil.getLog(ProyectoServiceImpl.class);
+
+private final Log log = LogFactoryUtil.getLog(ProyectoServiceImpl.class);
+
 	
 	public Proyecto crearProyecto(String tituloProyecto, String descripcion, String fechaInicio,
 			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
@@ -53,4 +57,5 @@ public class ProyectoServiceImpl extends ProyectoServiceBaseImpl {
 		return ProyectoLocalServiceUtil.getAllProyectos();
 	}
 	
+
 }

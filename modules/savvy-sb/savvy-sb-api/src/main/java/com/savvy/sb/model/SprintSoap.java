@@ -171,19 +171,19 @@ public class SprintSoap implements Serializable {
 		_tituloSprint = tituloSprint;
 	}
 
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return _fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		_fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFinal() {
+	public String getFechaFinal() {
 		return _fechaFinal;
 	}
 
-	public void setFechaFinal(Date fechaFinal) {
+	public void setFechaFinal(String fechaFinal) {
 		_fechaFinal = fechaFinal;
 	}
 
@@ -220,8 +220,8 @@ public class SprintSoap implements Serializable {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private String _tituloSprint;
-	private Date _fechaInicio;
-	private Date _fechaFinal;
+	private String _fechaInicio;
+	private String _fechaFinal;
 	private String _descripcion;
 	private String _estado;
 	private String _proyecto;

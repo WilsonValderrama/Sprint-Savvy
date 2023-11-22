@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -91,6 +92,13 @@ public interface TareaLocalService
 	 */
 	@Transactional(enabled = false)
 	public Tarea createTarea(long tareaId);
+
+	public Tarea createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -209,6 +217,9 @@ public interface TareaLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Tarea> getAllTareas();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -239,6 +250,9 @@ public interface TareaLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Tarea getTarea(long tareaId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Tarea> getTareaByNombre(String nombreTarea);
 
 	/**
 	 * Returns the tarea matching the UUID and group.
@@ -298,6 +312,13 @@ public interface TareaLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getTareasCount();
+
+	public Tarea updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the tarea in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
