@@ -67,6 +67,21 @@ public class TareaLocalServiceWrapper
 		return _tareaLocalService.createTarea(tareaId);
 	}
 
+	@Override
+	public com.savvy.sb.model.Tarea createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _tareaLocalService.createTarea(
+			nombreTarea, proyecto, responsable, prioridad, sprint, estado,
+			fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -229,6 +244,11 @@ public class TareaLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.savvy.sb.model.Tarea> getAllTareas() {
+		return _tareaLocalService.getAllTareas();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -278,6 +298,13 @@ public class TareaLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _tareaLocalService.getTarea(tareaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Tarea> getTareaByNombre(
+		String nombreTarea) {
+
+		return _tareaLocalService.getTareaByNombre(nombreTarea);
 	}
 
 	/**
@@ -356,6 +383,21 @@ public class TareaLocalServiceWrapper
 	@Override
 	public int getTareasCount() {
 		return _tareaLocalService.getTareasCount();
+	}
+
+	@Override
+	public com.savvy.sb.model.Tarea updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _tareaLocalService.updateTarea(
+			tareaId, nombreTarea, proyecto, responsable, prioridad, sprint,
+			estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
 	}
 
 	/**

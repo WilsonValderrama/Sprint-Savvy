@@ -30,6 +30,30 @@ public class SprintServiceWrapper
 		_sprintService = sprintService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Sprint createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _sprintService.createSprint(
+			tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+			proyecto, serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Sprint deleteSprint(long sprintId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _sprintService.deleteSprint(sprintId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Sprint> getAllSprints() {
+		return _sprintService.getAllSprints();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +62,26 @@ public class SprintServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _sprintService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Sprint> getSprintByNombre(
+		String tituloSprint) {
+
+		return _sprintService.getSprintByNombre(tituloSprint);
+	}
+
+	@Override
+	public com.savvy.sb.model.Sprint updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _sprintService.updateSprint(
+			sprintId, tituloSprint, fechaInicio, fechaFinal, descripcion,
+			estado, proyecto, serviceContext);
 	}
 
 	@Override

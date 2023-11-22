@@ -53,9 +53,11 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="tituloSprint" type="String" />
-		<field name="fechaInicio" type="Date" />
-		<field name="fechaFinal" type="Date" />
-		<field name="descripcion" type="String" />
+		<field name="fechaInicio" type="String" />
+		<field name="fechaFinal" type="String" />
+		<field name="descripcion" type="String">
+			<hint name="max-length">999</hint>
+		</field>
 		<field name="estado" type="String" />
 		<field name="proyecto" type="String" />
 	</model>
@@ -74,9 +76,11 @@
 		<field name="prioridad" type="String" />
 		<field name="sprint" type="String" />
 		<field name="estado" type="String" />
-		<field name="fechaLimite" type="Date" />
+		<field name="fechaLimite" type="String" />
 		<field name="resumen" type="String" />
-		<field name="descripcion" type="String" />
+		<field name="descripcion" type="String">
+			<hint name="max-length">999</hint>
+		</field>
 		<field name="categoria" type="String" />
 		<field name="etiqueta" type="String" />
 	</model>

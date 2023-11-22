@@ -15,20 +15,45 @@
 package com.savvy.sb.service.impl;
 
 import com.liferay.portal.aop.AopService;
-
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.savvy.sb.model.Sprint;
+import com.savvy.sb.service.SprintLocalServiceUtil;
 import com.savvy.sb.service.base.SprintServiceBaseImpl;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
 /**
  * @author Brian Wing Shun Chan
  */
-@Component(
-	property = {
-		"json.web.service.context.name=servicio_savvy",
-		"json.web.service.context.path=Sprint"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=servicio_savvy",
+		"json.web.service.context.path=Sprint" }, service = AopService.class)
 public class SprintServiceImpl extends SprintServiceBaseImpl {
+
+	public Sprint createSprint(String tituloSprint, String fechaInicio, String fechaFinal, String descripcion,
+			String estado, String proyecto, ServiceContext serviceContext) throws PortalException {
+		return SprintLocalServiceUtil.createSprint(tituloSprint, fechaInicio, fechaFinal, descripcion, estado, proyecto,
+				serviceContext);
+	}
+
+	public Sprint updateSprint(long sprintId, String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto, ServiceContext serviceContext) throws PortalException {
+		return SprintLocalServiceUtil.updateSprint(sprintId, tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+				proyecto, serviceContext);
+	}
+
+	public Sprint deleteSprint(long sprintId) throws PortalException {
+		return SprintLocalServiceUtil.deleteSprint(sprintId);
+	}
+
+	public List<Sprint> getAllSprints() {
+		return SprintLocalServiceUtil.getAllSprints();
+	}
+
+	public List<Sprint> getSprintByNombre(String tituloSprint) {
+		return SprintLocalServiceUtil.getSprintByNombre(tituloSprint);
+	}
+
 }

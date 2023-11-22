@@ -34,7 +34,7 @@
 		<column name="prioridad" type="String" />
 		<column name="sprint" type="String" />
 		<column name="estado" type="String" />
-		<column name="fechaLimite" type="Date" />
+		<column name="fechaLimite" type="String" />
 		<column name="resumen" type="String" />
 		<column name="descripcion" type="String" />
 		<column name="categoria" type="String" />
@@ -83,8 +83,8 @@
 		<!-- Other fields -->
 
 		<column name="tituloSprint" type="String" />
-		<column name="fechaInicio" type="Date" />
-		<column name="fechaFinal" type="Date" />
+		<column name="fechaInicio" type="String" />
+		<column name="fechaFinal" type="String" />
 		<column name="descripcion" type="String" />
 		<column name="estado" type="String" />
 		<column name="proyecto" type="String" />

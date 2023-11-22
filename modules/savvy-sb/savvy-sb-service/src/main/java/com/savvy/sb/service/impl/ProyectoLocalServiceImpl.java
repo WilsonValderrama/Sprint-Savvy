@@ -70,6 +70,10 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		Proyecto proyecto = proyectoPersistence.findByPrimaryKey(proyectoId);
 		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
 		proyecto.setTituloProyecto(tituloProyecto);
+		proyecto.setDescripcion(descripcion);
+		proyecto.setFechaInicio(fechaInicio);
+		proyecto.setFechaFinal(fechaFinal);
+		proyecto.setEstado(estado);
 	
 		proyecto.setUserId(serviceContext.getUserId());
 		proyecto.setGroupId(serviceContext.getScopeGroupId());

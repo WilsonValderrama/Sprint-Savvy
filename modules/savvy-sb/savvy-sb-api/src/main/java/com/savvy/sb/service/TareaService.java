@@ -19,8 +19,14 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import com.savvy.sb.model.Tarea;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +53,17 @@ public interface TareaService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.savvy.sb.service.impl.TareaServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the tarea remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link TareaServiceUtil} if injection and service tracking are not available.
 	 */
+	public Tarea createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta, ServiceContext serviceContext)
+		throws PortalException;
+
+	public Tarea deleteTarea(long tareaId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Tarea> getAllTareas();
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -54,5 +71,15 @@ public interface TareaService extends BaseService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Tarea> getTareaByNombre(String nombreTarea);
+
+	public Tarea updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta, ServiceContext serviceContext)
+		throws PortalException;
 
 }
