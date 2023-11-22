@@ -58,7 +58,6 @@
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
-
 	</entity>
 
 	<entity local-service="true" name="Sprint" remote-service="true"
@@ -224,7 +223,9 @@
 
 		<!-- Other fields -->
 
+
 		<column name="tituloEtiqueta" type="String" />
+
 
 		<!-- Order -->
 

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package com.savvy.sb.service.impl;
 
 import com.liferay.portal.aop.AopService;
@@ -23,6 +9,7 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.savvy.sb.model.Proyecto;
 import com.savvy.sb.service.base.ProyectoLocalServiceBaseImpl;
+import java.util.List;
 
 import java.util.List;
 
@@ -37,7 +24,9 @@ import org.osgi.service.component.annotations.Component;
 )
 public class ProyectoLocalServiceImpl extends ProyectoLocalServiceBaseImpl {
 	
+
 private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
+
 	
 	public Proyecto crearProyecto(String tituloProyecto, String descripcion, String fechaInicio,
 			String fechaFinal, String estado, ServiceContext serviceContext) throws PortalException {
@@ -46,12 +35,14 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		
 		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
 		Proyecto proyecto = proyectoPersistence.create(proyectoId);
+
 		proyecto.setTituloProyecto(tituloProyecto);
 		proyecto.setDescripcion(descripcion);
 		proyecto.setFechaInicio(fechaInicio);
 		proyecto.setFechaFinal(fechaFinal);
 		proyecto.setEstado(estado);
 		
+
 		proyecto.setUserId(serviceContext.getUserId());
 		proyecto.setGroupId(serviceContext.getScopeGroupId());
 		proyecto.setUserName(user.getFullName());
@@ -69,6 +60,7 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		
 		Proyecto proyecto = proyectoPersistence.findByPrimaryKey(proyectoId);
 		User user = UserLocalServiceUtil.getUserById(serviceContext.getUserId());
+
 		proyecto.setTituloProyecto(tituloProyecto);
 		proyecto.setDescripcion(descripcion);
 		proyecto.setFechaInicio(fechaInicio);
@@ -100,5 +92,5 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		return proyectoPersistence.findAll();
 	}
 	
-	
+
 }
