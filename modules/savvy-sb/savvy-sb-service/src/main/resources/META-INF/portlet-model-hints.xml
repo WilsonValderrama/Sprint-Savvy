@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.savvy.sb.model.Categoria">
+		<field name="uuid" type="String" />
+		<field name="categoriaId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="nombreCategoria" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="descripcion" type="String">
+			<hint name="max-length">999</hint>
+		</field>
+	</model>
+	<model name="com.savvy.sb.model.Etiqueta">
+		<field name="uuid" type="String" />
+		<field name="etiquetaId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="tituloEtiqueta" type="String" />
+	</model>
+	<model name="com.savvy.sb.model.Proyecto">
+		<field name="uuid" type="String" />
+		<field name="proyectoId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="tituloProyecto" type="String" />
+		<field name="descripcion" type="String" />
+		<field name="fechaInicio" type="String" />
+		<field name="fechaFinal" type="String" />
+		<field name="estado" type="String" />
+	</model>
+	<model name="com.savvy.sb.model.Sprint">
+		<field name="uuid" type="String" />
+		<field name="sprintId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="tituloSprint" type="String" />
+		<field name="fechaInicio" type="String" />
+		<field name="fechaFinal" type="String" />
+		<field name="descripcion" type="String">
+			<hint name="max-length">999</hint>
+		</field>
+		<field name="estado" type="String" />
+		<field name="proyecto" type="String" />
+	</model>
+	<model name="com.savvy.sb.model.Tarea">
+		<field name="uuid" type="String" />
+		<field name="tareaId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="nombreTarea" type="String" />
+		<field name="proyecto" type="String" />
+		<field name="responsable" type="String" />
+		<field name="prioridad" type="String" />
+		<field name="sprint" type="String" />
+		<field name="estado" type="String" />
+		<field name="fechaLimite" type="String" />
+		<field name="resumen" type="String" />
+		<field name="descripcion" type="String">
+			<hint name="max-length">999</hint>
+		</field>
+		<field name="categoria" type="String" />
+		<field name="etiqueta" type="String" />
+	</model>
+</model-hints>
