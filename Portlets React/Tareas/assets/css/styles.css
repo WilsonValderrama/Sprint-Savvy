@@ -1,0 +1,347 @@
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container-form {
+  max-width: 300px;
+  background-color: #e5eef8;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.form-formTask {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+.form-formTask .head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-formTask .head .span-formTask {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: black;
+}
+
+.form-formTask .head p {
+  font-size: 1.1rem;
+  color: #7c6666;
+  margin: 0;
+}
+
+.form-formTask .inputs {
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  margin: 1rem 0.5rem;
+  border-radius: 8px;
+  border-bottom: none;
+  outline: 0;
+}
+
+.form-formTask .inputs .input-formTask {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.form-formTask .inputs .input-formTask-textarea {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.input-crudcsp3 {
+  border: 1px solid red;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  background-color: #f9e1e1;
+  font-weight: 200;
+}
+
+.input-crudcsp {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.form-formTask .button-formTask {
+  background-color: #176b87;
+  color: white;
+  width: 100%;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  transform: scale(1.1);
+}
+
+.form-formTask .button-formTask:hover {
+  background-color: #053b50;
+}
+.form-formTask .button-formTask2 {
+  background-color: #ef4242;
+  color: white;
+  width: 100%;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.form-formTask .button-formTask2:hover {
+  background-color: #e60000;
+}
+.form-footer {
+  background-color: #e0ecfb;
+  padding: 16px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.form-footer a {
+  font-weight: bolder;
+  color: #0066ff;
+  transition: all 3s ease-in-out;
+}
+
+.form-footer a:hover {
+  color: #005ce6;
+}
+
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.container-lg {
+  margin-top: 20px;
+}
+
+.search input[type="text"] {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search button[type="submit"] {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: #176b87;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.9s ease;
+}
+
+.search button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: rgb(255, 255, 255);
+  background-color: #053b50;
+}
+
+:focus {
+  outline: 0;
+  border-color: #053b50;
+  box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.mydict div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.mydict input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 1;
+  color: #0043ed;
+}
+
+div.divselect {
+  margin-left: 15px;
+  margin-top: 7px;
+}
+
+.seleclab span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.375em 0.75em;
+  position: relative;
+  margin-left: 0.0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: 0.05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+.seleclab:first-child span {
+  border-radius: 0.375em 0 0 0.375em;
+}
+
+.seleclab:last-child span {
+  border-radius: 0 0.375em 0.375em 0;
+}
+
+button.limpiarfiltros {
+  padding: 7px;
+}
+
+.limpiarfiltros {
+  margin-top: 7px;
+  margin-left: 15px;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 1em 1em;
+  border: none;
+  border-radius: 0.6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.limpiarfiltros span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: 0.6s ease;
+}
+
+.limpiarfiltros span:nth-child(6) {
+  position: relative;
+}
+
+.limpiarfiltros span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+.limpiarfiltros span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+.limpiarfiltros span:nth-child(3) {
+  transform: translate(-0.2em, 1.8em);
+}
+
+.limpiarfiltros span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+.limpiarfiltros span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+.limpiarfiltros:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
+
+.input-gender-search {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 200px;
+  height: 41px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: 200;
+}
+
+/* Estilos para botones de tabla */
+
+.btntbldel {
+  width: 95px;
+  margin: 3px;
+  border: none;
+  outline: none;
+  background-color: #e75c5c;
+  padding: 5px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btntblupd {
+  width: 95px;
+  text-decoration: none;
+  margin: 3px;
+  border: none;
+  outline: none;
+  background-color: #2fa212;
+  padding: 5px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+}

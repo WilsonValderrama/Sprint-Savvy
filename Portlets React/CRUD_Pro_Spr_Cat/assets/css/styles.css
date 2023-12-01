@@ -1,0 +1,291 @@
+/* Estilos para Formulario Principal al crear y editar */
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container-form {
+  max-width: 300px;
+  background-color: #e5eef8;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.crudcsp-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+.crudcsp-form .head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#fatheselect-crudcsp {
+  font-weight: bold;
+}
+
+.crudcsp-form .head .span-crudcsp {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: black;
+}
+
+.crudcsp-form .head p {
+  font-size: 1.1rem;
+  color: #7c6666;
+  margin: 0px 0px 0px 0px;
+}
+
+.crudcsp-form .inputs {
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  margin: 1rem 0.5rem;
+  border-radius: 8px;
+  border-bottom: none;
+  outline: 0;
+}
+
+.crudcsp-form .inputs .input-crudcsp {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.label-crudcsp {
+  float: left;
+  padding: 15px 0px 0px 15px;
+  text-decoration: none;
+}
+
+.crudcsp-form .input-crudcsp {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.crudcsp-form .input-crudcsp2 {
+  border: 1px solid red;
+  border-radius: 8px 8px 0 0;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  background-color: #f9e1e1;
+  font-weight: 200;
+}
+
+.crudcsp-form .input-crudcsp3 {
+  border: 1px solid red;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 40px;
+  background-color: #f9e1e1;
+  font-weight: 200;
+}
+
+.error-label {
+  font-weight: bold;
+}
+
+.crudcsp-form .inputs .input-crudcsp-textarea {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.299);
+  font-weight: 200;
+}
+
+.crudcsp-form .button-crudcsp {
+  background-color: #176b87;
+  color: white;
+  width: 100%;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.crudcsp-form .button-crudcsp:hover {
+  transform: scale(1.05);
+  background-color: #053b50;
+}
+
+.crudcsp-form .button-crudcsp2 {
+  background-color: #ef4242;
+  color: white;
+  width: 100%;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.crudcsp-form .button-crudcsp2:hover {
+  background-color: #e60000;
+}
+
+/* Estilos para barra de búsqueda */
+
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.container-lg {
+  margin-top: 20px;
+}
+
+.search input[type="text"] {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search button[type="submit"] {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: #176b87;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.9s ease;
+}
+
+.search button[type="submit"]:hover {
+  transform: scale(1.05);
+  color: rgb(255, 255, 255);
+  background-color: #053b50;
+}
+
+button.limpiarfiltros {
+  padding: 7px;
+}
+
+.limpiarfiltros {
+  margin-top: 7px;
+  margin-left: 15px;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 1em 1em;
+  border: none;
+  border-radius: 0.6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.limpiarfiltros span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: #64ccc5;
+  border-radius: 50%;
+  transition: 0.6s ease;
+}
+
+.limpiarfiltros span:nth-child(6) {
+  position: relative;
+}
+
+.limpiarfiltros span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+.limpiarfiltros span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+.limpiarfiltros span:nth-child(3) {
+  transform: translate(-0.2em, 1.8em);
+}
+
+.limpiarfiltros span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+.limpiarfiltros span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+.limpiarfiltros:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
+
+/* Estilos para botones de tabla */
+
+.btntbldel {
+  width: 95px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  background-color: #e75c5c;
+  padding: 5px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btntblupd {
+  width: 95px;
+  text-decoration: none;
+  margin: 10px;
+  border: none;
+  outline: none;
+  background-color: #2fa212;
+  padding: 5px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+}

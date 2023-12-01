@@ -1,0 +1,13 @@
+{ 
+	"$schema": "https://raw.githubusercontent.com/liferay/liferay-js-toolkit/master/resources/schemas/configuration.schema.json",
+	"system": {
+		"category": "CRUD_Pro_Spr_Cat", 
+		"name": "CRUD_Pro_Spr_Cat",
+		"fields": { 
+		} 
+	},
+	"portletInstance": {
+		"fields": { 
+		} 
+	}
+}
