@@ -19,7 +19,7 @@
 		<column name="groupId" type="long" />
 
 		<!-- Audit fields -->
-		
+
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
 		<column name="userName" type="String" />
@@ -34,7 +34,7 @@
 		<column name="prioridad" type="String" />
 		<column name="sprint" type="String" />
 		<column name="estado" type="String" />
-		<column name="fechaLimite" type="Date" />
+		<column name="fechaLimite" type="String" />
 		<column name="resumen" type="String" />
 		<column name="descripcion" type="String" />
 		<column name="categoria" type="String" />
@@ -62,7 +62,7 @@
 
 	<entity local-service="true" name="Sprint" remote-service="true"
 		uuid="true">
-		
+
 		<!-- PK fields -->
 
 		<column name="sprintId" primary="true" type="long" />
@@ -82,8 +82,8 @@
 		<!-- Other fields -->
 
 		<column name="tituloSprint" type="String" />
-		<column name="fechaInicio" type="Date" />
-		<column name="fechaFinal" type="Date" />
+		<column name="fechaInicio" type="String" />
+		<column name="fechaFinal" type="String" />
 		<column name="descripcion" type="String" />
 		<column name="estado" type="String" />
 		<column name="proyecto" type="String" />
@@ -115,7 +115,7 @@
 		<!-- PK fields -->
 
 		<column name="proyectoId" primary="true" type="long" />
-	
+
 		<!-- Group instance -->
 
 		<column name="groupId" type="long" />
@@ -199,6 +199,7 @@
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
+
 	</entity>
 
 	<entity local-service="true" name="Etiqueta"
@@ -213,7 +214,7 @@
 		<column name="groupId" type="long" />
 
 		<!-- Audit fields -->
-		
+
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
 		<column name="userName" type="String" />
@@ -221,9 +222,11 @@
 		<column name="modifiedDate" type="Date" />
 
 		<!-- Other fields -->
-		
+
+
 		<column name="tituloEtiqueta" type="String" />
-		
+
+
 		<!-- Order -->
 
 		<order by="asc">
@@ -242,6 +245,7 @@
 			package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
+
 	</entity>
 
 </service-builder>

@@ -15,8 +15,13 @@
 package com.savvy.sb.service.impl;
 
 import com.liferay.portal.aop.AopService;
-
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.savvy.sb.model.Tarea;
+import com.savvy.sb.service.TareaLocalServiceUtil;
 import com.savvy.sb.service.base.TareaServiceBaseImpl;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -31,4 +36,29 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class TareaServiceImpl extends TareaServiceBaseImpl {
+	
+	public Tarea createTarea(String nombreTarea, String proyecto, String responsable, String prioridad,
+			String sprint, String estado, String fechaLimite, String resumen, String descripcion, String categoria, String etiqueta,  ServiceContext serviceContext) throws PortalException {
+		return TareaLocalServiceUtil.createTarea(nombreTarea, proyecto, responsable, prioridad, sprint, estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+				serviceContext);
+	}
+
+	public Tarea updateTarea(long tareaId, String nombreTarea, String proyecto, String responsable, String prioridad,
+			String sprint, String estado, String fechaLimite, String resumen, String descripcion, String categoria, String etiqueta, ServiceContext serviceContext) throws PortalException {
+		return TareaLocalServiceUtil.updateTarea(tareaId, nombreTarea, proyecto, responsable, prioridad, sprint, estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+				serviceContext);
+	}
+
+	public Tarea deleteTarea(long tareaId) throws PortalException {
+		return TareaLocalServiceUtil.deleteTarea(tareaId);
+	}
+
+	public List<Tarea> getAllTareas() {
+		return TareaLocalServiceUtil.getAllTareas();
+	}
+
+	public List<Tarea> getTareaByNombre(String nombreTarea) {
+		return TareaLocalServiceUtil.getTareaByNombre(nombreTarea);
+	}
+	
 }

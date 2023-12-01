@@ -69,6 +69,18 @@ public class SprintLocalServiceWrapper
 		return _sprintLocalService.createSprint(sprintId);
 	}
 
+	@Override
+	public com.savvy.sb.model.Sprint createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _sprintLocalService.createSprint(
+			tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+			proyecto, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -231,6 +243,11 @@ public class SprintLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.savvy.sb.model.Sprint> getAllSprints() {
+		return _sprintLocalService.getAllSprints();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -280,6 +297,13 @@ public class SprintLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _sprintLocalService.getSprint(sprintId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Sprint> getSprintByNombre(
+		String tituloSprint) {
+
+		return _sprintLocalService.getSprintByNombre(tituloSprint);
 	}
 
 	/**
@@ -360,6 +384,19 @@ public class SprintLocalServiceWrapper
 	@Override
 	public int getSprintsCount() {
 		return _sprintLocalService.getSprintsCount();
+	}
+
+	@Override
+	public com.savvy.sb.model.Sprint updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _sprintLocalService.updateSprint(
+			sprintId, tituloSprint, fechaInicio, fechaFinal, descripcion,
+			estado, proyecto, serviceContext);
 	}
 
 	/**

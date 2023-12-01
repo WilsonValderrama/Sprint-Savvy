@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -91,6 +92,12 @@ public interface SprintLocalService
 	 */
 	@Transactional(enabled = false)
 	public Sprint createSprint(long sprintId);
+
+	public Sprint createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -209,6 +216,9 @@ public interface SprintLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Sprint> getAllSprints();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -239,6 +249,9 @@ public interface SprintLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Sprint getSprint(long sprintId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Sprint> getSprintByNombre(String tituloSprint);
 
 	/**
 	 * Returns the sprint matching the UUID and group.
@@ -299,6 +312,12 @@ public interface SprintLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getSprintsCount();
+
+	public Sprint updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the sprint in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

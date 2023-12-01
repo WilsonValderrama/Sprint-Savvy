@@ -79,6 +79,20 @@ public class TareaLocalServiceUtil {
 		return getService().createTarea(tareaId);
 	}
 
+	public static Tarea createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createTarea(
+			nombreTarea, proyecto, responsable, prioridad, sprint, estado,
+			fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -216,6 +230,10 @@ public class TareaLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Tarea> getAllTareas() {
+		return getService().getAllTareas();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -258,6 +276,10 @@ public class TareaLocalServiceUtil {
 	 */
 	public static Tarea getTarea(long tareaId) throws PortalException {
 		return getService().getTarea(tareaId);
+	}
+
+	public static List<Tarea> getTareaByNombre(String nombreTarea) {
+		return getService().getTareaByNombre(nombreTarea);
 	}
 
 	/**
@@ -327,6 +349,20 @@ public class TareaLocalServiceUtil {
 	 */
 	public static int getTareasCount() {
 		return getService().getTareasCount();
+	}
+
+	public static Tarea updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateTarea(
+			tareaId, nombreTarea, proyecto, responsable, prioridad, sprint,
+			estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
 	}
 
 	/**
