@@ -30,6 +30,33 @@ public class TareaServiceWrapper
 		_tareaService = tareaService;
 	}
 
+	@Override
+	public com.savvy.sb.model.Tarea createTarea(
+			String nombreTarea, String proyecto, String responsable,
+			String prioridad, String sprint, String estado, String fechaLimite,
+			String resumen, String descripcion, String categoria,
+			String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _tareaService.createTarea(
+			nombreTarea, proyecto, responsable, prioridad, sprint, estado,
+			fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
+	}
+
+	@Override
+	public com.savvy.sb.model.Tarea deleteTarea(long tareaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _tareaService.deleteTarea(tareaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Tarea> getAllTareas() {
+		return _tareaService.getAllTareas();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +65,28 @@ public class TareaServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _tareaService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Tarea> getTareaByNombre(
+		String nombreTarea) {
+
+		return _tareaService.getTareaByNombre(nombreTarea);
+	}
+
+	@Override
+	public com.savvy.sb.model.Tarea updateTarea(
+			long tareaId, String nombreTarea, String proyecto,
+			String responsable, String prioridad, String sprint, String estado,
+			String fechaLimite, String resumen, String descripcion,
+			String categoria, String etiqueta,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _tareaService.updateTarea(
+			tareaId, nombreTarea, proyecto, responsable, prioridad, sprint,
+			estado, fechaLimite, resumen, descripcion, categoria, etiqueta,
+			serviceContext);
 	}
 
 	@Override

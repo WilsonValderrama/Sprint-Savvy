@@ -14,6 +14,12 @@
 
 package com.savvy.sb.service;
 
+import com.liferay.portal.kernel.exception.PortalException;
+
+import com.savvy.sb.model.Categoria;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Categoria. This utility wraps
  * <code>com.savvy.sb.service.impl.CategoriaServiceImpl</code> and is an
@@ -33,14 +39,45 @@ public class CategoriaServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.savvy.sb.service.impl.CategoriaServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Categoria createCategoria(
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createCategoria(
+			nombreCategoria, descripcion, serviceContext);
+	}
+
+	public static Categoria deleteCategoria(long categoriaId)
+		throws PortalException {
+
+		return getService().deleteCategoria(categoriaId);
+	}
+
+	public static List<Categoria> getAllCategorias() {
+		return getService().getAllCategorias();
+	}
+
+	public static List<Categoria> getCategoriaByNombre(String nombreCategoria) {
+		return getService().getCategoriaByNombre(nombreCategoria);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static Categoria updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateCategoria(
+			categoriaId, nombreCategoria, descripcion, serviceContext);
 	}
 
 	public static CategoriaService getService() {

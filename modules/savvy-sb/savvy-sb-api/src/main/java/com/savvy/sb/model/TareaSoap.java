@@ -216,11 +216,11 @@ public class TareaSoap implements Serializable {
 		_estado = estado;
 	}
 
-	public Date getFechaLimite() {
+	public String getFechaLimite() {
 		return _fechaLimite;
 	}
 
-	public void setFechaLimite(Date fechaLimite) {
+	public void setFechaLimite(String fechaLimite) {
 		_fechaLimite = fechaLimite;
 	}
 
@@ -270,7 +270,7 @@ public class TareaSoap implements Serializable {
 	private String _prioridad;
 	private String _sprint;
 	private String _estado;
-	private Date _fechaLimite;
+	private String _fechaLimite;
 	private String _resumen;
 	private String _descripcion;
 	private String _categoria;

@@ -83,7 +83,7 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 		{"nombreTarea", Types.VARCHAR}, {"proyecto", Types.VARCHAR},
 		{"responsable", Types.VARCHAR}, {"prioridad", Types.VARCHAR},
 		{"sprint", Types.VARCHAR}, {"estado", Types.VARCHAR},
-		{"fechaLimite", Types.TIMESTAMP}, {"resumen", Types.VARCHAR},
+		{"fechaLimite", Types.VARCHAR}, {"resumen", Types.VARCHAR},
 		{"descripcion", Types.VARCHAR}, {"categoria", Types.VARCHAR},
 		{"etiqueta", Types.VARCHAR}
 	};
@@ -106,7 +106,7 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 		TABLE_COLUMNS_MAP.put("prioridad", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("sprint", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("estado", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("fechaLimite", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("fechaLimite", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("resumen", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("descripcion", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("categoria", Types.VARCHAR);
@@ -114,7 +114,7 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Servicio_Savvy_Tarea (uuid_ VARCHAR(75) null,tareaId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,nombreTarea VARCHAR(75) null,proyecto VARCHAR(75) null,responsable VARCHAR(75) null,prioridad VARCHAR(75) null,sprint VARCHAR(75) null,estado VARCHAR(75) null,fechaLimite DATE null,resumen VARCHAR(75) null,descripcion VARCHAR(75) null,categoria VARCHAR(75) null,etiqueta VARCHAR(75) null)";
+		"create table Servicio_Savvy_Tarea (uuid_ VARCHAR(75) null,tareaId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,nombreTarea VARCHAR(75) null,proyecto VARCHAR(75) null,responsable VARCHAR(75) null,prioridad VARCHAR(75) null,sprint VARCHAR(75) null,estado VARCHAR(75) null,fechaLimite VARCHAR(75) null,resumen VARCHAR(75) null,descripcion VARCHAR(999) null,categoria VARCHAR(75) null,etiqueta VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table Servicio_Savvy_Tarea";
@@ -376,7 +376,7 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 		attributeSetterBiConsumers.put(
 			"estado", (BiConsumer<Tarea, String>)Tarea::setEstado);
 		attributeSetterBiConsumers.put(
-			"fechaLimite", (BiConsumer<Tarea, Date>)Tarea::setFechaLimite);
+			"fechaLimite", (BiConsumer<Tarea, String>)Tarea::setFechaLimite);
 		attributeSetterBiConsumers.put(
 			"resumen", (BiConsumer<Tarea, String>)Tarea::setResumen);
 		attributeSetterBiConsumers.put(
@@ -701,12 +701,17 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 
 	@JSON
 	@Override
-	public Date getFechaLimite() {
-		return _fechaLimite;
+	public String getFechaLimite() {
+		if (_fechaLimite == null) {
+			return "";
+		}
+		else {
+			return _fechaLimite;
+		}
 	}
 
 	@Override
-	public void setFechaLimite(Date fechaLimite) {
+	public void setFechaLimite(String fechaLimite) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -1042,13 +1047,12 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 			tareaCacheModel.estado = null;
 		}
 
-		Date fechaLimite = getFechaLimite();
+		tareaCacheModel.fechaLimite = getFechaLimite();
 
-		if (fechaLimite != null) {
-			tareaCacheModel.fechaLimite = fechaLimite.getTime();
-		}
-		else {
-			tareaCacheModel.fechaLimite = Long.MIN_VALUE;
+		String fechaLimite = tareaCacheModel.fechaLimite;
+
+		if ((fechaLimite != null) && (fechaLimite.length() == 0)) {
+			tareaCacheModel.fechaLimite = null;
 		}
 
 		tareaCacheModel.resumen = getResumen();
@@ -1188,7 +1192,7 @@ public class TareaModelImpl extends BaseModelImpl<Tarea> implements TareaModel {
 	private String _prioridad;
 	private String _sprint;
 	private String _estado;
-	private Date _fechaLimite;
+	private String _fechaLimite;
 	private String _resumen;
 	private String _descripcion;
 	private String _categoria;

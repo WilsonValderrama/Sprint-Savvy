@@ -140,18 +140,18 @@ public class SprintCacheModel implements CacheModel<Sprint>, Externalizable {
 			sprintImpl.setTituloSprint(tituloSprint);
 		}
 
-		if (fechaInicio == Long.MIN_VALUE) {
-			sprintImpl.setFechaInicio(null);
+		if (fechaInicio == null) {
+			sprintImpl.setFechaInicio("");
 		}
 		else {
-			sprintImpl.setFechaInicio(new Date(fechaInicio));
+			sprintImpl.setFechaInicio(fechaInicio);
 		}
 
-		if (fechaFinal == Long.MIN_VALUE) {
-			sprintImpl.setFechaFinal(null);
+		if (fechaFinal == null) {
+			sprintImpl.setFechaFinal("");
 		}
 		else {
-			sprintImpl.setFechaFinal(new Date(fechaFinal));
+			sprintImpl.setFechaFinal(fechaFinal);
 		}
 
 		if (descripcion == null) {
@@ -195,8 +195,8 @@ public class SprintCacheModel implements CacheModel<Sprint>, Externalizable {
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 		tituloSprint = objectInput.readUTF();
-		fechaInicio = objectInput.readLong();
-		fechaFinal = objectInput.readLong();
+		fechaInicio = objectInput.readUTF();
+		fechaFinal = objectInput.readUTF();
 		descripcion = objectInput.readUTF();
 		estado = objectInput.readUTF();
 		proyecto = objectInput.readUTF();
@@ -236,8 +236,19 @@ public class SprintCacheModel implements CacheModel<Sprint>, Externalizable {
 			objectOutput.writeUTF(tituloSprint);
 		}
 
-		objectOutput.writeLong(fechaInicio);
-		objectOutput.writeLong(fechaFinal);
+		if (fechaInicio == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fechaInicio);
+		}
+
+		if (fechaFinal == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fechaFinal);
+		}
 
 		if (descripcion == null) {
 			objectOutput.writeUTF("");
@@ -270,8 +281,8 @@ public class SprintCacheModel implements CacheModel<Sprint>, Externalizable {
 	public long createDate;
 	public long modifiedDate;
 	public String tituloSprint;
-	public long fechaInicio;
-	public long fechaFinal;
+	public String fechaInicio;
+	public String fechaFinal;
 	public String descripcion;
 	public String estado;
 	public String proyecto;

@@ -185,11 +185,11 @@ public class TareaCacheModel implements CacheModel<Tarea>, Externalizable {
 			tareaImpl.setEstado(estado);
 		}
 
-		if (fechaLimite == Long.MIN_VALUE) {
-			tareaImpl.setFechaLimite(null);
+		if (fechaLimite == null) {
+			tareaImpl.setFechaLimite("");
 		}
 		else {
-			tareaImpl.setFechaLimite(new Date(fechaLimite));
+			tareaImpl.setFechaLimite(fechaLimite);
 		}
 
 		if (resumen == null) {
@@ -245,7 +245,7 @@ public class TareaCacheModel implements CacheModel<Tarea>, Externalizable {
 		prioridad = objectInput.readUTF();
 		sprint = objectInput.readUTF();
 		estado = objectInput.readUTF();
-		fechaLimite = objectInput.readLong();
+		fechaLimite = objectInput.readUTF();
 		resumen = objectInput.readUTF();
 		descripcion = objectInput.readUTF();
 		categoria = objectInput.readUTF();
@@ -321,7 +321,12 @@ public class TareaCacheModel implements CacheModel<Tarea>, Externalizable {
 			objectOutput.writeUTF(estado);
 		}
 
-		objectOutput.writeLong(fechaLimite);
+		if (fechaLimite == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fechaLimite);
+		}
 
 		if (resumen == null) {
 			objectOutput.writeUTF("");
@@ -366,7 +371,7 @@ public class TareaCacheModel implements CacheModel<Tarea>, Externalizable {
 	public String prioridad;
 	public String sprint;
 	public String estado;
-	public long fechaLimite;
+	public String fechaLimite;
 	public String resumen;
 	public String descripcion;
 	public String categoria;

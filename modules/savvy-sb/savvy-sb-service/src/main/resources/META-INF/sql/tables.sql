@@ -49,9 +49,9 @@ create table Servicio_Savvy_Sprint (
 	createDate DATE null,
 	modifiedDate DATE null,
 	tituloSprint VARCHAR(75) null,
-	fechaInicio DATE null,
-	fechaFinal DATE null,
-	descripcion VARCHAR(75) null,
+	fechaInicio VARCHAR(75) null,
+	fechaFinal VARCHAR(75) null,
+	descripcion VARCHAR(999) null,
 	estado VARCHAR(75) null,
 	proyecto VARCHAR(75) null
 );
@@ -71,9 +71,9 @@ create table Servicio_Savvy_Tarea (
 	prioridad VARCHAR(75) null,
 	sprint VARCHAR(75) null,
 	estado VARCHAR(75) null,
-	fechaLimite DATE null,
+	fechaLimite VARCHAR(75) null,
 	resumen VARCHAR(75) null,
-	descripcion VARCHAR(75) null,
+	descripcion VARCHAR(999) null,
 	categoria VARCHAR(75) null,
 	etiqueta VARCHAR(75) null
 );

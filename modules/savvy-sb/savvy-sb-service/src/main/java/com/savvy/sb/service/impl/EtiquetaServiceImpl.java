@@ -8,7 +8,11 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.savvy.sb.model.Etiqueta;
 import com.savvy.sb.service.EtiquetaLocalServiceUtil;
 import com.savvy.sb.service.base.EtiquetaServiceBaseImpl;
+
+
 import java.util.List;
+
+
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -23,7 +27,9 @@ import org.osgi.service.component.annotations.Component;
 )
 public class EtiquetaServiceImpl extends EtiquetaServiceBaseImpl {
 	
-	private final Log log = LogFactoryUtil.getLog(EtiquetaServiceImpl.class);
+
+private final Log log = LogFactoryUtil.getLog(EtiquetaServiceImpl.class);
+
 	
 	public Etiqueta crearEtiqueta(String tituloEtiqueta, 
 			ServiceContext serviceContext) throws PortalException {	
@@ -53,4 +59,5 @@ public class EtiquetaServiceImpl extends EtiquetaServiceBaseImpl {
 		return EtiquetaLocalServiceUtil.getAllEtiquetas();
 	}
 	
+
 }

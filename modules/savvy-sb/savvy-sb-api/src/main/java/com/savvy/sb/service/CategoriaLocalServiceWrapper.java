@@ -60,6 +60,16 @@ public class CategoriaLocalServiceWrapper
 		return _categoriaLocalService.createCategoria(categoriaId);
 	}
 
+	@Override
+	public com.savvy.sb.model.Categoria createCategoria(
+			String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _categoriaLocalService.createCategoria(
+			nombreCategoria, descripcion, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -234,6 +244,11 @@ public class CategoriaLocalServiceWrapper
 		return _categoriaLocalService.getActionableDynamicQuery();
 	}
 
+	@Override
+	public java.util.List<com.savvy.sb.model.Categoria> getAllCategorias() {
+		return _categoriaLocalService.getAllCategorias();
+	}
+
 	/**
 	 * Returns the categoria with the primary key.
 	 *
@@ -246,6 +261,13 @@ public class CategoriaLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _categoriaLocalService.getCategoria(categoriaId);
+	}
+
+	@Override
+	public java.util.List<com.savvy.sb.model.Categoria> getCategoriaByNombre(
+		String nombreCategoria) {
+
+		return _categoriaLocalService.getCategoriaByNombre(nombreCategoria);
 	}
 
 	/**
@@ -382,6 +404,16 @@ public class CategoriaLocalServiceWrapper
 		com.savvy.sb.model.Categoria categoria) {
 
 		return _categoriaLocalService.updateCategoria(categoria);
+	}
+
+	@Override
+	public com.savvy.sb.model.Categoria updateCategoria(
+			long categoriaId, String nombreCategoria, String descripcion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _categoriaLocalService.updateCategoria(
+			categoriaId, nombreCategoria, descripcion, serviceContext);
 	}
 
 	@Override

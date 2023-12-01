@@ -79,6 +79,17 @@ public class SprintLocalServiceUtil {
 		return getService().createSprint(sprintId);
 	}
 
+	public static Sprint createSprint(
+			String tituloSprint, String fechaInicio, String fechaFinal,
+			String descripcion, String estado, String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createSprint(
+			tituloSprint, fechaInicio, fechaFinal, descripcion, estado,
+			proyecto, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -218,6 +229,10 @@ public class SprintLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Sprint> getAllSprints() {
+		return getService().getAllSprints();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -260,6 +275,10 @@ public class SprintLocalServiceUtil {
 	 */
 	public static Sprint getSprint(long sprintId) throws PortalException {
 		return getService().getSprint(sprintId);
+	}
+
+	public static List<Sprint> getSprintByNombre(String tituloSprint) {
+		return getService().getSprintByNombre(tituloSprint);
 	}
 
 	/**
@@ -329,6 +348,18 @@ public class SprintLocalServiceUtil {
 	 */
 	public static int getSprintsCount() {
 		return getService().getSprintsCount();
+	}
+
+	public static Sprint updateSprint(
+			long sprintId, String tituloSprint, String fechaInicio,
+			String fechaFinal, String descripcion, String estado,
+			String proyecto,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateSprint(
+			sprintId, tituloSprint, fechaInicio, fechaFinal, descripcion,
+			estado, proyecto, serviceContext);
 	}
 
 	/**
