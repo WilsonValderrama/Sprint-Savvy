@@ -1,0 +1,10 @@
+Bundle-Name: aula-sb-api
+Bundle-SymbolicName: com.aula.sb.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.aula.sb.exception,\
+	com.aula.sb.model,\
+	com.aula.sb.service,\
+	com.aula.sb.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../aula-sb-service/service.xml

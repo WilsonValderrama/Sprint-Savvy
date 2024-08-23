@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULiferay</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar-container">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="#">ULiferay</a></div>
+            <div class="nav-links-container">
+                <div class="sidebar-logo">
+                    <span class="logo-name">ULiferay</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="#">HOME</a></li>
+                    <li>
+                        <a href="#">HTML & CSS</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Login Forms</a></li>
+                            <li><a href="#">Card Design</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="#">Neumorphism</a></li>
+                                    <li><a href="#">Pre-loader</a></li>
+                                    <li><a href="#">Glassmorphism</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">JAVASCRIPT</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="#">Dynamic Clock</a></li>
+                            <li><a href="#">Form Validation</a></li>
+                            <li><a href="#">Card Slider</a></li>
+                            <li><a href="#">Complete Website</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <div class="button-container">
+            <button class="singup-button">
+                Incríbete Ahora
+                <div class="icon">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+            </button>
+        </div>
+        <div class="video-overlay"></div>
+        <video width="100%" height="100%" autoplay muted>
+            <track src="" kind="subtitles" srclang="en" label="English">
+            <source src="./src/vid/video-publicidad.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+
+
+
+    <div class="programs-container">
+        <article class="card">
+            <img class="card-background" src="./src/img/img-programs-card1.webp" alt="img-programs-card1" />
+            <div class="card-content | flow">
+                <div class="card-content-container | flow">
+                    <h2 class="card-title">Pregrados Presenciales</h2>
+                    <p>
+                        Toma la mejor decisión, estudia una carrera profesional
+                    </p>
+                </div>
+                <button class="button-card">Leer Mas</button>
+            </div>
+        </article>
+
+        <!-- La siguientes cards son de ejemplo éso hay que pasarlo como componente en react -->
+
+        <article class="card">
+            <img class="card-background" src="./src/img/img-programs-card2.webp" alt="img-programs-card1" />
+            <div class="card-content | flow">
+                <div class="card-content-container | flow">
+                    <h2 class="card-title">Posgrados Presenciales</h2>
+                    <p>
+                        Toma la mejor decisión, estudia una carrera profesional
+                    </p>
+                </div>
+                <button class="button-card">Leer Mas</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img class="card-background" src="./src/img/img-programs-card3.webp" alt="img-programs-card1" />
+            <div class="card-content | flow">
+                <div class="card-content-container | flow">
+                    <h2 class="card-title">Programas Virtuales</h2>
+                    <p>
+                        Toma la mejor decisión, estudia una carrera profesional
+                    </p>
+                </div>
+                <button class="button-card">Leer Mas</button>
+            </div>
+        </article>
+    </div>
+
+    <div class="slider-container">
+        <section id="container-slider">
+            <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i
+                    class="fas fa-chevron-circle-left"></i></a>
+            <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i
+                    class="fas fa-chevron-circle-right"></i></a>
+            <ul class="listslider">
+                <li><a itlist="itList_0" href="#" class="item-select-slid" title="Link 1"></a></li>
+                <li><a itlist="itList_1" href="#" title="Link 2"></a></li>
+                <li><a itlist="itList_2" href="#" title="Link 3"></a></li>
+            </ul>
+            <ul id="slider">
+                <li style="background-image: url('./src/img/img-slider1.webp'); z-index:0; opacity: 1;">
+                    <div class="content_slider">
+
+                    </div>
+                </li>
+                <li style="background-image:  url('./src/img/img-slider2.webp'); ">
+                </li>
+                <li style="background-image:  url('./src/img/img-slider3.webp'); ">
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="advantages-container">
+        <header>
+            <h1>Nuestros Valores</h1>
+        </header>
+        <div class="row1-container">
+            <div class="box-container box-container-down cyan">
+                <h2>Compromiso</h2>
+                <p>Monitors activity to identify project roadblocks</p>
+                <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+            </div>
+
+            <div class="box-container red">
+                <h2>Calidad</h2>
+                <p>Scans our talent network to create the optimal team for your project</p>
+                <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+            </div>
+
+            <div class="box-container box-container-down blue">
+                <h2>Talento</h2>
+                <p>Uses data from past projects to provide better delivery estimates</p>
+                <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+            </div>
+        </div>
+        <div class="row2-container">
+            <div class="box-container orange">
+                <h2>Cultura</h2>
+                <p>Regularly evaluates our talent to ensure quality</p>
+                <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="news-container">
+        <header>
+            <h1>Noticias Académicas</h1>
+        </header>
+        <div class="band-container">
+            <div class="new-1-container">
+                <a href="" class="a-card">
+                    <div class="thumb"
+                        style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg);">
+                    </div>
+                    <article>
+                        <h1>International Artist Feature: Malaysia</h1>
+                        <span>Mary Winkler</span>
+                    </article>
+                </a>
+            </div>
+            <div>
+                <a href="" class="a-card">
+                    <div class="thumb"
+                        style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-5.jpg);">
+                    </div>
+                    <article>
+                        <h1>Created by You, July Edition</h1>
+                        <p>Welcome to our monthly feature of fantastic tutorial results created by you, the Envato Tuts+
+                            community! </p>
+                        <span>Melody Nieves</span>
+                    </article>
+                </a>
+            </div>
+            <div>
+                <a href="" class="a-card">
+                    <div class="thumb"
+                        style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/landing.png);">
+                    </div>
+                    <article>
+                        <h1>How to Code a Scrolling “Alien Lander” Website</h1>
+                        <p>We’ll be putting things together so that as you scroll down from the top of the page you’ll
+                            see an “Alien Lander” making its way to touch down.</p>
+                        <span>Kezz Bracey</span>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="locations-container">
+        <div class="cards">
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-bogota.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-medellin.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-cali.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-cartagena.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-bucaramanga.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="card">
+                <article class="locations-card">
+                    <div class="locations-container-img">
+                        <img src="./src/img/img-barranquilla.jpg" alt="">
+                    </div>
+                    <div class="card_content">
+                        <span class="card_title">This is a Title</span>
+                        <span class="card_subtitle">Thsi is a subtitle of this page. Let us see how it looks on the
+                            Web.</span>
+                        <p class="card_description">Lorem ipsum dolor, sit amet expedita exercitationem recusandae aut
+                            dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae aspernatur?
+                            Labore minus soluta consequatur placeat.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contact-container">
+        <div class="contact-container-form">
+            <form class="form">
+                <p class="title">Universidad Uliferay</p>
+                <p class="message">
+                    Descubre tu camino hacia el conocimiento en Uliferay. Nuestro dedicado equipo está listo para
+                    guiarte a
+                    través del emocionante proceso de inscripción, admisión y matrícula, personalizando cada paso para
+                    que
+                    tu viaje académico sea excepcional. ¡Comparte tus datos y comencemos esta increíble travesía juntos!
+                </p>
+
+                <label>
+                    <select required="" class="input">
+                        <option value="" disabled selected>Tipo de documento*</option>
+                        <!-- Agrega más opciones según sea necesario -->
+                    </select>
+                </label>
+
+                <label>
+                    <input required="" placeholder="" type="text" class="input">
+                    <span>Número de documento*</span>
+                </label>
+
+                <div class="flex">
+                    <label>
+                        <input required="" placeholder="" type="text" class="input">
+                        <span>Nombres*</span>
+                    </label>
+
+                    <label>
+                        <input required="" placeholder="" type="text" class="input">
+                        <span>Apellidos*</span>
+                    </label>
+                </div>
+
+                <label>
+                    <input required="" placeholder="" type="email" class="input">
+                    <span>Correo electrónico*</span>
+                </label>
+
+                <label>
+                    <input required="" placeholder="" type="tel" class="input">
+                    <span>Número de teléfono celular*</span>
+                </label>
+
+                <label>
+                    <select required="" class="input">
+                        <option value="" disabled selected>Programa académico de interés*</option>
+                        <!-- Agrega más opciones según sea necesario -->
+                    </select>
+                </label>
+
+                <label class="accept-terms">
+                    <input type="checkbox" required="">
+                    Acepto la Política de Privacidad de la Universidad Uliferay.*
+                </label>
+
+                <button class="submit">Enviar</button>
+
+                <p class="signin">
+                    ¿Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+                </p>
+            </form>
+        </div>
+        <div class="contact-container-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.498430107299!2d-74.0548846262114!3d4.68308769529184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9babe0f44da3%3A0xfc3d1e679f72f57c!2sPeriferia%20IT%20Group!5e0!3m2!1ses-419!2sbr!4v1706660771521!5m2!1ses-419!2sbr"
+                allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Google Maps"></iframe>
+        </div>
+    </div>
+
+    <div class="pg-footer">
+        <footer class="footer">
+            <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"
+                preserveAspectRatio="none">
+                <path class="footer-wave-path"
+                    d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z">
+                </path>
+            </svg>
+            <div class="footer-content">
+                <div class="footer-content-column">
+                    <div class="footer-logo">
+                        <a class="footer-logo-link" href="#">
+                            <span class="hidden-link-text">LOGO</span>
+                            <h1>LOGO</h1>
+                        </a>
+                    </div>
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Get Started</h2>
+                        <ul id="menu-get-started" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Start</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Documentation</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                                <a href="#">Installation</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Company</h2>
+                        <ul id="menu-company" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Contact</a>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <a href="#">News</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Careers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Legal</h2>
+                        <ul id="menu-legal" class="footer-menu-list">
+                            <li
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                                <a href="#">Privacy Notice</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-menu">
+                        <h2 class="footer-menu-name"> Quick Links</h2>
+                        <ul id="menu-quick-links" class="footer-menu-list">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#">Support Center</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a target="_blank" rel="noopener noreferrer" href="#">Service Status</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Security</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Blog</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type_archive menu-item-object-customer">
+                                <a href="#">Customers</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="#">Reviews</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-content-column">
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title"> Let's Chat</h2>
+                        <p class="footer-call-to-action-description"> Have a support question?</p>
+                        <a class="footer-call-to-action-button button" href="#" target="_self"> Get in Touch </a>
+                    </div>
+                    <div class="footer-call-to-action">
+                        <h2 class="footer-call-to-action-title"> You Call Us</h2>
+                        <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link"
+                                href="tel:0124-64XXXX" target="_self"> 0124-64XXXX </a></p>
+                    </div>
+                </div>
+                <div class="footer-social-links"> <svg class="footer-social-amoeba-svg"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 54">
+                        <path class="footer-social-amoeba-path"
+                            d="M223.06,43.32c-.77-7.2,1.87-28.47-20-32.53C187.78,8,180.41,18,178.32,20.7s-5.63,10.1-4.07,16.7-.13,15.23-4.06,15.91-8.75-2.9-6.89-7S167.41,36,167.15,33a18.93,18.93,0,0,0-2.64-8.53c-3.44-5.5-8-11.19-19.12-11.19a21.64,21.64,0,0,0-18.31,9.18c-2.08,2.7-5.66,9.6-4.07,16.69s.64,14.32-6.11,13.9S108.35,46.5,112,36.54s-1.89-21.24-4-23.94S96.34,0,85.23,0,57.46,8.84,56.49,24.56s6.92,20.79,7,24.59c.07,2.75-6.43,4.16-12.92,2.38s-4-10.75-3.46-12.38c1.85-6.6-2-14-4.08-16.69a21.62,21.62,0,0,0-18.3-9.18C13.62,13.28,9.06,19,5.62,24.47A18.81,18.81,0,0,0,3,33a21.85,21.85,0,0,0,1.58,9.08,16.58,16.58,0,0,1,1.06,5A6.75,6.75,0,0,1,0,54H236C235.47,54,223.83,50.52,223.06,43.32Z">
+                        </path>
+                    </svg>
+                    <a class="footer-social-link linkedin" href="#" target="_blank">
+                        <span class="hidden-link-text">Linkedin</span>
+                        <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                            <path class="footer-social-icon-path"
+                                d="M9,25H4V10h5V25z M6.501,8C5.118,8,4,6.879,4,5.499S5.12,3,6.501,3C7.879,3,9,4.121,9,5.499C9,6.879,7.879,8,6.501,8z M27,25h-4.807v-7.3c0-1.741-0.033-3.98-2.499-3.98c-2.503,0-2.888,1.896-2.888,3.854V25H12V9.989h4.614v2.051h0.065 c0.642-1.18,2.211-2.424,4.551-2.424c4.87,0,5.77,3.109,5.77,7.151C27,16.767,27,25,27,25z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="footer-social-link twitter" href="#" target="_blank">
+                        <span class="hidden-link-text">Twitter</span>
+                        <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                            <path class="footer-social-icon-path"
+                                d="M 25.855469 5.574219 C 24.914063 5.992188 23.902344 6.273438 22.839844 6.402344 C 23.921875 5.75 24.757813 4.722656 25.148438 3.496094 C 24.132813 4.097656 23.007813 4.535156 21.8125 4.769531 C 20.855469 3.75 19.492188 3.113281 17.980469 3.113281 C 15.082031 3.113281 12.730469 5.464844 12.730469 8.363281 C 12.730469 8.773438 12.777344 9.175781 12.867188 9.558594 C 8.503906 9.339844 4.636719 7.246094 2.046875 4.070313 C 1.59375 4.847656 1.335938 5.75 1.335938 6.714844 C 1.335938 8.535156 2.261719 10.140625 3.671875 11.082031 C 2.808594 11.054688 2 10.820313 1.292969 10.425781 C 1.292969 10.449219 1.292969 10.46875 1.292969 10.492188 C 1.292969 13.035156 3.101563 15.15625 5.503906 15.640625 C 5.0625 15.761719 4.601563 15.824219 4.121094 15.824219 C 3.78125 15.824219 3.453125 15.792969 3.132813 15.730469 C 3.800781 17.8125 5.738281 19.335938 8.035156 19.375 C 6.242188 20.785156 3.976563 21.621094 1.515625 21.621094 C 1.089844 21.621094 0.675781 21.597656 0.265625 21.550781 C 2.585938 23.039063 5.347656 23.90625 8.3125 23.90625 C 17.96875 23.90625 23.25 15.90625 23.25 8.972656 C 23.25 8.742188 23.246094 8.515625 23.234375 8.289063 C 24.261719 7.554688 25.152344 6.628906 25.855469 5.574219 ">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="footer-social-link youtube" href="#" target="_blank">
+                        <span class="hidden-link-text">Youtube</span>
+                        <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                            <path class="footer-social-icon-path"
+                                d="M 15 4 C 10.814 4 5.3808594 5.0488281 5.3808594 5.0488281 L 5.3671875 5.0644531 C 3.4606632 5.3693645 2 7.0076245 2 9 L 2 15 L 2 15.001953 L 2 21 L 2 21.001953 A 4 4 0 0 0 5.3769531 24.945312 L 5.3808594 24.951172 C 5.3808594 24.951172 10.814 26.001953 15 26.001953 C 19.186 26.001953 24.619141 24.951172 24.619141 24.951172 L 24.621094 24.949219 A 4 4 0 0 0 28 21.001953 L 28 21 L 28 15.001953 L 28 15 L 28 9 A 4 4 0 0 0 24.623047 5.0546875 L 24.619141 5.0488281 C 24.619141 5.0488281 19.186 4 15 4 z M 12 10.398438 L 20 15 L 12 19.601562 L 12 10.398438 z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="footer-social-link github" href="#" target="_blank">
+                        <span class="hidden-link-text">Github</span>
+                        <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                            <path class="footer-social-icon-path"
+                                d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z ">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="footer-copyright-wrapper">
+                    <p class="footer-copyright-text">
+                        <a class="footer-copyright-link" href="#" target="_self"> ©2020. | Designed By: Pooja Nahelia. |
+                            All rights reserved. </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+<script src="./src/js/nav.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="./src/js/slider.js"></script>
+
+</html>

@@ -75,7 +75,6 @@ private final Log log = LogFactoryUtil.getLog(ProyectoLocalServiceImpl.class);
 		}
 	
 	public Proyecto eliminarProyecto(long proyectoId) throws PortalException {
-
 		return proyectoPersistence.remove(proyectoId);
 	}
 	

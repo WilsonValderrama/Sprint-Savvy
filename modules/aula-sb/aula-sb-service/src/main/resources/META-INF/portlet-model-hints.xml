@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.aula.sb.model.T_Ul_Actividad">
+		<field name="uuid" type="String" />
+		<field name="idActividad" type="long" />
+		<field name="tituloActividad" type="String" />
+		<field name="tipoActividad" type="String" />
+		<field name="descriActividad" type="String" />
+		<field name="estadoEntrActividad" type="String" />
+		<field name="fCreacActividad" type="Date" />
+		<field name="fCierrActividad" type="Date" />
+		<field name="porcActividad" type="String" />
+		<field name="T_Ul_Califi_id" type="long" />
+		<field name="T_Ul_PAcademico_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_AdminCurso">
+		<field name="uuid" type="String" />
+		<field name="T_Ul_Admin_id" type="long" />
+		<field name="T_Ul_Curso_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Administrador">
+		<field name="uuid" type="String" />
+		<field name="idAdmin" type="long" />
+		<field name="nombreAdmin" type="String" />
+		<field name="CorreoAdmin" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Calificacion">
+		<field name="uuid" type="String" />
+		<field name="idCalificacion" type="long" />
+		<field name="puntCalificacion" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Curso">
+		<field name="uuid" type="String" />
+		<field name="idCurso" type="long" />
+		<field name="nombreCurso" type="String" />
+		<field name="fInicioCurso" type="Date" />
+		<field name="fFinCurso" type="Date" />
+		<field name="T_Ul_Califi_id" type="long" />
+		<field name="T_Ul_Profesor_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Estud_Curso">
+		<field name="uuid" type="String" />
+		<field name="T_Ul_Curso_id" type="long" />
+		<field name="T_Ul_Estudiante_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Estudiante">
+		<field name="uuid" type="String" />
+		<field name="idEstudiante" type="long" />
+		<field name="nombreEstudiante" type="String" />
+		<field name="correoEstudiante" type="String" />
+		<field name="profesEstudiante" type="String" />
+		<field name="sedeEstudiante" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_MaterialEstud">
+		<field name="uuid" type="String" />
+		<field name="idMaterial" type="long" />
+		<field name="tituloMaterial" type="String" />
+		<field name="fCreacionMaterial" type="Date" />
+		<field name="urlArchMaterial" type="String" />
+		<field name="descripMaterial" type="String" />
+		<field name="T_Ul_PAcademico_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_PAcademico">
+		<field name="uuid" type="String" />
+		<field name="idPeriodo" type="long" />
+		<field name="tituloPeriodo" type="String" />
+		<field name="fInicioPeriodo" type="Date" />
+		<field name="fFinPeriodo" type="Date" />
+		<field name="porcPeriodo" type="String" />
+		<field name="T_Ul_Curso_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_PrgEvaluacion">
+		<field name="uuid" type="String" />
+		<field name="idPreguntas" type="long" />
+		<field name="problPreguntas" type="String" />
+		<field name="opcPreguntas" type="String" />
+		<field name="puntajePreguntas" type="String" />
+		<field name="intentoPreguntas" type="String" />
+		<field name="limiteTPreguntas" type="String" />
+		<field name="T_Ul_Actividad_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_Profesor">
+		<field name="uuid" type="String" />
+		<field name="idProfesor" type="long" />
+		<field name="nombreProfesor" type="String" />
+		<field name="correoProfesor" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.aula.sb.model.T_Ul_ResEvaluacion">
+		<field name="uuid" type="String" />
+		<field name="idRespuestas" type="long" />
+		<field name="problRespuestas" type="String" />
+		<field name="opcionRespuestas" type="String" />
+		<field name="puntajeRespuestas" type="String" />
+		<field name="T_Ul_Estudiante_id" type="long" />
+		<field name="T_Ul_PrgEvaluacion_id" type="long" />
+		<field name="T_Ul_Califi_id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

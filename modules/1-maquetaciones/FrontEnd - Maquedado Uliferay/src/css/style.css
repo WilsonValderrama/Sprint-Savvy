@@ -1,0 +1,529 @@
+/* Generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.text-activity {
+    margin: 14px
+}
+
+.text-middle {
+    font-size: small;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+.hidden {
+    display: none;
+}
+/* Header */
+
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    background-color: #265a88;
+    color: white;
+    position: fixed;
+}
+
+.sidebar .logo-u {
+    text-align: center;
+}
+
+.sidebar .logo-u img {
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+}
+
+.sidebar i {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/*Hoverr del li*/
+.sidebar ul li:hover {
+    background-color: #1e3a66;
+}
+
+.sidebar ul li .badge {
+    background-color: #f39c12;
+    color: white;
+    height: 26px;
+    width: 26px;
+    border-radius: 100px;
+    padding: 6px;
+    margin-left: auto;
+    font-size: 0.8em;
+}
+
+/* Main */
+
+.container-tittle {
+    margin-left: 200px;
+    padding: 20px;
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.container-tittle h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.content-flex {
+    display: flex;
+    margin-left: 200px;
+}
+
+/* Cards */
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 50%;
+    flex-wrap: wrap;
+    height: min-content;
+    justify-content: center;
+}
+
+.card {
+    min-width: 250px;
+    height: 165px;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* Card hover más sombra*/
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-one {
+    background-color: #91349b;
+}
+
+.card-content {
+    padding: 20px;
+    background-color: white;
+    flex-grow: 1;
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.card-one h4 {
+    color: #91349b;
+}
+
+.card h4:hover {
+    text-decoration: underline;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #777;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.card-icons i {
+    font-size: 20px;
+    color: #888585;
+}
+
+.card-one .card-icons i:hover {
+    color: #91349b;
+}
+
+.mural-container {
+    display: flex;
+    padding: 0px 20px;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+}
+
+.mural img {
+    width: 500px;
+    border-radius: 8px;
+}
+
+.mural .text-middle {
+    margin-top: 10px;
+    width: 500px;
+    font-size: 15px;
+    color: #1c4566;
+    font-style: italic;
+}
+
+
+/* actividad.html */
+
+.container-activity {
+    width: 70%;
+    margin: 0px auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header-activity {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: start;
+}
+
+.task-list {
+    display: block;
+    padding: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-title p {
+    margin-left: 15px;
+}
+
+.task-title i {
+    font-size: 28px;
+}
+
+.task-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.task-title p span:first-child {
+    font-size: 15px;
+    color: #1c4566;
+}
+
+.task-title p span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Evaulación.html */
+.content-flex-evaluation {
+    justify-content: center;
+}
+
+.container-evaluation {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    width: 70%;
+    padding: 30px;
+}
+
+.header-evaluation {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1c4566;
+}
+
+.due-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.details-item {
+    display: flex;
+    padding: 18px 0px;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.details {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.details .subtitle {
+    font-weight: bold;
+    color: #666;
+    font-size: initial;
+}
+
+.details p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.start-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    float: right;
+}
+
+.start-button:hover {
+    background-color: #0056b3;
+}
+
+/* Examen.html*/
+
+.content-flex-evaluation .question label {
+    display: block;
+    margin: 10px 0;
+}
+
+.content-flex-evaluation .question h4 {
+    margin-bottom: 20px;
+    margin-top: 38px;
+}
+
+.content-flex-evaluation .question textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+#results {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+/* Móvil 320px - 743px */
+@media (min-width: 320px) and (max-width: 743px) {
+    /* Estilos para móviles */
+
+    .toggle-button {
+        font-size: 13px;
+    }
+
+    .card-container {
+        width: 100%;
+        padding: 0px 20px 20px;
+    }
+    .card{
+        min-width: 210px;
+    }
+
+    .mural{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .mural img {
+        width: 200px;
+    }
+    
+    .mural .text-middle {
+        width: 200px;
+        font-size: 12px;
+    }
+    
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar ul li a span {
+        display: none;
+    }
+
+    .sidebar .logo-u img {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .container-tittle {
+        font-size: 12px;
+    }
+
+    .container-tittle,
+    .content-flex {
+        margin-left: 70px;
+    }
+
+    .content-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-evaluation,
+    .container-activity {
+        width: 90%;
+    }
+
+    /* Exam y evaluación */
+    .container-evaluation {
+        padding: 20px;
+    }
+
+    .details-item {
+        padding: 10px 0px;
+        flex-direction: column;
+    }
+
+    .details {
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    .header-evaluation {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+
+    .question,
+    .details .subtitle,
+    .details p,
+    .details-item,
+    .due-date {
+        font-size: 12px;
+    }
+
+    .content-flex-evaluation .question h4,
+    .due-date{
+        margin-bottom: 10px;
+    }
+
+    .start-button{
+        font-size: 12px;
+    }
+
+}
+
+/* Tableta 744px - 991px */
+@media (min-width: 744px) and (max-width: 991px) {
+    /* Estilos para tabletas */
+    .mural img {
+        width: 300px;
+
+    }
+    
+    .mural .text-middle {
+        width: 300px;
+    }
+    
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar ul li a span {
+        display: none;
+    }
+
+    .sidebar .logo-u img {
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .sidebar ul {
+        margin-top: 0px;
+    }
+
+    .container-tittle,
+    .content-flex {
+        margin-left: 70px;
+    }
+
+}
+
+/* Escritorio pequeño 992px - 1439px */
+@media (min-width: 992px) and (max-width: 1439px) {
+    /* Estilos para escritorios pequeños */
+    .mural img {
+        width: 400px;
+    }
+    
+    .mural .text-middle {
+        width: 400px;
+    }
+}
+
+/* Escritorio grande 1440px y mayores */
+@media (min-width: 1440px) {
+    /* Estilos para escritorios grandes */
+}

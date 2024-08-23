@@ -41,8 +41,6 @@ public class CategoriaServiceImpl extends CategoriaServiceBaseImpl {
 return CategoriaLocalServiceUtil.createCategoria(nombreCategoria, descripcion, serviceContext);
 }
 
-
-
 public Categoria updateCategoria(long categoriaId, String nombreCategoria, String descripcion,
 			  ServiceContext serviceContext) throws PortalException  {
 return CategoriaLocalServiceUtil.updateCategoria(categoriaId, nombreCategoria, descripcion, serviceContext);
