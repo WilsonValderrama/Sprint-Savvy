@@ -79,11 +79,11 @@ public class T_Ul_CursoModelImpl
 	public static final Object[][] TABLE_COLUMNS = {
 		{"uuid_", Types.VARCHAR}, {"idCurso", Types.BIGINT},
 		{"nombreCurso", Types.VARCHAR}, {"fInicioCurso", Types.TIMESTAMP},
-		{"fFinCurso", Types.TIMESTAMP}, {"T_Ul_Califi_id", Types.BIGINT},
-		{"T_Ul_Profesor_id", Types.BIGINT}, {"groupId", Types.BIGINT},
-		{"companyId", Types.BIGINT}, {"userId", Types.BIGINT},
-		{"userName", Types.VARCHAR}, {"createDate", Types.TIMESTAMP},
-		{"modifiedDate", Types.TIMESTAMP}
+		{"fFinCurso", Types.TIMESTAMP}, {"colorCurso", Types.VARCHAR},
+		{"T_Ul_Califi_id", Types.BIGINT}, {"T_Ul_Profesor_id", Types.BIGINT},
+		{"groupId", Types.BIGINT}, {"companyId", Types.BIGINT},
+		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
+		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -95,6 +95,7 @@ public class T_Ul_CursoModelImpl
 		TABLE_COLUMNS_MAP.put("nombreCurso", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("fInicioCurso", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("fFinCurso", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("colorCurso", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("T_Ul_Califi_id", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("T_Ul_Profesor_id", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("groupId", Types.BIGINT);
@@ -106,7 +107,7 @@ public class T_Ul_CursoModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table AulaVirtual_T_Ul_Curso (uuid_ VARCHAR(75) null,idCurso LONG not null primary key,nombreCurso VARCHAR(75) null,fInicioCurso DATE null,fFinCurso DATE null,T_Ul_Califi_id LONG,T_Ul_Profesor_id LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null)";
+		"create table AulaVirtual_T_Ul_Curso (uuid_ VARCHAR(75) null,idCurso LONG not null primary key,nombreCurso VARCHAR(75) null,fInicioCurso DATE null,fFinCurso DATE null,colorCurso VARCHAR(75) null,T_Ul_Califi_id LONG,T_Ul_Profesor_id LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table AulaVirtual_T_Ul_Curso";
@@ -188,6 +189,7 @@ public class T_Ul_CursoModelImpl
 		model.setNombreCurso(soapModel.getNombreCurso());
 		model.setFInicioCurso(soapModel.getFInicioCurso());
 		model.setFFinCurso(soapModel.getFFinCurso());
+		model.setColorCurso(soapModel.getColorCurso());
 		model.setT_Ul_Califi_id(soapModel.getT_Ul_Califi_id());
 		model.setT_Ul_Profesor_id(soapModel.getT_Ul_Profesor_id());
 		model.setGroupId(soapModel.getGroupId());
@@ -319,6 +321,7 @@ public class T_Ul_CursoModelImpl
 		attributeGetterFunctions.put(
 			"fInicioCurso", T_Ul_Curso::getFInicioCurso);
 		attributeGetterFunctions.put("fFinCurso", T_Ul_Curso::getFFinCurso);
+		attributeGetterFunctions.put("colorCurso", T_Ul_Curso::getColorCurso);
 		attributeGetterFunctions.put(
 			"T_Ul_Califi_id", T_Ul_Curso::getT_Ul_Califi_id);
 		attributeGetterFunctions.put(
@@ -355,6 +358,9 @@ public class T_Ul_CursoModelImpl
 		attributeSetterBiConsumers.put(
 			"fFinCurso",
 			(BiConsumer<T_Ul_Curso, Date>)T_Ul_Curso::setFFinCurso);
+		attributeSetterBiConsumers.put(
+			"colorCurso",
+			(BiConsumer<T_Ul_Curso, String>)T_Ul_Curso::setColorCurso);
 		attributeSetterBiConsumers.put(
 			"T_Ul_Califi_id",
 			(BiConsumer<T_Ul_Curso, Long>)T_Ul_Curso::setT_Ul_Califi_id);
@@ -483,6 +489,26 @@ public class T_Ul_CursoModelImpl
 		}
 
 		_fFinCurso = fFinCurso;
+	}
+
+	@JSON
+	@Override
+	public String getColorCurso() {
+		if (_colorCurso == null) {
+			return "";
+		}
+		else {
+			return _colorCurso;
+		}
+	}
+
+	@Override
+	public void setColorCurso(String colorCurso) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_colorCurso = colorCurso;
 	}
 
 	@JSON
@@ -718,6 +744,7 @@ public class T_Ul_CursoModelImpl
 		t_Ul_CursoImpl.setNombreCurso(getNombreCurso());
 		t_Ul_CursoImpl.setFInicioCurso(getFInicioCurso());
 		t_Ul_CursoImpl.setFFinCurso(getFFinCurso());
+		t_Ul_CursoImpl.setColorCurso(getColorCurso());
 		t_Ul_CursoImpl.setT_Ul_Califi_id(getT_Ul_Califi_id());
 		t_Ul_CursoImpl.setT_Ul_Profesor_id(getT_Ul_Profesor_id());
 		t_Ul_CursoImpl.setGroupId(getGroupId());
@@ -845,6 +872,14 @@ public class T_Ul_CursoModelImpl
 		}
 		else {
 			t_Ul_CursoCacheModel.fFinCurso = Long.MIN_VALUE;
+		}
+
+		t_Ul_CursoCacheModel.colorCurso = getColorCurso();
+
+		String colorCurso = t_Ul_CursoCacheModel.colorCurso;
+
+		if ((colorCurso != null) && (colorCurso.length() == 0)) {
+			t_Ul_CursoCacheModel.colorCurso = null;
 		}
 
 		t_Ul_CursoCacheModel.T_Ul_Califi_id = getT_Ul_Califi_id();
@@ -980,6 +1015,7 @@ public class T_Ul_CursoModelImpl
 	private String _nombreCurso;
 	private Date _fInicioCurso;
 	private Date _fFinCurso;
+	private String _colorCurso;
 	private long _T_Ul_Califi_id;
 	private long _T_Ul_Profesor_id;
 	private long _groupId;
@@ -1024,6 +1060,7 @@ public class T_Ul_CursoModelImpl
 		_columnOriginalValues.put("nombreCurso", _nombreCurso);
 		_columnOriginalValues.put("fInicioCurso", _fInicioCurso);
 		_columnOriginalValues.put("fFinCurso", _fFinCurso);
+		_columnOriginalValues.put("colorCurso", _colorCurso);
 		_columnOriginalValues.put("T_Ul_Califi_id", _T_Ul_Califi_id);
 		_columnOriginalValues.put("T_Ul_Profesor_id", _T_Ul_Profesor_id);
 		_columnOriginalValues.put("groupId", _groupId);
@@ -1065,21 +1102,23 @@ public class T_Ul_CursoModelImpl
 
 		columnBitmasks.put("fFinCurso", 16L);
 
-		columnBitmasks.put("T_Ul_Califi_id", 32L);
+		columnBitmasks.put("colorCurso", 32L);
 
-		columnBitmasks.put("T_Ul_Profesor_id", 64L);
+		columnBitmasks.put("T_Ul_Califi_id", 64L);
 
-		columnBitmasks.put("groupId", 128L);
+		columnBitmasks.put("T_Ul_Profesor_id", 128L);
 
-		columnBitmasks.put("companyId", 256L);
+		columnBitmasks.put("groupId", 256L);
 
-		columnBitmasks.put("userId", 512L);
+		columnBitmasks.put("companyId", 512L);
 
-		columnBitmasks.put("userName", 1024L);
+		columnBitmasks.put("userId", 1024L);
 
-		columnBitmasks.put("createDate", 2048L);
+		columnBitmasks.put("userName", 2048L);
 
-		columnBitmasks.put("modifiedDate", 4096L);
+		columnBitmasks.put("createDate", 4096L);
+
+		columnBitmasks.put("modifiedDate", 8192L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

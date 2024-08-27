@@ -42,50 +42,13 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="T_Ul_Profesor"
-		remote-service="true" uuid="true">
-		<column name="idProfesor" primary="true" type="long" />
-		<column name="nombreProfesor" type="String" />
-		<column name="correoProfesor" type="String" />
-
-		<!-- Group instance -->
-
-		<column name="groupId" type="long" />
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long" />
-		<column name="userId" type="long" />
-		<column name="userName" type="String" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
-
-		<!-- Order -->
-
-		<order by="asc">
-			<order-column name="idProfesor" />
-		</order>
-
-		<!-- Finder methods -->
-
-		<finder name="nombreProfesor" return-type="Collection">
-			<finder-column name="nombreProfesor" />
-		</finder>
-
-		<!-- References -->
-
-		<reference entity="AssetEntry"
-			package-path="com.liferay.portlet.asset" />
-		<reference entity="AssetTag"
-			package-path="com.liferay.portlet.asset" />
-	</entity>
-
 	<entity local-service="true" name="T_Ul_Curso" remote-service="true"
 		uuid="true">
 		<column name="idCurso" primary="true" type="long" />
 		<column name="nombreCurso" type="String" />
 		<column name="fInicioCurso" type="Date" />
 		<column name="fFinCurso" type="Date" />
+		<column name="colorCurso" type="String" />
 		<!-- Foreign keys (relations) -->
 		<column name="T_Ul_Califi_id" type="long" />
 		<column name="T_Ul_Profesor_id" type="long" />
@@ -200,46 +163,6 @@
 
 		<finder name="TituloActividad" return-type="Collection">
 			<finder-column name="tituloActividad" />
-		</finder>
-
-		<!-- References -->
-
-		<reference entity="AssetEntry"
-			package-path="com.liferay.portlet.asset" />
-		<reference entity="AssetTag"
-			package-path="com.liferay.portlet.asset" />
-	</entity>
-
-	<entity local-service="true" name="T_Ul_Estudiante"
-		remote-service="true" uuid="true">
-		<column name="idEstudiante" primary="true" type="long" />
-		<column name="nombreEstudiante" type="String" />
-		<column name="correoEstudiante" type="String" />
-		<column name="profesEstudiante" type="String" />
-		<column name="sedeEstudiante" type="String" />
-
-		<!-- Group instance -->
-
-		<column name="groupId" type="long" />
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long" />
-		<column name="userId" type="long" />
-		<column name="userName" type="String" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
-
-		<!-- Order -->
-
-		<order by="asc">
-			<order-column name="idEstudiante" />
-		</order>
-
-		<!-- Finder methods -->
-
-		<finder name="nombreEstudiante" return-type="Collection">
-			<finder-column name="nombreEstudiante" />
 		</finder>
 
 		<!-- References -->
@@ -407,44 +330,6 @@
 
 		<finder name="T_Ul_Estudiante_id" return-type="Collection">
 			<finder-column name="T_Ul_Estudiante_id" />
-		</finder>
-
-		<!-- References -->
-
-		<reference entity="AssetEntry"
-			package-path="com.liferay.portlet.asset" />
-		<reference entity="AssetTag"
-			package-path="com.liferay.portlet.asset" />
-	</entity>
-
-	<entity local-service="true" name="T_Ul_Administrador"
-		remote-service="true" uuid="true">
-		<column name="idAdmin" primary="true" type="long" />
-		<column name="nombreAdmin" type="String" />
-		<column name="CorreoAdmin" type="String" />
-
-		<!-- Group instance -->
-
-		<column name="groupId" type="long" />
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long" />
-		<column name="userId" type="long" />
-		<column name="userName" type="String" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
-
-		<!-- Order -->
-
-		<order by="asc">
-			<order-column name="idAdmin" />
-		</order>
-
-		<!-- Finder methods -->
-
-		<finder name="nombreAdmin" return-type="Collection">
-			<finder-column name="nombreAdmin" />
 		</finder>
 
 		<!-- References -->

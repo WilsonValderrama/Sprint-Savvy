@@ -31,19 +31,6 @@ create table AulaVirtual_T_Ul_AdminCurso (
 	primary key (T_Ul_Admin_id, T_Ul_Curso_id)
 );
 
-create table AulaVirtual_T_Ul_Administrador (
-	uuid_ VARCHAR(75) null,
-	idAdmin LONG not null primary key,
-	nombreAdmin VARCHAR(75) null,
-	CorreoAdmin VARCHAR(75) null,
-	groupId LONG,
-	companyId LONG,
-	userId LONG,
-	userName VARCHAR(75) null,
-	createDate DATE null,
-	modifiedDate DATE null
-);
-
 create table AulaVirtual_T_Ul_Calificacion (
 	uuid_ VARCHAR(75) null,
 	idCalificacion LONG not null primary key,
@@ -62,6 +49,7 @@ create table AulaVirtual_T_Ul_Curso (
 	nombreCurso VARCHAR(75) null,
 	fInicioCurso DATE null,
 	fFinCurso DATE null,
+	colorCurso VARCHAR(75) null,
 	T_Ul_Califi_id LONG,
 	T_Ul_Profesor_id LONG,
 	groupId LONG,
@@ -83,21 +71,6 @@ create table AulaVirtual_T_Ul_Estud_Curso (
 	createDate DATE null,
 	modifiedDate DATE null,
 	primary key (T_Ul_Curso_id, T_Ul_Estudiante_id)
-);
-
-create table AulaVirtual_T_Ul_Estudiante (
-	uuid_ VARCHAR(75) null,
-	idEstudiante LONG not null primary key,
-	nombreEstudiante VARCHAR(75) null,
-	correoEstudiante VARCHAR(75) null,
-	profesEstudiante VARCHAR(75) null,
-	sedeEstudiante VARCHAR(75) null,
-	groupId LONG,
-	companyId LONG,
-	userId LONG,
-	userName VARCHAR(75) null,
-	createDate DATE null,
-	modifiedDate DATE null
 );
 
 create table AulaVirtual_T_Ul_MaterialEstud (
@@ -141,19 +114,6 @@ create table AulaVirtual_T_Ul_PrgEvaluacion (
 	intentoPreguntas VARCHAR(75) null,
 	limiteTPreguntas VARCHAR(75) null,
 	T_Ul_Actividad_id LONG,
-	groupId LONG,
-	companyId LONG,
-	userId LONG,
-	userName VARCHAR(75) null,
-	createDate DATE null,
-	modifiedDate DATE null
-);
-
-create table AulaVirtual_T_Ul_Profesor (
-	uuid_ VARCHAR(75) null,
-	idProfesor LONG not null primary key,
-	nombreProfesor VARCHAR(75) null,
-	correoProfesor VARCHAR(75) null,
 	groupId LONG,
 	companyId LONG,
 	userId LONG,

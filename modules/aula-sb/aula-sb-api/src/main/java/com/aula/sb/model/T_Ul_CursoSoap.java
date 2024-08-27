@@ -38,6 +38,7 @@ public class T_Ul_CursoSoap implements Serializable {
 		soapModel.setNombreCurso(model.getNombreCurso());
 		soapModel.setFInicioCurso(model.getFInicioCurso());
 		soapModel.setFFinCurso(model.getFFinCurso());
+		soapModel.setColorCurso(model.getColorCurso());
 		soapModel.setT_Ul_Califi_id(model.getT_Ul_Califi_id());
 		soapModel.setT_Ul_Profesor_id(model.getT_Ul_Profesor_id());
 		soapModel.setGroupId(model.getGroupId());
@@ -139,6 +140,14 @@ public class T_Ul_CursoSoap implements Serializable {
 		_fFinCurso = fFinCurso;
 	}
 
+	public String getColorCurso() {
+		return _colorCurso;
+	}
+
+	public void setColorCurso(String colorCurso) {
+		_colorCurso = colorCurso;
+	}
+
 	public long getT_Ul_Califi_id() {
 		return _T_Ul_Califi_id;
 	}
@@ -208,6 +217,7 @@ public class T_Ul_CursoSoap implements Serializable {
 	private String _nombreCurso;
 	private Date _fInicioCurso;
 	private Date _fFinCurso;
+	private String _colorCurso;
 	private long _T_Ul_Califi_id;
 	private long _T_Ul_Profesor_id;
 	private long _groupId;

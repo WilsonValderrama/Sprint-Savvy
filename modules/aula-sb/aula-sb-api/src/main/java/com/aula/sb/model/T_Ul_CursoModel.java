@@ -135,6 +135,21 @@ public interface T_Ul_CursoModel
 	public void setFFinCurso(Date fFinCurso);
 
 	/**
+	 * Returns the color curso of this t_ ul_ curso.
+	 *
+	 * @return the color curso of this t_ ul_ curso
+	 */
+	@AutoEscape
+	public String getColorCurso();
+
+	/**
+	 * Sets the color curso of this t_ ul_ curso.
+	 *
+	 * @param colorCurso the color curso of this t_ ul_ curso
+	 */
+	public void setColorCurso(String colorCurso);
+
+	/**
 	 * Returns the t_ ul_ califi_id of this t_ ul_ curso.
 	 *
 	 * @return the t_ ul_ califi_id of this t_ ul_ curso

@@ -96,7 +96,7 @@ public interface T_Ul_CursoLocalService
 
 	public T_Ul_Curso createT_Ul_Curso(
 			String nombreCurso, Date fInicioCurso, Date fFinCurso,
-			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String colorCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			ServiceContext serviceContext)
 		throws PortalException;
 
@@ -317,7 +317,7 @@ public interface T_Ul_CursoLocalService
 
 	public T_Ul_Curso updateT_Ul_Curso(
 			long idCurso, String nombreCurso, Date fInicioCurso, Date fFinCurso,
-			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String colorCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			ServiceContext serviceContext)
 		throws PortalException;
 

@@ -52,7 +52,7 @@ public class T_Ul_CursoLocalServiceImpl extends T_Ul_CursoLocalServiceBaseImpl {
 
 	private final Log log = LogFactoryUtil.getLog(T_Ul_CursoLocalServiceImpl.class); 
 
-	public T_Ul_Curso createT_Ul_Curso(String nombreCurso, Date fInicioCurso, Date fFinCurso,
+	public T_Ul_Curso createT_Ul_Curso(String nombreCurso, Date fInicioCurso, Date fFinCurso, String colorCurso,
 		    Long T_Ul_Califi_id, Long T_Ul_Profesor_id, ServiceContext serviceContext) throws PortalException {
 
 		    // Incrementar el contador para obtener un nuevo ID de curso
@@ -69,6 +69,7 @@ public class T_Ul_CursoLocalServiceImpl extends T_Ul_CursoLocalServiceBaseImpl {
 		    t_ul_curso.setNombreCurso(nombreCurso);
 		    t_ul_curso.setFInicioCurso(fInicioCurso);
 		    t_ul_curso.setFFinCurso(fFinCurso);
+		    t_ul_curso.setColorCurso(colorCurso);
 		    t_ul_curso.setT_Ul_Califi_id(T_Ul_Califi_id);
 		    t_ul_curso.setT_Ul_Profesor_id(T_Ul_Profesor_id);
 		    
@@ -87,7 +88,7 @@ public class T_Ul_CursoLocalServiceImpl extends T_Ul_CursoLocalServiceBaseImpl {
 		}
 
 	
-	public T_Ul_Curso updateT_Ul_Curso(long idCurso, String nombreCurso, Date fInicioCurso, Date fFinCurso,
+	public T_Ul_Curso updateT_Ul_Curso(long idCurso, String nombreCurso, Date fInicioCurso, Date fFinCurso, String colorCurso,
 			Long T_Ul_Califi_id,Long T_Ul_Profesor_id, ServiceContext serviceContext) throws PortalException {
 		
 		//Buscar por ID el curso a modificar
@@ -100,6 +101,7 @@ public class T_Ul_CursoLocalServiceImpl extends T_Ul_CursoLocalServiceBaseImpl {
 		t_ul_curso.setNombreCurso(nombreCurso);
 		t_ul_curso.setFInicioCurso(fInicioCurso);
 		t_ul_curso.setFFinCurso(fFinCurso);
+		t_ul_curso.setColorCurso(colorCurso);
 		t_ul_curso.setT_Ul_Califi_id(T_Ul_Califi_id);
 		t_ul_curso.setT_Ul_Profesor_id(T_Ul_Profesor_id);
 		

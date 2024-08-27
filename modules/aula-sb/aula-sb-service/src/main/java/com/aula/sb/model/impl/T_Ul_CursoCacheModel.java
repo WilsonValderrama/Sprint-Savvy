@@ -63,7 +63,7 @@ public class T_Ul_CursoCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -75,6 +75,8 @@ public class T_Ul_CursoCacheModel
 		sb.append(fInicioCurso);
 		sb.append(", fFinCurso=");
 		sb.append(fFinCurso);
+		sb.append(", colorCurso=");
+		sb.append(colorCurso);
 		sb.append(", T_Ul_Califi_id=");
 		sb.append(T_Ul_Califi_id);
 		sb.append(", T_Ul_Profesor_id=");
@@ -130,6 +132,13 @@ public class T_Ul_CursoCacheModel
 			t_Ul_CursoImpl.setFFinCurso(new Date(fFinCurso));
 		}
 
+		if (colorCurso == null) {
+			t_Ul_CursoImpl.setColorCurso("");
+		}
+		else {
+			t_Ul_CursoImpl.setColorCurso(colorCurso);
+		}
+
 		t_Ul_CursoImpl.setT_Ul_Califi_id(T_Ul_Califi_id);
 		t_Ul_CursoImpl.setT_Ul_Profesor_id(T_Ul_Profesor_id);
 		t_Ul_CursoImpl.setGroupId(groupId);
@@ -170,6 +179,7 @@ public class T_Ul_CursoCacheModel
 		nombreCurso = objectInput.readUTF();
 		fInicioCurso = objectInput.readLong();
 		fFinCurso = objectInput.readLong();
+		colorCurso = objectInput.readUTF();
 
 		T_Ul_Califi_id = objectInput.readLong();
 
@@ -206,6 +216,13 @@ public class T_Ul_CursoCacheModel
 		objectOutput.writeLong(fInicioCurso);
 		objectOutput.writeLong(fFinCurso);
 
+		if (colorCurso == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(colorCurso);
+		}
+
 		objectOutput.writeLong(T_Ul_Califi_id);
 
 		objectOutput.writeLong(T_Ul_Profesor_id);
@@ -232,6 +249,7 @@ public class T_Ul_CursoCacheModel
 	public String nombreCurso;
 	public long fInicioCurso;
 	public long fFinCurso;
+	public String colorCurso;
 	public long T_Ul_Califi_id;
 	public long T_Ul_Profesor_id;
 	public long groupId;

@@ -54,8 +54,8 @@ public class T_Ul_CursoServiceHttp {
 
 	public static com.aula.sb.model.T_Ul_Curso createT_Ul_Curso(
 			HttpPrincipal httpPrincipal, String nombreCurso,
-			String fInicioCurso, String fFinCurso, Long T_Ul_Califi_id,
-			Long T_Ul_Profesor_id,
+			String fInicioCurso, String fFinCurso, String colorCurso,
+			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -65,8 +65,8 @@ public class T_Ul_CursoServiceHttp {
 				_createT_Ul_CursoParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(
-				methodKey, nombreCurso, fInicioCurso, fFinCurso, T_Ul_Califi_id,
-				T_Ul_Profesor_id, serviceContext);
+				methodKey, nombreCurso, fInicioCurso, fFinCurso, colorCurso,
+				T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 
 			Object returnObj = null;
 
@@ -98,8 +98,8 @@ public class T_Ul_CursoServiceHttp {
 
 	public static com.aula.sb.model.T_Ul_Curso updateT_Ul_Curso(
 			HttpPrincipal httpPrincipal, long idCurso, String nombreCurso,
-			String fInicioCurso, String fFinCurso, Long T_Ul_Califi_id,
-			Long T_Ul_Profesor_id,
+			String fInicioCurso, String fFinCurso, String colorCurso,
+			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -110,7 +110,7 @@ public class T_Ul_CursoServiceHttp {
 
 			MethodHandler methodHandler = new MethodHandler(
 				methodKey, idCurso, nombreCurso, fInicioCurso, fFinCurso,
-				T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
+				colorCurso, T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 
 			Object returnObj = null;
 
@@ -286,13 +286,14 @@ public class T_Ul_CursoServiceHttp {
 
 	private static final Class<?>[] _createT_Ul_CursoParameterTypes0 =
 		new Class[] {
-			String.class, String.class, String.class, Long.class, Long.class,
-			com.liferay.portal.kernel.service.ServiceContext.class
+			String.class, String.class, String.class, String.class, Long.class,
+			Long.class, com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _updateT_Ul_CursoParameterTypes2 =
 		new Class[] {
-			long.class, String.class, String.class, String.class, Long.class,
-			Long.class, com.liferay.portal.kernel.service.ServiceContext.class
+			long.class, String.class, String.class, String.class, String.class,
+			Long.class, Long.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _deleteT_Ul_CursoParameterTypes3 =
 		new Class[] {long.class};

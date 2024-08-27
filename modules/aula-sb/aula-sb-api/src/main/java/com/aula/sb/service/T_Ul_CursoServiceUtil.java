@@ -41,12 +41,12 @@ public class T_Ul_CursoServiceUtil {
 	 */
 	public static T_Ul_Curso createT_Ul_Curso(
 			String nombreCurso, String fInicioCurso, String fFinCurso,
-			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String colorCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
 		return getService().createT_Ul_Curso(
-			nombreCurso, fInicioCurso, fFinCurso, T_Ul_Califi_id,
+			nombreCurso, fInicioCurso, fFinCurso, colorCurso, T_Ul_Califi_id,
 			T_Ul_Profesor_id, serviceContext);
 	}
 
@@ -81,13 +81,14 @@ public class T_Ul_CursoServiceUtil {
 
 	public static T_Ul_Curso updateT_Ul_Curso(
 			long idCurso, String nombreCurso, String fInicioCurso,
-			String fFinCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String fFinCurso, String colorCurso, Long T_Ul_Califi_id,
+			Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
 		return getService().updateT_Ul_Curso(
-			idCurso, nombreCurso, fInicioCurso, fFinCurso, T_Ul_Califi_id,
-			T_Ul_Profesor_id, serviceContext);
+			idCurso, nombreCurso, fInicioCurso, fFinCurso, colorCurso,
+			T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 	}
 
 	public static T_Ul_CursoService getService() {

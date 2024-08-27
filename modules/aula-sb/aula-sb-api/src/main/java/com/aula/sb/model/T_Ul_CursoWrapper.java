@@ -48,6 +48,7 @@ public class T_Ul_CursoWrapper
 		attributes.put("nombreCurso", getNombreCurso());
 		attributes.put("fInicioCurso", getFInicioCurso());
 		attributes.put("fFinCurso", getFFinCurso());
+		attributes.put("colorCurso", getColorCurso());
 		attributes.put("T_Ul_Califi_id", getT_Ul_Califi_id());
 		attributes.put("T_Ul_Profesor_id", getT_Ul_Profesor_id());
 		attributes.put("groupId", getGroupId());
@@ -90,6 +91,12 @@ public class T_Ul_CursoWrapper
 
 		if (fFinCurso != null) {
 			setFFinCurso(fFinCurso);
+		}
+
+		String colorCurso = (String)attributes.get("colorCurso");
+
+		if (colorCurso != null) {
+			setColorCurso(colorCurso);
 		}
 
 		Long T_Ul_Califi_id = (Long)attributes.get("T_Ul_Califi_id");
@@ -139,6 +146,16 @@ public class T_Ul_CursoWrapper
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+	}
+
+	/**
+	 * Returns the color curso of this t_ ul_ curso.
+	 *
+	 * @return the color curso of this t_ ul_ curso
+	 */
+	@Override
+	public String getColorCurso() {
+		return model.getColorCurso();
 	}
 
 	/**
@@ -294,6 +311,16 @@ public class T_Ul_CursoWrapper
 	@Override
 	public void persist() {
 		model.persist();
+	}
+
+	/**
+	 * Sets the color curso of this t_ ul_ curso.
+	 *
+	 * @param colorCurso the color curso of this t_ ul_ curso
+	 */
+	@Override
+	public void setColorCurso(String colorCurso) {
+		model.setColorCurso(colorCurso);
 	}
 
 	/**

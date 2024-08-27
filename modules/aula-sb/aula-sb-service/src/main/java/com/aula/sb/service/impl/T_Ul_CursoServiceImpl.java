@@ -55,7 +55,7 @@ public class T_Ul_CursoServiceImpl extends T_Ul_CursoServiceBaseImpl {
 	
 	private final Log log = LogFactoryUtil.getLog(T_Ul_CursoServiceImpl.class); 
 
-	public T_Ul_Curso createT_Ul_Curso(String nombreCurso, String fInicioCurso, String fFinCurso, Long T_Ul_Califi_id,
+	public T_Ul_Curso createT_Ul_Curso(String nombreCurso, String fInicioCurso, String fFinCurso, String colorCurso, Long T_Ul_Califi_id,
 	        Long T_Ul_Profesor_id, ServiceContext serviceContext) throws PortalException {
 	    
 	    log.info("Inicio de creacion de curso en el servicio remoto");
@@ -63,24 +63,11 @@ public class T_Ul_CursoServiceImpl extends T_Ul_CursoServiceBaseImpl {
 	            ", fFinCurso=" + fFinCurso + ", T_Ul_Califi_id=" + T_Ul_Califi_id +
 	            ", T_Ul_Profesor_id=" + T_Ul_Profesor_id);
 	    
-	    // Verificar si algun parametro es null
-	    if (nombreCurso == null || fInicioCurso == null || fFinCurso == null || 
-	        T_Ul_Califi_id == null || T_Ul_Profesor_id == null) {
-	        log.error("Algun parametro recibido es null.");
-	        throw new PortalException("Algun parametro recibido es null.");
-	    }
-
 	    // Llamada al servicio local
-	    T_Ul_Curso curso = T_Ul_CursoLocalServiceUtil.createT_Ul_Curso(nombreCurso, _parseDate(fInicioCurso), _parseDate(fFinCurso), T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
+	    T_Ul_Curso curso = T_Ul_CursoLocalServiceUtil.createT_Ul_Curso(nombreCurso, _parseDate(fInicioCurso), _parseDate(fFinCurso), colorCurso, T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 	    
 	    log.info("Curso creado en el servicio remoto: " + curso);
 
-	    // Verifica el curso creado
-	    if (curso == null) {
-	        log.error("El curso creado es null.");
-	        throw new PortalException("El curso creado es null.");
-	    }
-	    
 	    return curso;
 	}
 
@@ -94,13 +81,13 @@ public class T_Ul_CursoServiceImpl extends T_Ul_CursoServiceBaseImpl {
 	    }
 	}
 	
-	public T_Ul_Curso updateT_Ul_Curso(long idCurso, String nombreCurso, String fInicioCurso, String fFinCurso, Long T_Ul_Califi_id,
+	public T_Ul_Curso updateT_Ul_Curso(long idCurso, String nombreCurso, String fInicioCurso, String fFinCurso, String colorCurso, Long T_Ul_Califi_id,
 	        Long T_Ul_Profesor_id, ServiceContext serviceContext) throws PortalException {
 	    
 	    Date inicioCurso = _parseDate(fInicioCurso);
 	    Date finCurso = _parseDate(fFinCurso);
 	    
-	    return T_Ul_CursoLocalServiceUtil.updateT_Ul_Curso(idCurso, nombreCurso, inicioCurso, finCurso, T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
+	    return T_Ul_CursoLocalServiceUtil.updateT_Ul_Curso(idCurso, nombreCurso, inicioCurso, finCurso, colorCurso, T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 	}
 	
 	public T_Ul_Curso deleteT_Ul_Curso(long idCurso) throws PortalException{

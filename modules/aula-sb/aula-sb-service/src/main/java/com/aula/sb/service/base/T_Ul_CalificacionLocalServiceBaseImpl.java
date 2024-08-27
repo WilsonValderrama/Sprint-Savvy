@@ -19,15 +19,12 @@ import com.aula.sb.service.T_Ul_CalificacionLocalService;
 import com.aula.sb.service.T_Ul_CalificacionLocalServiceUtil;
 import com.aula.sb.service.persistence.T_Ul_ActividadPersistence;
 import com.aula.sb.service.persistence.T_Ul_AdminCursoPersistence;
-import com.aula.sb.service.persistence.T_Ul_AdministradorPersistence;
 import com.aula.sb.service.persistence.T_Ul_CalificacionPersistence;
 import com.aula.sb.service.persistence.T_Ul_CursoPersistence;
 import com.aula.sb.service.persistence.T_Ul_Estud_CursoPersistence;
-import com.aula.sb.service.persistence.T_Ul_EstudiantePersistence;
 import com.aula.sb.service.persistence.T_Ul_MaterialEstudPersistence;
 import com.aula.sb.service.persistence.T_Ul_PAcademicoPersistence;
 import com.aula.sb.service.persistence.T_Ul_PrgEvaluacionPersistence;
-import com.aula.sb.service.persistence.T_Ul_ProfesorPersistence;
 import com.aula.sb.service.persistence.T_Ul_ResEvaluacionPersistence;
 
 import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
@@ -609,9 +606,6 @@ public abstract class T_Ul_CalificacionLocalServiceBaseImpl
 	@Reference
 	protected T_Ul_AdminCursoPersistence t_Ul_AdminCursoPersistence;
 
-	@Reference
-	protected T_Ul_AdministradorPersistence t_Ul_AdministradorPersistence;
-
 	protected T_Ul_CalificacionLocalService t_Ul_CalificacionLocalService;
 
 	@Reference
@@ -624,9 +618,6 @@ public abstract class T_Ul_CalificacionLocalServiceBaseImpl
 	protected T_Ul_Estud_CursoPersistence t_Ul_Estud_CursoPersistence;
 
 	@Reference
-	protected T_Ul_EstudiantePersistence t_Ul_EstudiantePersistence;
-
-	@Reference
 	protected T_Ul_MaterialEstudPersistence t_Ul_MaterialEstudPersistence;
 
 	@Reference
@@ -634,9 +625,6 @@ public abstract class T_Ul_CalificacionLocalServiceBaseImpl
 
 	@Reference
 	protected T_Ul_PrgEvaluacionPersistence t_Ul_PrgEvaluacionPersistence;
-
-	@Reference
-	protected T_Ul_ProfesorPersistence t_Ul_ProfesorPersistence;
 
 	@Reference
 	protected T_Ul_ResEvaluacionPersistence t_Ul_ResEvaluacionPersistence;

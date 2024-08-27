@@ -66,15 +66,15 @@ public class T_Ul_CursoServiceSoap {
 
 	public static com.aula.sb.model.T_Ul_CursoSoap createT_Ul_Curso(
 			String nombreCurso, String fInicioCurso, String fFinCurso,
-			Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String colorCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
 		try {
 			com.aula.sb.model.T_Ul_Curso returnValue =
 				T_Ul_CursoServiceUtil.createT_Ul_Curso(
-					nombreCurso, fInicioCurso, fFinCurso, T_Ul_Califi_id,
-					T_Ul_Profesor_id, serviceContext);
+					nombreCurso, fInicioCurso, fFinCurso, colorCurso,
+					T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 
 			return com.aula.sb.model.T_Ul_CursoSoap.toSoapModel(returnValue);
 		}
@@ -87,14 +87,15 @@ public class T_Ul_CursoServiceSoap {
 
 	public static com.aula.sb.model.T_Ul_CursoSoap updateT_Ul_Curso(
 			long idCurso, String nombreCurso, String fInicioCurso,
-			String fFinCurso, Long T_Ul_Califi_id, Long T_Ul_Profesor_id,
+			String fFinCurso, String colorCurso, Long T_Ul_Califi_id,
+			Long T_Ul_Profesor_id,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
 		try {
 			com.aula.sb.model.T_Ul_Curso returnValue =
 				T_Ul_CursoServiceUtil.updateT_Ul_Curso(
-					idCurso, nombreCurso, fInicioCurso, fFinCurso,
+					idCurso, nombreCurso, fInicioCurso, fFinCurso, colorCurso,
 					T_Ul_Califi_id, T_Ul_Profesor_id, serviceContext);
 
 			return com.aula.sb.model.T_Ul_CursoSoap.toSoapModel(returnValue);
