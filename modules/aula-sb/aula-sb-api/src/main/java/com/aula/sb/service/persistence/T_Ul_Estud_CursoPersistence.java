@@ -537,6 +537,150 @@ public interface T_Ul_Estud_CursoPersistence
 	public int countByT_Ul_Estudiante_id(long T_Ul_Estudiante_id);
 
 	/**
+	 * Returns all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @return the matching t_ ul_ estud_ cursos
+	 */
+	public java.util.List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id);
+
+	/**
+	 * Returns a range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @return the range of matching t_ ul_ estud_ cursos
+	 */
+	public java.util.List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end);
+
+	/**
+	 * Returns an ordered range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching t_ ul_ estud_ cursos
+	 */
+	public java.util.List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+			orderByComparator);
+
+	/**
+	 * Returns an ordered range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching t_ ul_ estud_ cursos
+	 */
+	public java.util.List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+			orderByComparator,
+		boolean useFinderCache);
+
+	/**
+	 * Returns the first t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a matching t_ ul_ estud_ curso could not be found
+	 */
+	public T_Ul_Estud_Curso findByT_Ul_Curso_id_First(
+			long T_Ul_Curso_id,
+			com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+				orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException;
+
+	/**
+	 * Returns the first t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching t_ ul_ estud_ curso, or <code>null</code> if a matching t_ ul_ estud_ curso could not be found
+	 */
+	public T_Ul_Estud_Curso fetchByT_Ul_Curso_id_First(
+		long T_Ul_Curso_id,
+		com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+			orderByComparator);
+
+	/**
+	 * Returns the last t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a matching t_ ul_ estud_ curso could not be found
+	 */
+	public T_Ul_Estud_Curso findByT_Ul_Curso_id_Last(
+			long T_Ul_Curso_id,
+			com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+				orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException;
+
+	/**
+	 * Returns the last t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching t_ ul_ estud_ curso, or <code>null</code> if a matching t_ ul_ estud_ curso could not be found
+	 */
+	public T_Ul_Estud_Curso fetchByT_Ul_Curso_id_Last(
+		long T_Ul_Curso_id,
+		com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+			orderByComparator);
+
+	/**
+	 * Returns the t_ ul_ estud_ cursos before and after the current t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param t_Ul_Estud_CursoPK the primary key of the current t_ ul_ estud_ curso
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a t_ ul_ estud_ curso with the primary key could not be found
+	 */
+	public T_Ul_Estud_Curso[] findByT_Ul_Curso_id_PrevAndNext(
+			T_Ul_Estud_CursoPK t_Ul_Estud_CursoPK, long T_Ul_Curso_id,
+			com.liferay.portal.kernel.util.OrderByComparator<T_Ul_Estud_Curso>
+				orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException;
+
+	/**
+	 * Removes all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63; from the database.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 */
+	public void removeByT_Ul_Curso_id(long T_Ul_Curso_id);
+
+	/**
+	 * Returns the number of t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @return the number of matching t_ ul_ estud_ cursos
+	 */
+	public int countByT_Ul_Curso_id(long T_Ul_Curso_id);
+
+	/**
 	 * Caches the t_ ul_ estud_ curso in the entity cache if it is enabled.
 	 *
 	 * @param t_Ul_Estud_Curso the t_ ul_ estud_ curso

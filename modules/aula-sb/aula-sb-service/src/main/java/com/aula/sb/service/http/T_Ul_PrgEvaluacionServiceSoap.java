@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_PrgEvaluacionServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_PrgEvaluacionServiceUtil</code> service
+ * <code>T_Ul_PrgEvaluacionServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,114 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_PrgEvaluacionServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_PrgEvaluacionSoap
+			createT_Ul_PrgEvaluacion(
+				String problPreguntas, String opcPreguntas,
+				String puntajePreguntas, String intentoPreguntas,
+				String limiteTPreguntas, Long T_Ul_Actividad_id,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PrgEvaluacion returnValue =
+				T_Ul_PrgEvaluacionServiceUtil.createT_Ul_PrgEvaluacion(
+					problPreguntas, opcPreguntas, puntajePreguntas,
+					intentoPreguntas, limiteTPreguntas, T_Ul_Actividad_id,
+					serviceContext);
+
+			return com.aula.sb.model.T_Ul_PrgEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PrgEvaluacionSoap
+			updateT_Ul_PrgEvaluacion(
+				Long idPreguntas, String problPreguntas, String opcPreguntas,
+				String puntajePreguntas, String intentoPreguntas,
+				String limiteTPreguntas, Long T_Ul_Actividad_id,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PrgEvaluacion returnValue =
+				T_Ul_PrgEvaluacionServiceUtil.updateT_Ul_PrgEvaluacion(
+					idPreguntas, problPreguntas, opcPreguntas, puntajePreguntas,
+					intentoPreguntas, limiteTPreguntas, T_Ul_Actividad_id,
+					serviceContext);
+
+			return com.aula.sb.model.T_Ul_PrgEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PrgEvaluacionSoap
+			deleteT_Ul_PrgEvaluacion(long idPreguntas)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PrgEvaluacion returnValue =
+				T_Ul_PrgEvaluacionServiceUtil.deleteT_Ul_PrgEvaluacion(
+					idPreguntas);
+
+			return com.aula.sb.model.T_Ul_PrgEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PrgEvaluacionSoap
+			getT_Ul_PrgEvaluacion(long idPreguntas)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PrgEvaluacion returnValue =
+				T_Ul_PrgEvaluacionServiceUtil.getT_Ul_PrgEvaluacion(
+					idPreguntas);
+
+			return com.aula.sb.model.T_Ul_PrgEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PrgEvaluacionSoap[]
+			getAllT_Ul_PrgEvaluaciones()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_PrgEvaluacion> returnValue =
+				T_Ul_PrgEvaluacionServiceUtil.getAllT_Ul_PrgEvaluaciones();
+
+			return com.aula.sb.model.T_Ul_PrgEvaluacionSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_PrgEvaluacionServiceSoap.class);
+
 }

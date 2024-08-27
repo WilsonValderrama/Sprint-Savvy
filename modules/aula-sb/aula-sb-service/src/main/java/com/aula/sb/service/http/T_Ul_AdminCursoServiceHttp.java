@@ -14,13 +14,22 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_AdminCursoServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.HttpPrincipal;
+import com.liferay.portal.kernel.service.http.TunnelUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
+
 /**
  * Provides the HTTP utility for the
- * <code>com.aula.sb.service.T_Ul_AdminCursoServiceUtil</code> service
+ * <code>T_Ul_AdminCursoServiceUtil</code> service
  * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -42,4 +51,158 @@ package com.aula.sb.service.http;
  * @generated
  */
 public class T_Ul_AdminCursoServiceHttp {
+
+	public static com.aula.sb.model.T_Ul_AdminCurso createAdminCurso(
+			HttpPrincipal httpPrincipal, long cursoId, long adminId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				T_Ul_AdminCursoServiceUtil.class, "createAdminCurso",
+				_createAdminCursoParameterTypes0);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, cursoId, adminId, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.aula.sb.model.T_Ul_AdminCurso)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static void deleteAdminCurso(
+			HttpPrincipal httpPrincipal, long cursoId, long adminId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				T_Ul_AdminCursoServiceUtil.class, "deleteAdminCurso",
+				_deleteAdminCursoParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, cursoId, adminId);
+
+			try {
+				TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.aula.sb.model.T_Ul_AdminCurso> getAll(
+		HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				T_Ul_AdminCursoServiceUtil.class, "getAll",
+				_getAllParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.aula.sb.model.T_Ul_AdminCurso>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.aula.sb.model.T_Ul_AdminCurso>
+		getAnminByCursoId(HttpPrincipal httpPrincipal, long cursoId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				T_Ul_AdminCursoServiceUtil.class, "getAnminByCursoId",
+				_getAnminByCursoIdParameterTypes3);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, cursoId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.aula.sb.model.T_Ul_AdminCurso>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_AdminCursoServiceHttp.class);
+
+	private static final Class<?>[] _createAdminCursoParameterTypes0 =
+		new Class[] {
+			long.class, long.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
+	private static final Class<?>[] _deleteAdminCursoParameterTypes1 =
+		new Class[] {long.class, long.class};
+	private static final Class<?>[] _getAllParameterTypes2 = new Class[] {};
+	private static final Class<?>[] _getAnminByCursoIdParameterTypes3 =
+		new Class[] {long.class};
+
 }

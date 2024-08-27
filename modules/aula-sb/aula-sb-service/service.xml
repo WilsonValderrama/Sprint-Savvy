@@ -331,6 +331,10 @@
 		<finder name="T_Ul_Estudiante_id" return-type="Collection">
 			<finder-column name="T_Ul_Estudiante_id" />
 		</finder>
+		
+		<finder name="T_Ul_Curso_id" return-type="Collection">
+			<finder-column name="T_Ul_Curso_id" />
+		</finder>
 
 		<!-- References -->
 

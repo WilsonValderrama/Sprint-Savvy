@@ -14,13 +14,19 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_PrgEvaluacion;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +53,17 @@ public interface T_Ul_PrgEvaluacionService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_PrgEvaluacionServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the t_ ul_ prg evaluacion remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link T_Ul_PrgEvaluacionServiceUtil} if injection and service tracking are not available.
 	 */
+	public T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(
+			String problPreguntas, String opcPreguntas, String puntajePreguntas,
+			String intentoPreguntas, String limiteTPreguntas,
+			Long T_Ul_Actividad_id, ServiceContext serviceContext)
+		throws PortalException;
+
+	public T_Ul_PrgEvaluacion deleteT_Ul_PrgEvaluacion(long idPreguntas)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_PrgEvaluacion> getAllT_Ul_PrgEvaluaciones();
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -54,5 +71,16 @@ public interface T_Ul_PrgEvaluacionService extends BaseService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public T_Ul_PrgEvaluacion getT_Ul_PrgEvaluacion(long idPreguntas)
+		throws PortalException;
+
+	public T_Ul_PrgEvaluacion updateT_Ul_PrgEvaluacion(
+			Long idPreguntas, String problPreguntas, String opcPreguntas,
+			String puntajePreguntas, String intentoPreguntas,
+			String limiteTPreguntas, Long T_Ul_Actividad_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 }

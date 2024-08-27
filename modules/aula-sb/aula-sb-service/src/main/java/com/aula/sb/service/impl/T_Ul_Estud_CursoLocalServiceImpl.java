@@ -14,9 +14,11 @@
 
 package com.aula.sb.service.impl;
 
+
 import com.aula.sb.service.base.T_Ul_Estud_CursoLocalServiceBaseImpl;
 
 import com.liferay.portal.aop.AopService;
+
 
 import org.osgi.service.component.annotations.Component;
 
@@ -29,4 +31,5 @@ import org.osgi.service.component.annotations.Component;
 )
 public class T_Ul_Estud_CursoLocalServiceImpl
 	extends T_Ul_Estud_CursoLocalServiceBaseImpl {
+	
 }

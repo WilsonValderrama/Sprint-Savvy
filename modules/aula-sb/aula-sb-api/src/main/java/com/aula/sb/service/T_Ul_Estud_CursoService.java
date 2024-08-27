@@ -14,13 +14,19 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_Estud_Curso;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +53,21 @@ public interface T_Ul_Estud_CursoService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_Estud_CursoServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the t_ ul_ estud_ curso remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link T_Ul_Estud_CursoServiceUtil} if injection and service tracking are not available.
 	 */
+	public T_Ul_Estud_Curso createEstudCurso(
+			long cursoId, long estudianteId, ServiceContext serviceContext)
+		throws PortalException;
+
+	public void deleteEstudCurso(long cursoId, long estudianteId)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Estud_Curso> getAll();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Estud_Curso> getCursosByEstudianteId(long estudianteId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Estud_Curso> getEstudiantesByCursoId(long cursoId);
 
 	/**
 	 * Returns the OSGi service identifier.

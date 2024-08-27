@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_Estud_CursoServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_Estud_CursoServiceUtil</code> service
+ * <code>T_Ul_Estud_CursoServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,95 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_Estud_CursoServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_Estud_CursoSoap createEstudCurso(
+			long cursoId, long estudianteId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Estud_Curso returnValue =
+				T_Ul_Estud_CursoServiceUtil.createEstudCurso(
+					cursoId, estudianteId, serviceContext);
+
+			return com.aula.sb.model.T_Ul_Estud_CursoSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static void deleteEstudCurso(long cursoId, long estudianteId)
+		throws RemoteException {
+
+		try {
+			T_Ul_Estud_CursoServiceUtil.deleteEstudCurso(cursoId, estudianteId);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_Estud_CursoSoap[] getAll()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Estud_Curso> returnValue =
+				T_Ul_Estud_CursoServiceUtil.getAll();
+
+			return com.aula.sb.model.T_Ul_Estud_CursoSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_Estud_CursoSoap[]
+			getCursosByEstudianteId(long estudianteId)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Estud_Curso> returnValue =
+				T_Ul_Estud_CursoServiceUtil.getCursosByEstudianteId(
+					estudianteId);
+
+			return com.aula.sb.model.T_Ul_Estud_CursoSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_Estud_CursoSoap[]
+			getEstudiantesByCursoId(long cursoId)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Estud_Curso> returnValue =
+				T_Ul_Estud_CursoServiceUtil.getEstudiantesByCursoId(cursoId);
+
+			return com.aula.sb.model.T_Ul_Estud_CursoSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_Estud_CursoServiceSoap.class);
+
 }

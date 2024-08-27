@@ -32,6 +32,35 @@ public class T_Ul_AdminCursoServiceWrapper
 		_t_Ul_AdminCursoService = t_Ul_AdminCursoService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_AdminCurso createAdminCurso(
+			long cursoId, long adminId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_AdminCursoService.createAdminCurso(
+			cursoId, adminId, serviceContext);
+	}
+
+	@Override
+	public void deleteAdminCurso(long cursoId, long adminId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		_t_Ul_AdminCursoService.deleteAdminCurso(cursoId, adminId);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_AdminCurso> getAll() {
+		return _t_Ul_AdminCursoService.getAll();
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_AdminCurso> getAnminByCursoId(
+		long cursoId) {
+
+		return _t_Ul_AdminCursoService.getAnminByCursoId(cursoId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

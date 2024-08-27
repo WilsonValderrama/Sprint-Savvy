@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_PrgEvaluacion;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_PrgEvaluacion. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_PrgEvaluacionServiceImpl</code> and is an
@@ -33,14 +39,54 @@ public class T_Ul_PrgEvaluacionServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_PrgEvaluacionServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(
+			String problPreguntas, String opcPreguntas, String puntajePreguntas,
+			String intentoPreguntas, String limiteTPreguntas,
+			Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_PrgEvaluacion(
+			problPreguntas, opcPreguntas, puntajePreguntas, intentoPreguntas,
+			limiteTPreguntas, T_Ul_Actividad_id, serviceContext);
+	}
+
+	public static T_Ul_PrgEvaluacion deleteT_Ul_PrgEvaluacion(long idPreguntas)
+		throws PortalException {
+
+		return getService().deleteT_Ul_PrgEvaluacion(idPreguntas);
+	}
+
+	public static List<T_Ul_PrgEvaluacion> getAllT_Ul_PrgEvaluaciones() {
+		return getService().getAllT_Ul_PrgEvaluaciones();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static T_Ul_PrgEvaluacion getT_Ul_PrgEvaluacion(long idPreguntas)
+		throws PortalException {
+
+		return getService().getT_Ul_PrgEvaluacion(idPreguntas);
+	}
+
+	public static T_Ul_PrgEvaluacion updateT_Ul_PrgEvaluacion(
+			Long idPreguntas, String problPreguntas, String opcPreguntas,
+			String puntajePreguntas, String intentoPreguntas,
+			String limiteTPreguntas, Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_PrgEvaluacion(
+			idPreguntas, problPreguntas, opcPreguntas, puntajePreguntas,
+			intentoPreguntas, limiteTPreguntas, T_Ul_Actividad_id,
+			serviceContext);
 	}
 
 	public static T_Ul_PrgEvaluacionService getService() {

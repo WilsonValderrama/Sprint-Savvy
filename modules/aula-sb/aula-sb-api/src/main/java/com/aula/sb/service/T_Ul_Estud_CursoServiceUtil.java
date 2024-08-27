@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_Estud_Curso;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_Estud_Curso. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_Estud_CursoServiceImpl</code> and is an
@@ -33,13 +39,41 @@ public class T_Ul_Estud_CursoServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_Estud_CursoServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_Estud_Curso createEstudCurso(
+			long cursoId, long estudianteId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createEstudCurso(
+			cursoId, estudianteId, serviceContext);
+	}
+
+	public static void deleteEstudCurso(long cursoId, long estudianteId)
+		throws PortalException {
+
+		getService().deleteEstudCurso(cursoId, estudianteId);
+	}
+
+	public static List<T_Ul_Estud_Curso> getAll() {
+		return getService().getAll();
+	}
+
+	public static List<T_Ul_Estud_Curso> getCursosByEstudianteId(
+		long estudianteId) {
+
+		return getService().getCursosByEstudianteId(estudianteId);
+	}
+
+	public static List<T_Ul_Estud_Curso> getEstudiantesByCursoId(long cursoId) {
+		return getService().getEstudiantesByCursoId(cursoId);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

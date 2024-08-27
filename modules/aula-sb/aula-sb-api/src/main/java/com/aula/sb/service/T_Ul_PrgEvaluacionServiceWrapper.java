@@ -33,6 +33,34 @@ public class T_Ul_PrgEvaluacionServiceWrapper
 		_t_Ul_PrgEvaluacionService = t_Ul_PrgEvaluacionService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(
+			String problPreguntas, String opcPreguntas, String puntajePreguntas,
+			String intentoPreguntas, String limiteTPreguntas,
+			Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionService.createT_Ul_PrgEvaluacion(
+			problPreguntas, opcPreguntas, puntajePreguntas, intentoPreguntas,
+			limiteTPreguntas, T_Ul_Actividad_id, serviceContext);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion deleteT_Ul_PrgEvaluacion(
+			long idPreguntas)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionService.deleteT_Ul_PrgEvaluacion(idPreguntas);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PrgEvaluacion>
+		getAllT_Ul_PrgEvaluaciones() {
+
+		return _t_Ul_PrgEvaluacionService.getAllT_Ul_PrgEvaluaciones();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -41,6 +69,28 @@ public class T_Ul_PrgEvaluacionServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _t_Ul_PrgEvaluacionService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion getT_Ul_PrgEvaluacion(
+			long idPreguntas)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionService.getT_Ul_PrgEvaluacion(idPreguntas);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion updateT_Ul_PrgEvaluacion(
+			Long idPreguntas, String problPreguntas, String opcPreguntas,
+			String puntajePreguntas, String intentoPreguntas,
+			String limiteTPreguntas, Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionService.updateT_Ul_PrgEvaluacion(
+			idPreguntas, problPreguntas, opcPreguntas, puntajePreguntas,
+			intentoPreguntas, limiteTPreguntas, T_Ul_Actividad_id,
+			serviceContext);
 	}
 
 	@Override

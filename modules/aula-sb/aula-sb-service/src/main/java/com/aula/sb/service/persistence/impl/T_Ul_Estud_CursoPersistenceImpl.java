@@ -1985,6 +1985,513 @@ public class T_Ul_Estud_CursoPersistenceImpl
 		_FINDER_COLUMN_T_UL_ESTUDIANTE_ID_T_UL_ESTUDIANTE_ID_2 =
 			"t_Ul_Estud_Curso.id.T_Ul_Estudiante_id = ?";
 
+	private FinderPath _finderPathWithPaginationFindByT_Ul_Curso_id;
+	private FinderPath _finderPathWithoutPaginationFindByT_Ul_Curso_id;
+	private FinderPath _finderPathCountByT_Ul_Curso_id;
+
+	/**
+	 * Returns all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @return the matching t_ ul_ estud_ cursos
+	 */
+	@Override
+	public List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(long T_Ul_Curso_id) {
+		return findByT_Ul_Curso_id(
+			T_Ul_Curso_id, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @return the range of matching t_ ul_ estud_ cursos
+	 */
+	@Override
+	public List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end) {
+
+		return findByT_Ul_Curso_id(T_Ul_Curso_id, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching t_ ul_ estud_ cursos
+	 */
+	@Override
+	public List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end,
+		OrderByComparator<T_Ul_Estud_Curso> orderByComparator) {
+
+		return findByT_Ul_Curso_id(
+			T_Ul_Curso_id, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>T_Ul_Estud_CursoModelImpl</code>.
+	 * </p>
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param start the lower bound of the range of t_ ul_ estud_ cursos
+	 * @param end the upper bound of the range of t_ ul_ estud_ cursos (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching t_ ul_ estud_ cursos
+	 */
+	@Override
+	public List<T_Ul_Estud_Curso> findByT_Ul_Curso_id(
+		long T_Ul_Curso_id, int start, int end,
+		OrderByComparator<T_Ul_Estud_Curso> orderByComparator,
+		boolean useFinderCache) {
+
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+			(orderByComparator == null)) {
+
+			if (useFinderCache) {
+				finderPath = _finderPathWithoutPaginationFindByT_Ul_Curso_id;
+				finderArgs = new Object[] {T_Ul_Curso_id};
+			}
+		}
+		else if (useFinderCache) {
+			finderPath = _finderPathWithPaginationFindByT_Ul_Curso_id;
+			finderArgs = new Object[] {
+				T_Ul_Curso_id, start, end, orderByComparator
+			};
+		}
+
+		List<T_Ul_Estud_Curso> list = null;
+
+		if (useFinderCache) {
+			list = (List<T_Ul_Estud_Curso>)finderCache.getResult(
+				finderPath, finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (T_Ul_Estud_Curso t_Ul_Estud_Curso : list) {
+					if (T_Ul_Curso_id != t_Ul_Estud_Curso.getT_Ul_Curso_id()) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler sb = null;
+
+			if (orderByComparator != null) {
+				sb = new StringBundler(
+					3 + (orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				sb = new StringBundler(3);
+			}
+
+			sb.append(_SQL_SELECT_T_UL_ESTUD_CURSO_WHERE);
+
+			sb.append(_FINDER_COLUMN_T_UL_CURSO_ID_T_UL_CURSO_ID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(
+					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
+			}
+			else {
+				sb.append(T_Ul_Estud_CursoModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				queryPos.add(T_Ul_Curso_id);
+
+				list = (List<T_Ul_Estud_Curso>)QueryUtil.list(
+					query, getDialect(), start, end);
+
+				cacheResult(list);
+
+				if (useFinderCache) {
+					finderCache.putResult(finderPath, finderArgs, list);
+				}
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a matching t_ ul_ estud_ curso could not be found
+	 */
+	@Override
+	public T_Ul_Estud_Curso findByT_Ul_Curso_id_First(
+			long T_Ul_Curso_id,
+			OrderByComparator<T_Ul_Estud_Curso> orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException {
+
+		T_Ul_Estud_Curso t_Ul_Estud_Curso = fetchByT_Ul_Curso_id_First(
+			T_Ul_Curso_id, orderByComparator);
+
+		if (t_Ul_Estud_Curso != null) {
+			return t_Ul_Estud_Curso;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("T_Ul_Curso_id=");
+		sb.append(T_Ul_Curso_id);
+
+		sb.append("}");
+
+		throw new NoSuchT_Ul_Estud_CursoException(sb.toString());
+	}
+
+	/**
+	 * Returns the first t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching t_ ul_ estud_ curso, or <code>null</code> if a matching t_ ul_ estud_ curso could not be found
+	 */
+	@Override
+	public T_Ul_Estud_Curso fetchByT_Ul_Curso_id_First(
+		long T_Ul_Curso_id,
+		OrderByComparator<T_Ul_Estud_Curso> orderByComparator) {
+
+		List<T_Ul_Estud_Curso> list = findByT_Ul_Curso_id(
+			T_Ul_Curso_id, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a matching t_ ul_ estud_ curso could not be found
+	 */
+	@Override
+	public T_Ul_Estud_Curso findByT_Ul_Curso_id_Last(
+			long T_Ul_Curso_id,
+			OrderByComparator<T_Ul_Estud_Curso> orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException {
+
+		T_Ul_Estud_Curso t_Ul_Estud_Curso = fetchByT_Ul_Curso_id_Last(
+			T_Ul_Curso_id, orderByComparator);
+
+		if (t_Ul_Estud_Curso != null) {
+			return t_Ul_Estud_Curso;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("T_Ul_Curso_id=");
+		sb.append(T_Ul_Curso_id);
+
+		sb.append("}");
+
+		throw new NoSuchT_Ul_Estud_CursoException(sb.toString());
+	}
+
+	/**
+	 * Returns the last t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching t_ ul_ estud_ curso, or <code>null</code> if a matching t_ ul_ estud_ curso could not be found
+	 */
+	@Override
+	public T_Ul_Estud_Curso fetchByT_Ul_Curso_id_Last(
+		long T_Ul_Curso_id,
+		OrderByComparator<T_Ul_Estud_Curso> orderByComparator) {
+
+		int count = countByT_Ul_Curso_id(T_Ul_Curso_id);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<T_Ul_Estud_Curso> list = findByT_Ul_Curso_id(
+			T_Ul_Curso_id, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the t_ ul_ estud_ cursos before and after the current t_ ul_ estud_ curso in the ordered set where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param t_Ul_Estud_CursoPK the primary key of the current t_ ul_ estud_ curso
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next t_ ul_ estud_ curso
+	 * @throws NoSuchT_Ul_Estud_CursoException if a t_ ul_ estud_ curso with the primary key could not be found
+	 */
+	@Override
+	public T_Ul_Estud_Curso[] findByT_Ul_Curso_id_PrevAndNext(
+			T_Ul_Estud_CursoPK t_Ul_Estud_CursoPK, long T_Ul_Curso_id,
+			OrderByComparator<T_Ul_Estud_Curso> orderByComparator)
+		throws NoSuchT_Ul_Estud_CursoException {
+
+		T_Ul_Estud_Curso t_Ul_Estud_Curso = findByPrimaryKey(
+			t_Ul_Estud_CursoPK);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			T_Ul_Estud_Curso[] array = new T_Ul_Estud_CursoImpl[3];
+
+			array[0] = getByT_Ul_Curso_id_PrevAndNext(
+				session, t_Ul_Estud_Curso, T_Ul_Curso_id, orderByComparator,
+				true);
+
+			array[1] = t_Ul_Estud_Curso;
+
+			array[2] = getByT_Ul_Curso_id_PrevAndNext(
+				session, t_Ul_Estud_Curso, T_Ul_Curso_id, orderByComparator,
+				false);
+
+			return array;
+		}
+		catch (Exception exception) {
+			throw processException(exception);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected T_Ul_Estud_Curso getByT_Ul_Curso_id_PrevAndNext(
+		Session session, T_Ul_Estud_Curso t_Ul_Estud_Curso, long T_Ul_Curso_id,
+		OrderByComparator<T_Ul_Estud_Curso> orderByComparator,
+		boolean previous) {
+
+		StringBundler sb = null;
+
+		if (orderByComparator != null) {
+			sb = new StringBundler(
+				4 + (orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			sb = new StringBundler(3);
+		}
+
+		sb.append(_SQL_SELECT_T_UL_ESTUD_CURSO_WHERE);
+
+		sb.append(_FINDER_COLUMN_T_UL_CURSO_ID_T_UL_CURSO_ID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields =
+				orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				sb.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			sb.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						sb.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC);
+					}
+					else {
+						sb.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			sb.append(T_Ul_Estud_CursoModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = sb.toString();
+
+		Query query = session.createQuery(sql);
+
+		query.setFirstResult(0);
+		query.setMaxResults(2);
+
+		QueryPos queryPos = QueryPos.getInstance(query);
+
+		queryPos.add(T_Ul_Curso_id);
+
+		if (orderByComparator != null) {
+			for (Object orderByConditionValue :
+					orderByComparator.getOrderByConditionValues(
+						t_Ul_Estud_Curso)) {
+
+				queryPos.add(orderByConditionValue);
+			}
+		}
+
+		List<T_Ul_Estud_Curso> list = query.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63; from the database.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 */
+	@Override
+	public void removeByT_Ul_Curso_id(long T_Ul_Curso_id) {
+		for (T_Ul_Estud_Curso t_Ul_Estud_Curso :
+				findByT_Ul_Curso_id(
+					T_Ul_Curso_id, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+					null)) {
+
+			remove(t_Ul_Estud_Curso);
+		}
+	}
+
+	/**
+	 * Returns the number of t_ ul_ estud_ cursos where T_Ul_Curso_id = &#63;.
+	 *
+	 * @param T_Ul_Curso_id the t_ ul_ curso_id
+	 * @return the number of matching t_ ul_ estud_ cursos
+	 */
+	@Override
+	public int countByT_Ul_Curso_id(long T_Ul_Curso_id) {
+		FinderPath finderPath = _finderPathCountByT_Ul_Curso_id;
+
+		Object[] finderArgs = new Object[] {T_Ul_Curso_id};
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler sb = new StringBundler(2);
+
+			sb.append(_SQL_COUNT_T_UL_ESTUD_CURSO_WHERE);
+
+			sb.append(_FINDER_COLUMN_T_UL_CURSO_ID_T_UL_CURSO_ID_2);
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				queryPos.add(T_Ul_Curso_id);
+
+				count = (Long)query.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_T_UL_CURSO_ID_T_UL_CURSO_ID_2 =
+		"t_Ul_Estud_Curso.id.T_Ul_Curso_id = ?";
+
 	public T_Ul_Estud_CursoPersistenceImpl() {
 		Map<String, String> dbColumnNames = new HashMap<String, String>();
 
@@ -2659,6 +3166,24 @@ public class T_Ul_Estud_CursoPersistenceImpl
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
 			"countByT_Ul_Estudiante_id", new String[] {Long.class.getName()},
 			new String[] {"T_Ul_Estudiante_id"}, false);
+
+		_finderPathWithPaginationFindByT_Ul_Curso_id = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByT_Ul_Curso_id",
+			new String[] {
+				Long.class.getName(), Integer.class.getName(),
+				Integer.class.getName(), OrderByComparator.class.getName()
+			},
+			new String[] {"T_Ul_Curso_id"}, true);
+
+		_finderPathWithoutPaginationFindByT_Ul_Curso_id = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByT_Ul_Curso_id",
+			new String[] {Long.class.getName()}, new String[] {"T_Ul_Curso_id"},
+			true);
+
+		_finderPathCountByT_Ul_Curso_id = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByT_Ul_Curso_id",
+			new String[] {Long.class.getName()}, new String[] {"T_Ul_Curso_id"},
+			false);
 
 		_setT_Ul_Estud_CursoUtilPersistence(this);
 	}

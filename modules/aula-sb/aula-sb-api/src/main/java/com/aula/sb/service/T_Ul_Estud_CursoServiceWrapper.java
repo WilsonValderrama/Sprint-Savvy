@@ -33,6 +33,42 @@ public class T_Ul_Estud_CursoServiceWrapper
 		_t_Ul_Estud_CursoService = t_Ul_Estud_CursoService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_Estud_Curso createEstudCurso(
+			long cursoId, long estudianteId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_Estud_CursoService.createEstudCurso(
+			cursoId, estudianteId, serviceContext);
+	}
+
+	@Override
+	public void deleteEstudCurso(long cursoId, long estudianteId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		_t_Ul_Estud_CursoService.deleteEstudCurso(cursoId, estudianteId);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Estud_Curso> getAll() {
+		return _t_Ul_Estud_CursoService.getAll();
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Estud_Curso>
+		getCursosByEstudianteId(long estudianteId) {
+
+		return _t_Ul_Estud_CursoService.getCursosByEstudianteId(estudianteId);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Estud_Curso>
+		getEstudiantesByCursoId(long cursoId) {
+
+		return _t_Ul_Estud_CursoService.getEstudiantesByCursoId(cursoId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

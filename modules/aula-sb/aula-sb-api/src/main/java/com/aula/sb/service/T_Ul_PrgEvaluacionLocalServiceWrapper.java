@@ -77,6 +77,19 @@ public class T_Ul_PrgEvaluacionLocalServiceWrapper
 			idPreguntas);
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(
+			String problPreguntas, String opcPreguntas, String puntajePreguntas,
+			String intentoPreguntas, String limiteTPreguntas,
+			Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionLocalService.createT_Ul_PrgEvaluacion(
+			problPreguntas, opcPreguntas, puntajePreguntas, intentoPreguntas,
+			limiteTPreguntas, T_Ul_Actividad_id, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -249,6 +262,13 @@ public class T_Ul_PrgEvaluacionLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PrgEvaluacion>
+		getAllT_Ul_PrgEvaluaciones() {
+
+		return _t_Ul_PrgEvaluacionLocalService.getAllT_Ul_PrgEvaluaciones();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -384,6 +404,20 @@ public class T_Ul_PrgEvaluacionLocalServiceWrapper
 	@Override
 	public int getT_Ul_PrgEvaluacionsCount() {
 		return _t_Ul_PrgEvaluacionLocalService.getT_Ul_PrgEvaluacionsCount();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PrgEvaluacion updateT_Ul_PrgEvaluacion(
+			Long idPreguntas, String problPreguntas, String opcPreguntas,
+			String puntajePreguntas, String intentoPreguntas,
+			String limiteTPreguntas, Long T_Ul_Actividad_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PrgEvaluacionLocalService.updateT_Ul_PrgEvaluacion(
+			idPreguntas, problPreguntas, opcPreguntas, puntajePreguntas,
+			intentoPreguntas, limiteTPreguntas, T_Ul_Actividad_id,
+			serviceContext);
 	}
 
 	/**

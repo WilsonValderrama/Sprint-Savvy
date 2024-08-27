@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -92,6 +93,12 @@ public interface T_Ul_PrgEvaluacionLocalService
 	 */
 	@Transactional(enabled = false)
 	public T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(long idPreguntas);
+
+	public T_Ul_PrgEvaluacion createT_Ul_PrgEvaluacion(
+			String problPreguntas, String opcPreguntas, String puntajePreguntas,
+			String intentoPreguntas, String limiteTPreguntas,
+			Long T_Ul_Actividad_id, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -213,6 +220,9 @@ public interface T_Ul_PrgEvaluacionLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_PrgEvaluacion> getAllT_Ul_PrgEvaluaciones();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -305,6 +315,13 @@ public interface T_Ul_PrgEvaluacionLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getT_Ul_PrgEvaluacionsCount();
+
+	public T_Ul_PrgEvaluacion updateT_Ul_PrgEvaluacion(
+			Long idPreguntas, String problPreguntas, String opcPreguntas,
+			String puntajePreguntas, String intentoPreguntas,
+			String limiteTPreguntas, Long T_Ul_Actividad_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the t_ ul_ prg evaluacion in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
