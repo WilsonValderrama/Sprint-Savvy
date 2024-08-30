@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -36,6 +37,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -91,6 +93,13 @@ public interface T_Ul_ActividadLocalService
 	 */
 	@Transactional(enabled = false)
 	public T_Ul_Actividad createT_Ul_Actividad(long idActividad);
+
+	public T_Ul_Actividad createT_Ul_Actividad(
+			String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			Date fCreacActividad, Date fCierrActividad, String porcActividad,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -211,6 +220,9 @@ public interface T_Ul_ActividadLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Actividad> getAllT_Ul_Actividad();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -242,6 +254,9 @@ public interface T_Ul_ActividadLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public T_Ul_Actividad getT_Ul_Actividad(long idActividad)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Actividad> getT_Ul_ActividadByName(String tituloActividad);
 
 	/**
 	 * Returns the t_ ul_ actividad matching the UUID and group.
@@ -303,6 +318,13 @@ public interface T_Ul_ActividadLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getT_Ul_ActividadsCount();
+
+	public T_Ul_Actividad updateT_Ul_Actividad(
+			long idActividad, String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			Date fCreacActividad, Date fCierrActividad, String porcActividad,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the t_ ul_ actividad in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

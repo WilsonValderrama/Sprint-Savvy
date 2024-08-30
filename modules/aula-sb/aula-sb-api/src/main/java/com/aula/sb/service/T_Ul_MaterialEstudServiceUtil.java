@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_MaterialEstud;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_MaterialEstud. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_MaterialEstudServiceImpl</code> and is an
@@ -33,14 +39,57 @@ public class T_Ul_MaterialEstudServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_MaterialEstudServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_MaterialEstud createMaterialEstudio(
+			String tituloMaterial, String fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createMaterialEstudio(
+			tituloMaterial, fCreacionMaterial, urlArchMaterial, descripMaterial,
+			serviceContext);
+	}
+
+	public static T_Ul_MaterialEstud deleteT_Ul_MaterialEstud(long idMaterial)
+		throws PortalException {
+
+		return getService().deleteT_Ul_MaterialEstud(idMaterial);
+	}
+
+	public static List<T_Ul_MaterialEstud> getAllT_Ul_MaterialEstud() {
+		return getService().getAllT_Ul_MaterialEstud();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static T_Ul_MaterialEstud getT_Ul_MaterialEstud(long idMaterial)
+		throws PortalException {
+
+		return getService().getT_Ul_MaterialEstud(idMaterial);
+	}
+
+	public static List<T_Ul_MaterialEstud> getT_Ul_MaterialEstudByName(
+		String tituloMaterial) {
+
+		return getService().getT_Ul_MaterialEstudByName(tituloMaterial);
+	}
+
+	public static T_Ul_MaterialEstud updateT_Ul_MaterialEstud(
+			long idMaterial, String tituloMaterial, String fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_MaterialEstud(
+			idMaterial, tituloMaterial, fCreacionMaterial, urlArchMaterial,
+			descripMaterial, serviceContext);
 	}
 
 	public static T_Ul_MaterialEstudService getService() {

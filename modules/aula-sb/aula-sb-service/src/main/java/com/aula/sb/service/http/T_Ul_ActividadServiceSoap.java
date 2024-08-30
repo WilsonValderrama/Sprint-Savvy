@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_ActividadServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_ActividadServiceUtil</code> service
+ * <code>T_Ul_ActividadServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,130 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_ActividadServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap createT_Ul_Actividad(
+			String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			String fCreacActividad, String fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Actividad returnValue =
+				T_Ul_ActividadServiceUtil.createT_Ul_Actividad(
+					tituloActividad, tipoActividad, descriActividad,
+					estadoEntrActividad, fCreacActividad, fCierrActividad,
+					porcActividad, serviceContext);
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap updateT_Ul_Actividad(
+			long idActividad, String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			String fCreacActividad, String fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Actividad returnValue =
+				T_Ul_ActividadServiceUtil.updateT_Ul_Actividad(
+					idActividad, tituloActividad, tipoActividad,
+					descriActividad, estadoEntrActividad, fCreacActividad,
+					fCierrActividad, porcActividad, serviceContext);
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap deleteT_Ul_Actividad(
+			long idActividad)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Actividad returnValue =
+				T_Ul_ActividadServiceUtil.deleteT_Ul_Actividad(idActividad);
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap getT_Ul_Actividad(
+			long idActividad)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Actividad returnValue =
+				T_Ul_ActividadServiceUtil.getT_Ul_Actividad(idActividad);
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap[]
+			getT_Ul_ActividadByTitulo(String tituloActividad)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Actividad> returnValue =
+				T_Ul_ActividadServiceUtil.getT_Ul_ActividadByTitulo(
+					tituloActividad);
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ActividadSoap[] getAllT_Ul_Actividad()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Actividad> returnValue =
+				T_Ul_ActividadServiceUtil.getAllT_Ul_Actividad();
+
+			return com.aula.sb.model.T_Ul_ActividadSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_ActividadServiceSoap.class);
+
 }

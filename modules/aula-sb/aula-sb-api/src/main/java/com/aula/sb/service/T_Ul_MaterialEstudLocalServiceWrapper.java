@@ -51,6 +51,18 @@ public class T_Ul_MaterialEstudLocalServiceWrapper
 			t_Ul_MaterialEstud);
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud createMaterialEstudio(
+			String tituloMaterial, java.util.Date fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudLocalService.createMaterialEstudio(
+			tituloMaterial, fCreacionMaterial, urlArchMaterial, descripMaterial,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -249,6 +261,13 @@ public class T_Ul_MaterialEstudLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_MaterialEstud>
+		getAllT_Ul_MaterialEstud() {
+
+		return _t_Ul_MaterialEstudLocalService.getAllT_Ul_MaterialEstud();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -301,6 +320,14 @@ public class T_Ul_MaterialEstudLocalServiceWrapper
 
 		return _t_Ul_MaterialEstudLocalService.getT_Ul_MaterialEstud(
 			idMaterial);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_MaterialEstud>
+		getT_Ul_MaterialEstudByName(String tituloMaterial) {
+
+		return _t_Ul_MaterialEstudLocalService.getT_Ul_MaterialEstudByName(
+			tituloMaterial);
 	}
 
 	/**
@@ -384,6 +411,19 @@ public class T_Ul_MaterialEstudLocalServiceWrapper
 	@Override
 	public int getT_Ul_MaterialEstudsCount() {
 		return _t_Ul_MaterialEstudLocalService.getT_Ul_MaterialEstudsCount();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud updateT_Ul_MaterialEstud(
+			long idMaterial, String tituloMaterial,
+			java.util.Date fCreacionMaterial, String urlArchMaterial,
+			String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudLocalService.updateT_Ul_MaterialEstud(
+			idMaterial, tituloMaterial, fCreacionMaterial, urlArchMaterial,
+			descripMaterial, serviceContext);
 	}
 
 	/**

@@ -32,6 +32,36 @@ public class T_Ul_ActividadServiceWrapper
 		_t_Ul_ActividadService = t_Ul_ActividadService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad createT_Ul_Actividad(
+			String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			String fCreacActividad, String fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadService.createT_Ul_Actividad(
+			tituloActividad, tipoActividad, descriActividad,
+			estadoEntrActividad, fCreacActividad, fCierrActividad,
+			porcActividad, serviceContext);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad deleteT_Ul_Actividad(
+			long idActividad)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadService.deleteT_Ul_Actividad(idActividad);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Actividad>
+		getAllT_Ul_Actividad() {
+
+		return _t_Ul_ActividadService.getAllT_Ul_Actividad();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -40,6 +70,36 @@ public class T_Ul_ActividadServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _t_Ul_ActividadService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad getT_Ul_Actividad(long idActividad)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadService.getT_Ul_Actividad(idActividad);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Actividad>
+		getT_Ul_ActividadByTitulo(String tituloActividad) {
+
+		return _t_Ul_ActividadService.getT_Ul_ActividadByTitulo(
+			tituloActividad);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad updateT_Ul_Actividad(
+			long idActividad, String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			String fCreacActividad, String fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadService.updateT_Ul_Actividad(
+			idActividad, tituloActividad, tipoActividad, descriActividad,
+			estadoEntrActividad, fCreacActividad, fCierrActividad,
+			porcActividad, serviceContext);
 	}
 
 	@Override

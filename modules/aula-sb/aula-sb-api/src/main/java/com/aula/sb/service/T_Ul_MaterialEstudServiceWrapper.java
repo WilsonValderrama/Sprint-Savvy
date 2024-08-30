@@ -33,6 +33,33 @@ public class T_Ul_MaterialEstudServiceWrapper
 		_t_Ul_MaterialEstudService = t_Ul_MaterialEstudService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud createMaterialEstudio(
+			String tituloMaterial, String fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudService.createMaterialEstudio(
+			tituloMaterial, fCreacionMaterial, urlArchMaterial, descripMaterial,
+			serviceContext);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud deleteT_Ul_MaterialEstud(
+			long idMaterial)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudService.deleteT_Ul_MaterialEstud(idMaterial);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_MaterialEstud>
+		getAllT_Ul_MaterialEstud() {
+
+		return _t_Ul_MaterialEstudService.getAllT_Ul_MaterialEstud();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -41,6 +68,34 @@ public class T_Ul_MaterialEstudServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _t_Ul_MaterialEstudService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud getT_Ul_MaterialEstud(
+			long idMaterial)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudService.getT_Ul_MaterialEstud(idMaterial);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_MaterialEstud>
+		getT_Ul_MaterialEstudByName(String tituloMaterial) {
+
+		return _t_Ul_MaterialEstudService.getT_Ul_MaterialEstudByName(
+			tituloMaterial);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_MaterialEstud updateT_Ul_MaterialEstud(
+			long idMaterial, String tituloMaterial, String fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_MaterialEstudService.updateT_Ul_MaterialEstud(
+			idMaterial, tituloMaterial, fCreacionMaterial, urlArchMaterial,
+			descripMaterial, serviceContext);
 	}
 
 	@Override

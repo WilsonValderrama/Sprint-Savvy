@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_MaterialEstudServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_MaterialEstudServiceUtil</code> service
+ * <code>T_Ul_MaterialEstudServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,129 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_MaterialEstudServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap
+			createMaterialEstudio(
+				String tituloMaterial, String fCreacionMaterial,
+				String urlArchMaterial, String descripMaterial,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_MaterialEstud returnValue =
+				T_Ul_MaterialEstudServiceUtil.createMaterialEstudio(
+					tituloMaterial, fCreacionMaterial, urlArchMaterial,
+					descripMaterial, serviceContext);
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap
+			updateT_Ul_MaterialEstud(
+				long idMaterial, String tituloMaterial,
+				String fCreacionMaterial, String urlArchMaterial,
+				String descripMaterial,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_MaterialEstud returnValue =
+				T_Ul_MaterialEstudServiceUtil.updateT_Ul_MaterialEstud(
+					idMaterial, tituloMaterial, fCreacionMaterial,
+					urlArchMaterial, descripMaterial, serviceContext);
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap
+			deleteT_Ul_MaterialEstud(long idMaterial)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_MaterialEstud returnValue =
+				T_Ul_MaterialEstudServiceUtil.deleteT_Ul_MaterialEstud(
+					idMaterial);
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap
+			getT_Ul_MaterialEstud(long idMaterial)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_MaterialEstud returnValue =
+				T_Ul_MaterialEstudServiceUtil.getT_Ul_MaterialEstud(idMaterial);
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap[]
+			getT_Ul_MaterialEstudByName(String tituloMaterial)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_MaterialEstud> returnValue =
+				T_Ul_MaterialEstudServiceUtil.getT_Ul_MaterialEstudByName(
+					tituloMaterial);
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_MaterialEstudSoap[]
+			getAllT_Ul_MaterialEstud()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_MaterialEstud> returnValue =
+				T_Ul_MaterialEstudServiceUtil.getAllT_Ul_MaterialEstud();
+
+			return com.aula.sb.model.T_Ul_MaterialEstudSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_MaterialEstudServiceSoap.class);
+
 }

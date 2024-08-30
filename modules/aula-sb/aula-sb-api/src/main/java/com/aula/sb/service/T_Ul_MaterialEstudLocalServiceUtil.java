@@ -61,6 +61,17 @@ public class T_Ul_MaterialEstudLocalServiceUtil {
 		return getService().addT_Ul_MaterialEstud(t_Ul_MaterialEstud);
 	}
 
+	public static T_Ul_MaterialEstud createMaterialEstudio(
+			String tituloMaterial, java.util.Date fCreacionMaterial,
+			String urlArchMaterial, String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createMaterialEstudio(
+			tituloMaterial, fCreacionMaterial, urlArchMaterial, descripMaterial,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -225,6 +236,10 @@ public class T_Ul_MaterialEstudLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<T_Ul_MaterialEstud> getAllT_Ul_MaterialEstud() {
+		return getService().getAllT_Ul_MaterialEstud();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -269,6 +284,12 @@ public class T_Ul_MaterialEstudLocalServiceUtil {
 		throws PortalException {
 
 		return getService().getT_Ul_MaterialEstud(idMaterial);
+	}
+
+	public static List<T_Ul_MaterialEstud> getT_Ul_MaterialEstudByName(
+		String tituloMaterial) {
+
+		return getService().getT_Ul_MaterialEstudByName(tituloMaterial);
 	}
 
 	/**
@@ -344,6 +365,18 @@ public class T_Ul_MaterialEstudLocalServiceUtil {
 	 */
 	public static int getT_Ul_MaterialEstudsCount() {
 		return getService().getT_Ul_MaterialEstudsCount();
+	}
+
+	public static T_Ul_MaterialEstud updateT_Ul_MaterialEstud(
+			long idMaterial, String tituloMaterial,
+			java.util.Date fCreacionMaterial, String urlArchMaterial,
+			String descripMaterial,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_MaterialEstud(
+			idMaterial, tituloMaterial, fCreacionMaterial, urlArchMaterial,
+			descripMaterial, serviceContext);
 	}
 
 	/**

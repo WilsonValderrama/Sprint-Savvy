@@ -74,6 +74,21 @@ public class T_Ul_ActividadLocalServiceWrapper
 		return _t_Ul_ActividadLocalService.createT_Ul_Actividad(idActividad);
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad createT_Ul_Actividad(
+			String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			java.util.Date fCreacActividad, java.util.Date fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadLocalService.createT_Ul_Actividad(
+			tituloActividad, tipoActividad, descriActividad,
+			estadoEntrActividad, fCreacActividad, fCierrActividad,
+			porcActividad, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -242,6 +257,13 @@ public class T_Ul_ActividadLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Actividad>
+		getAllT_Ul_Actividad() {
+
+		return _t_Ul_ActividadLocalService.getAllT_Ul_Actividad();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -291,6 +313,14 @@ public class T_Ul_ActividadLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _t_Ul_ActividadLocalService.getT_Ul_Actividad(idActividad);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Actividad>
+		getT_Ul_ActividadByName(String tituloActividad) {
+
+		return _t_Ul_ActividadLocalService.getT_Ul_ActividadByName(
+			tituloActividad);
 	}
 
 	/**
@@ -372,6 +402,21 @@ public class T_Ul_ActividadLocalServiceWrapper
 	@Override
 	public int getT_Ul_ActividadsCount() {
 		return _t_Ul_ActividadLocalService.getT_Ul_ActividadsCount();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Actividad updateT_Ul_Actividad(
+			long idActividad, String tituloActividad, String tipoActividad,
+			String descriActividad, String estadoEntrActividad,
+			java.util.Date fCreacActividad, java.util.Date fCierrActividad,
+			String porcActividad,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ActividadLocalService.updateT_Ul_Actividad(
+			idActividad, tituloActividad, tipoActividad, descriActividad,
+			estadoEntrActividad, fCreacActividad, fCierrActividad,
+			porcActividad, serviceContext);
 	}
 
 	/**
