@@ -33,6 +33,32 @@ public class T_Ul_CalificacionServiceWrapper
 		_t_Ul_CalificacionService = t_Ul_CalificacionService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_Calificacion createT_Ul_Calificacion(
+			String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_CalificacionService.createT_Ul_Calificacion(
+			puntCalificacion, serviceContext);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Calificacion deleteT_Ul_Calificacion(
+			long idCalificacion)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_CalificacionService.deleteT_Ul_Calificacion(
+			idCalificacion);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_Calificacion>
+		getAllT_Ul_Calificacion() {
+
+		return _t_Ul_CalificacionService.getAllT_Ul_Calificacion();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -41,6 +67,24 @@ public class T_Ul_CalificacionServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _t_Ul_CalificacionService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Calificacion getT_Ul_Calificacion(
+			long idCalificacion)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_CalificacionService.getT_Ul_Calificacion(idCalificacion);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_Calificacion updateT_Ul_Calificacion(
+			long idCalificacion, String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_CalificacionService.updateT_Ul_Calificacion(
+			idCalificacion, puntCalificacion, serviceContext);
 	}
 
 	@Override

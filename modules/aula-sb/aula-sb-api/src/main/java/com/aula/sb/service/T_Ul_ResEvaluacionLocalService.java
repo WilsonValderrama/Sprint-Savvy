@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -92,6 +93,13 @@ public interface T_Ul_ResEvaluacionLocalService
 	 */
 	@Transactional(enabled = false)
 	public T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(long idRespuestas);
+
+	public T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(
+			String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -213,6 +221,9 @@ public interface T_Ul_ResEvaluacionLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_ResEvaluacion> getAllT_Ul_ResEvaluacion();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -244,6 +255,10 @@ public interface T_Ul_ResEvaluacionLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public T_Ul_ResEvaluacion getT_Ul_ResEvaluacion(long idRespuestas)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_ResEvaluacion> getT_Ul_ResEvaluacionByProblRespuestas(
+		String problRespuestas);
 
 	/**
 	 * Returns the t_ ul_ res evaluacion matching the UUID and group.
@@ -305,6 +320,13 @@ public interface T_Ul_ResEvaluacionLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getT_Ul_ResEvaluacionsCount();
+
+	public T_Ul_ResEvaluacion updateT_Ul_ResEvaluacion(
+			long idRespuestas, String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the t_ ul_ res evaluacion in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

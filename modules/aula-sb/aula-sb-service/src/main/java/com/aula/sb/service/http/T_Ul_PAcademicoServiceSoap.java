@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_PAcademicoServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_PAcademicoServiceUtil</code> service
+ * <code>T_Ul_PAcademicoServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,125 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_PAcademicoServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap createT_Ul_PAcademico(
+			String tituloPeriodo, String fInicioPeriodo, String fFinPeriodo,
+			String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PAcademico returnValue =
+				T_Ul_PAcademicoServiceUtil.createT_Ul_PAcademico(
+					tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+					T_Ul_Curso_id, serviceContext);
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, String fInicioPeriodo,
+			String fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PAcademico returnValue =
+				T_Ul_PAcademicoServiceUtil.updateT_Ul_PAcademico(
+					idPeriodo, tituloPeriodo, fInicioPeriodo, fFinPeriodo,
+					porcPeriodo, T_Ul_Curso_id, serviceContext);
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap deleteT_Ul_PAcademico(
+			long idPeriodo)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PAcademico returnValue =
+				T_Ul_PAcademicoServiceUtil.deleteT_Ul_PAcademico(idPeriodo);
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap getT_Ul_PAcademico(
+			long idPeriodo)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_PAcademico returnValue =
+				T_Ul_PAcademicoServiceUtil.getT_Ul_PAcademico(idPeriodo);
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap[]
+			getT_Ul_PAcademicoByName(String tituloPeriodo)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_PAcademico> returnValue =
+				T_Ul_PAcademicoServiceUtil.getT_Ul_PAcademicoByName(
+					tituloPeriodo);
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_PAcademicoSoap[]
+			getAllT_Ul_PAcademicos()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_PAcademico> returnValue =
+				T_Ul_PAcademicoServiceUtil.getAllT_Ul_PAcademicos();
+
+			return com.aula.sb.model.T_Ul_PAcademicoSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_PAcademicoServiceSoap.class);
+
 }

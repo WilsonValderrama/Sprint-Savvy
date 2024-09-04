@@ -74,6 +74,18 @@ public class T_Ul_PAcademicoLocalServiceWrapper
 		return _t_Ul_PAcademicoLocalService.createT_Ul_PAcademico(idPeriodo);
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico createT_Ul_PAcademico(
+			String tituloPeriodo, java.util.Date fInicioPeriodo,
+			java.util.Date fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoLocalService.createT_Ul_PAcademico(
+			tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -244,6 +256,13 @@ public class T_Ul_PAcademicoLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PAcademico>
+		getAllT_Ul_PAcademicos() {
+
+		return _t_Ul_PAcademicoLocalService.getAllT_Ul_PAcademicos();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -294,6 +313,14 @@ public class T_Ul_PAcademicoLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _t_Ul_PAcademicoLocalService.getT_Ul_PAcademico(idPeriodo);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PAcademico>
+		getT_Ul_PAcademicoByName(String tituloPeriodo) {
+
+		return _t_Ul_PAcademicoLocalService.getT_Ul_PAcademicoByName(
+			tituloPeriodo);
 	}
 
 	/**
@@ -376,6 +403,18 @@ public class T_Ul_PAcademicoLocalServiceWrapper
 	@Override
 	public int getT_Ul_PAcademicosCount() {
 		return _t_Ul_PAcademicoLocalService.getT_Ul_PAcademicosCount();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, java.util.Date fInicioPeriodo,
+			java.util.Date fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoLocalService.updateT_Ul_PAcademico(
+			idPeriodo, tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
 	}
 
 	/**

@@ -77,6 +77,20 @@ public class T_Ul_ResEvaluacionLocalServiceWrapper
 			idRespuestas);
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(
+			String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ResEvaluacionLocalService.createT_Ul_ResEvaluacion(
+			problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -249,6 +263,13 @@ public class T_Ul_ResEvaluacionLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_ResEvaluacion>
+		getAllT_Ul_ResEvaluacion() {
+
+		return _t_Ul_ResEvaluacionLocalService.getAllT_Ul_ResEvaluacion();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -301,6 +322,14 @@ public class T_Ul_ResEvaluacionLocalServiceWrapper
 
 		return _t_Ul_ResEvaluacionLocalService.getT_Ul_ResEvaluacion(
 			idRespuestas);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_ResEvaluacion>
+		getT_Ul_ResEvaluacionByProblRespuestas(String problRespuestas) {
+
+		return _t_Ul_ResEvaluacionLocalService.
+			getT_Ul_ResEvaluacionByProblRespuestas(problRespuestas);
 	}
 
 	/**
@@ -384,6 +413,20 @@ public class T_Ul_ResEvaluacionLocalServiceWrapper
 	@Override
 	public int getT_Ul_ResEvaluacionsCount() {
 		return _t_Ul_ResEvaluacionLocalService.getT_Ul_ResEvaluacionsCount();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_ResEvaluacion updateT_Ul_ResEvaluacion(
+			long idRespuestas, String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_ResEvaluacionLocalService.updateT_Ul_ResEvaluacion(
+			idRespuestas, problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
 	}
 
 	/**

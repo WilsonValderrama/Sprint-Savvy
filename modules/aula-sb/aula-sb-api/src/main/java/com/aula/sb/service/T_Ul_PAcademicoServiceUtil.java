@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_PAcademico;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_PAcademico. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_PAcademicoServiceImpl</code> and is an
@@ -33,14 +39,57 @@ public class T_Ul_PAcademicoServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_PAcademicoServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_PAcademico createT_Ul_PAcademico(
+			String tituloPeriodo, String fInicioPeriodo, String fFinPeriodo,
+			String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_PAcademico(
+			tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
+	}
+
+	public static T_Ul_PAcademico deleteT_Ul_PAcademico(long idPeriodo)
+		throws PortalException {
+
+		return getService().deleteT_Ul_PAcademico(idPeriodo);
+	}
+
+	public static List<T_Ul_PAcademico> getAllT_Ul_PAcademicos() {
+		return getService().getAllT_Ul_PAcademicos();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static T_Ul_PAcademico getT_Ul_PAcademico(long idPeriodo)
+		throws PortalException {
+
+		return getService().getT_Ul_PAcademico(idPeriodo);
+	}
+
+	public static List<T_Ul_PAcademico> getT_Ul_PAcademicoByName(
+		String tituloPeriodo) {
+
+		return getService().getT_Ul_PAcademicoByName(tituloPeriodo);
+	}
+
+	public static T_Ul_PAcademico updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, String fInicioPeriodo,
+			String fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_PAcademico(
+			idPeriodo, tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
 	}
 
 	public static T_Ul_PAcademicoService getService() {

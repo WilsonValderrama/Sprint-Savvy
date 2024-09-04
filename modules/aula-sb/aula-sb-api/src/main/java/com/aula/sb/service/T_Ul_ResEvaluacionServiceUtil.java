@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_ResEvaluacion;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_ResEvaluacion. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_ResEvaluacionServiceImpl</code> and is an
@@ -33,14 +39,62 @@ public class T_Ul_ResEvaluacionServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_ResEvaluacionServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(
+			String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_ResEvaluacion(
+			problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
+	}
+
+	public static T_Ul_ResEvaluacion deleteT_Ul_ResEvaluacion(long idRespuestas)
+		throws PortalException {
+
+		return getService().deleteT_Ul_ResEvaluacion(idRespuestas);
+	}
+
+	public static List<T_Ul_ResEvaluacion> getAllT_Ul_ResEvaluacion() {
+		return getService().getAllT_Ul_ResEvaluacion();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static T_Ul_ResEvaluacion getT_Ul_ResEvaluacion(long idRespuestas)
+		throws PortalException {
+
+		return getService().getT_Ul_ResEvaluacion(idRespuestas);
+	}
+
+	public static List<T_Ul_ResEvaluacion>
+		getT_Ul_ResEvaluacionByProblRespuestas(String problRespuestas) {
+
+		return getService().getT_Ul_ResEvaluacionByProblRespuestas(
+			problRespuestas);
+	}
+
+	public static T_Ul_ResEvaluacion updateT_Ul_ResEvaluacion(
+			long idRespuestas, String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_ResEvaluacion(
+			idRespuestas, problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
 	}
 
 	public static T_Ul_ResEvaluacionService getService() {

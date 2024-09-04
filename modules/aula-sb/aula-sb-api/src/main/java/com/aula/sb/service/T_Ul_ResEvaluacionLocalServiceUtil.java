@@ -83,6 +83,19 @@ public class T_Ul_ResEvaluacionLocalServiceUtil {
 		return getService().createT_Ul_ResEvaluacion(idRespuestas);
 	}
 
+	public static T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(
+			String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_ResEvaluacion(
+			problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -229,6 +242,10 @@ public class T_Ul_ResEvaluacionLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<T_Ul_ResEvaluacion> getAllT_Ul_ResEvaluacion() {
+		return getService().getAllT_Ul_ResEvaluacion();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -273,6 +290,13 @@ public class T_Ul_ResEvaluacionLocalServiceUtil {
 		throws PortalException {
 
 		return getService().getT_Ul_ResEvaluacion(idRespuestas);
+	}
+
+	public static List<T_Ul_ResEvaluacion>
+		getT_Ul_ResEvaluacionByProblRespuestas(String problRespuestas) {
+
+		return getService().getT_Ul_ResEvaluacionByProblRespuestas(
+			problRespuestas);
 	}
 
 	/**
@@ -348,6 +372,19 @@ public class T_Ul_ResEvaluacionLocalServiceUtil {
 	 */
 	public static int getT_Ul_ResEvaluacionsCount() {
 		return getService().getT_Ul_ResEvaluacionsCount();
+	}
+
+	public static T_Ul_ResEvaluacion updateT_Ul_ResEvaluacion(
+			long idRespuestas, String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_ResEvaluacion(
+			idRespuestas, problRespuestas, opcionRespuestas, puntajeRespuestas,
+			T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+			serviceContext);
 	}
 
 	/**

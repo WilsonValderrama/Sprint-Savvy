@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -92,6 +93,10 @@ public interface T_Ul_CalificacionLocalService
 	 */
 	@Transactional(enabled = false)
 	public T_Ul_Calificacion createT_Ul_Calificacion(long idCalificacion);
+
+	public T_Ul_Calificacion createT_Ul_Calificacion(
+			String puntCalificacion, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -213,6 +218,9 @@ public interface T_Ul_CalificacionLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_Calificacion> getAllT_Ul_Calificacion();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -305,6 +313,11 @@ public interface T_Ul_CalificacionLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getT_Ul_CalificacionsCount();
+
+	public T_Ul_Calificacion updateT_Ul_Calificacion(
+			long idCalificacion, String puntCalificacion,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the t_ ul_ calificacion in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

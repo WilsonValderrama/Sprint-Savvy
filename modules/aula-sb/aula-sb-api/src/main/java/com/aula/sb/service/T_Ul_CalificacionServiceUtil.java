@@ -14,6 +14,12 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_Calificacion;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for T_Ul_Calificacion. This utility wraps
  * <code>com.aula.sb.service.impl.T_Ul_CalificacionServiceImpl</code> and is an
@@ -33,14 +39,47 @@ public class T_Ul_CalificacionServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_CalificacionServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static T_Ul_Calificacion createT_Ul_Calificacion(
+			String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_Calificacion(
+			puntCalificacion, serviceContext);
+	}
+
+	public static T_Ul_Calificacion deleteT_Ul_Calificacion(long idCalificacion)
+		throws PortalException {
+
+		return getService().deleteT_Ul_Calificacion(idCalificacion);
+	}
+
+	public static List<T_Ul_Calificacion> getAllT_Ul_Calificacion() {
+		return getService().getAllT_Ul_Calificacion();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static T_Ul_Calificacion getT_Ul_Calificacion(long idCalificacion)
+		throws PortalException {
+
+		return getService().getT_Ul_Calificacion(idCalificacion);
+	}
+
+	public static T_Ul_Calificacion updateT_Ul_Calificacion(
+			long idCalificacion, String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_Calificacion(
+			idCalificacion, puntCalificacion, serviceContext);
 	}
 
 	public static T_Ul_CalificacionService getService() {

@@ -126,7 +126,6 @@ public class T_Ul_ActividadLocalServiceImpl
 
 
 	public List<T_Ul_Actividad> getT_Ul_ActividadByName(String tituloActividad) {
-		
 		return t_Ul_ActividadPersistence.findByTituloActividad(tituloActividad);
 	}
 	

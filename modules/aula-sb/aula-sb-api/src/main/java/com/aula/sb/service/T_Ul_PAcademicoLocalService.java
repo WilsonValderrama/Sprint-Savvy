@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -36,6 +37,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -91,6 +93,12 @@ public interface T_Ul_PAcademicoLocalService
 	 */
 	@Transactional(enabled = false)
 	public T_Ul_PAcademico createT_Ul_PAcademico(long idPeriodo);
+
+	public T_Ul_PAcademico createT_Ul_PAcademico(
+			String tituloPeriodo, Date fInicioPeriodo, Date fFinPeriodo,
+			String porcPeriodo, Long T_Ul_Curso_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -212,6 +220,9 @@ public interface T_Ul_PAcademicoLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_PAcademico> getAllT_Ul_PAcademicos();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -243,6 +254,9 @@ public interface T_Ul_PAcademicoLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public T_Ul_PAcademico getT_Ul_PAcademico(long idPeriodo)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_PAcademico> getT_Ul_PAcademicoByName(String tituloPeriodo);
 
 	/**
 	 * Returns the t_ ul_p academico matching the UUID and group.
@@ -304,6 +318,12 @@ public interface T_Ul_PAcademicoLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getT_Ul_PAcademicosCount();
+
+	public T_Ul_PAcademico updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, Date fInicioPeriodo,
+			Date fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Updates the t_ ul_p academico in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

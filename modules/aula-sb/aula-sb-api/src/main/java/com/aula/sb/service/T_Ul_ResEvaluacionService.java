@@ -14,13 +14,19 @@
 
 package com.aula.sb.service;
 
+import com.aula.sb.model.T_Ul_ResEvaluacion;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +53,18 @@ public interface T_Ul_ResEvaluacionService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.aula.sb.service.impl.T_Ul_ResEvaluacionServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the t_ ul_ res evaluacion remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link T_Ul_ResEvaluacionServiceUtil} if injection and service tracking are not available.
 	 */
+	public T_Ul_ResEvaluacion createT_Ul_ResEvaluacion(
+			String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			ServiceContext serviceContext)
+		throws PortalException;
+
+	public T_Ul_ResEvaluacion deleteT_Ul_ResEvaluacion(long idRespuestas)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_ResEvaluacion> getAllT_Ul_ResEvaluacion();
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -54,5 +72,20 @@ public interface T_Ul_ResEvaluacionService extends BaseService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public T_Ul_ResEvaluacion getT_Ul_ResEvaluacion(long idRespuestas)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<T_Ul_ResEvaluacion> getT_Ul_ResEvaluacionByProblRespuestas(
+		String problRespuestas);
+
+	public T_Ul_ResEvaluacion updateT_Ul_ResEvaluacion(
+			long idRespuestas, String problRespuestas, String opcionRespuestas,
+			String puntajeRespuestas, Long T_Ul_Estudiante_id,
+			Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 }

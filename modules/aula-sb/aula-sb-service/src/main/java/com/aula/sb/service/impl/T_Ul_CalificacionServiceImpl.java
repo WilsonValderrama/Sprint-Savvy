@@ -14,9 +14,17 @@
 
 package com.aula.sb.service.impl;
 
+import com.aula.sb.model.T_Ul_Calificacion;
+import com.aula.sb.service.T_Ul_CalificacionLocalServiceUtil;
 import com.aula.sb.service.base.T_Ul_CalificacionServiceBaseImpl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -32,4 +40,38 @@ import org.osgi.service.component.annotations.Component;
 )
 public class T_Ul_CalificacionServiceImpl
 	extends T_Ul_CalificacionServiceBaseImpl {
+	
+	private final Log log = LogFactoryUtil.getLog(T_Ul_CalificacionServiceImpl.class);
+
+	public T_Ul_Calificacion createT_Ul_Calificacion(String puntCalificacion,
+			ServiceContext serviceContext) throws PortalException {
+
+		// Llamada al servicio local
+		T_Ul_Calificacion calificacion = T_Ul_CalificacionLocalServiceUtil.createT_Ul_Calificacion(puntCalificacion,
+				serviceContext);
+
+		log.info("Calificacion creado en el servicio remoto: " + calificacion);
+
+		return calificacion;
+	}
+
+
+	public T_Ul_Calificacion updateT_Ul_Calificacion(long idCalificacion, String puntCalificacion, ServiceContext serviceContext) throws PortalException {
+		
+
+		return T_Ul_CalificacionLocalServiceUtil.updateT_Ul_Calificacion(idCalificacion, puntCalificacion,serviceContext);
+	}
+
+	public T_Ul_Calificacion deleteT_Ul_Calificacion(long idCalificacion) throws PortalException {
+		return T_Ul_CalificacionLocalServiceUtil.deleteT_Ul_Calificacion(idCalificacion);
+	}
+
+	public T_Ul_Calificacion getT_Ul_Calificacion(long idCalificacion) throws PortalException {
+		return T_Ul_CalificacionLocalServiceUtil.getT_Ul_Calificacion(idCalificacion);
+	}
+
+
+	public List<T_Ul_Calificacion> getAllT_Ul_Calificacion() {
+		return T_Ul_CalificacionLocalServiceUtil.getAllT_Ul_Calificacion();
+	}
 }

@@ -80,7 +80,7 @@ public class T_Ul_ActividadServiceImpl extends T_Ul_ActividadServiceBaseImpl {
 	}
 
 	public T_Ul_Actividad getT_Ul_Actividad(long idActividad) throws PortalException {
-		return T_Ul_ActividadLocalServiceUtil.deleteT_Ul_Actividad(idActividad);
+		return T_Ul_ActividadLocalServiceUtil.getT_Ul_Actividad(idActividad);
 	}
 
 	public List<T_Ul_Actividad> getT_Ul_ActividadByTitulo(String tituloActividad) {

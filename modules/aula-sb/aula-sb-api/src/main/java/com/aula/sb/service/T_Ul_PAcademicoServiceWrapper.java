@@ -32,6 +32,33 @@ public class T_Ul_PAcademicoServiceWrapper
 		_t_Ul_PAcademicoService = t_Ul_PAcademicoService;
 	}
 
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico createT_Ul_PAcademico(
+			String tituloPeriodo, String fInicioPeriodo, String fFinPeriodo,
+			String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoService.createT_Ul_PAcademico(
+			tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico deleteT_Ul_PAcademico(
+			long idPeriodo)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoService.deleteT_Ul_PAcademico(idPeriodo);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PAcademico>
+		getAllT_Ul_PAcademicos() {
+
+		return _t_Ul_PAcademicoService.getAllT_Ul_PAcademicos();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -40,6 +67,32 @@ public class T_Ul_PAcademicoServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _t_Ul_PAcademicoService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico getT_Ul_PAcademico(long idPeriodo)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoService.getT_Ul_PAcademico(idPeriodo);
+	}
+
+	@Override
+	public java.util.List<com.aula.sb.model.T_Ul_PAcademico>
+		getT_Ul_PAcademicoByName(String tituloPeriodo) {
+
+		return _t_Ul_PAcademicoService.getT_Ul_PAcademicoByName(tituloPeriodo);
+	}
+
+	@Override
+	public com.aula.sb.model.T_Ul_PAcademico updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, String fInicioPeriodo,
+			String fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _t_Ul_PAcademicoService.updateT_Ul_PAcademico(
+			idPeriodo, tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
 	}
 
 	@Override

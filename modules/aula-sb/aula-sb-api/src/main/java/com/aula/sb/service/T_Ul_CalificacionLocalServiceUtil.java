@@ -83,6 +83,15 @@ public class T_Ul_CalificacionLocalServiceUtil {
 		return getService().createT_Ul_Calificacion(idCalificacion);
 	}
 
+	public static T_Ul_Calificacion createT_Ul_Calificacion(
+			String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_Calificacion(
+			puntCalificacion, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -229,6 +238,10 @@ public class T_Ul_CalificacionLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<T_Ul_Calificacion> getAllT_Ul_Calificacion() {
+		return getService().getAllT_Ul_Calificacion();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -347,6 +360,15 @@ public class T_Ul_CalificacionLocalServiceUtil {
 	 */
 	public static int getT_Ul_CalificacionsCount() {
 		return getService().getT_Ul_CalificacionsCount();
+	}
+
+	public static T_Ul_Calificacion updateT_Ul_Calificacion(
+			long idCalificacion, String puntCalificacion,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_Calificacion(
+			idCalificacion, puntCalificacion, serviceContext);
 	}
 
 	/**

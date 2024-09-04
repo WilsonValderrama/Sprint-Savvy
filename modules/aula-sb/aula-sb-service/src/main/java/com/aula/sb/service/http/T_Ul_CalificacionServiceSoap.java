@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_CalificacionServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_CalificacionServiceUtil</code> service
+ * <code>T_Ul_CalificacionServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,106 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_CalificacionServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_CalificacionSoap
+			createT_Ul_Calificacion(
+				String puntCalificacion,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Calificacion returnValue =
+				T_Ul_CalificacionServiceUtil.createT_Ul_Calificacion(
+					puntCalificacion, serviceContext);
+
+			return com.aula.sb.model.T_Ul_CalificacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_CalificacionSoap
+			updateT_Ul_Calificacion(
+				long idCalificacion, String puntCalificacion,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Calificacion returnValue =
+				T_Ul_CalificacionServiceUtil.updateT_Ul_Calificacion(
+					idCalificacion, puntCalificacion, serviceContext);
+
+			return com.aula.sb.model.T_Ul_CalificacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_CalificacionSoap
+			deleteT_Ul_Calificacion(long idCalificacion)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Calificacion returnValue =
+				T_Ul_CalificacionServiceUtil.deleteT_Ul_Calificacion(
+					idCalificacion);
+
+			return com.aula.sb.model.T_Ul_CalificacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_CalificacionSoap getT_Ul_Calificacion(
+			long idCalificacion)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_Calificacion returnValue =
+				T_Ul_CalificacionServiceUtil.getT_Ul_Calificacion(
+					idCalificacion);
+
+			return com.aula.sb.model.T_Ul_CalificacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_CalificacionSoap[]
+			getAllT_Ul_Calificacion()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_Calificacion> returnValue =
+				T_Ul_CalificacionServiceUtil.getAllT_Ul_Calificacion();
+
+			return com.aula.sb.model.T_Ul_CalificacionSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_CalificacionServiceSoap.class);
+
 }

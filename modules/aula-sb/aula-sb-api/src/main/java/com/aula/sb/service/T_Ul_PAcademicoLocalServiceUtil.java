@@ -81,6 +81,17 @@ public class T_Ul_PAcademicoLocalServiceUtil {
 		return getService().createT_Ul_PAcademico(idPeriodo);
 	}
 
+	public static T_Ul_PAcademico createT_Ul_PAcademico(
+			String tituloPeriodo, java.util.Date fInicioPeriodo,
+			java.util.Date fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().createT_Ul_PAcademico(
+			tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -224,6 +235,10 @@ public class T_Ul_PAcademicoLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<T_Ul_PAcademico> getAllT_Ul_PAcademicos() {
+		return getService().getAllT_Ul_PAcademicos();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -268,6 +283,12 @@ public class T_Ul_PAcademicoLocalServiceUtil {
 		throws PortalException {
 
 		return getService().getT_Ul_PAcademico(idPeriodo);
+	}
+
+	public static List<T_Ul_PAcademico> getT_Ul_PAcademicoByName(
+		String tituloPeriodo) {
+
+		return getService().getT_Ul_PAcademicoByName(tituloPeriodo);
 	}
 
 	/**
@@ -341,6 +362,17 @@ public class T_Ul_PAcademicoLocalServiceUtil {
 	 */
 	public static int getT_Ul_PAcademicosCount() {
 		return getService().getT_Ul_PAcademicosCount();
+	}
+
+	public static T_Ul_PAcademico updateT_Ul_PAcademico(
+			long idPeriodo, String tituloPeriodo, java.util.Date fInicioPeriodo,
+			java.util.Date fFinPeriodo, String porcPeriodo, Long T_Ul_Curso_id,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateT_Ul_PAcademico(
+			idPeriodo, tituloPeriodo, fInicioPeriodo, fFinPeriodo, porcPeriodo,
+			T_Ul_Curso_id, serviceContext);
 	}
 
 	/**

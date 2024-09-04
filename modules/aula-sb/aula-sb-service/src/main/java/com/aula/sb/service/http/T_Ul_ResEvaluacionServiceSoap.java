@@ -14,9 +14,16 @@
 
 package com.aula.sb.service.http;
 
+import com.aula.sb.service.T_Ul_ResEvaluacionServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.aula.sb.service.T_Ul_ResEvaluacionServiceUtil</code> service
+ * <code>T_Ul_ResEvaluacionServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,134 @@ package com.aula.sb.service.http;
  */
 @Deprecated
 public class T_Ul_ResEvaluacionServiceSoap {
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap
+			createT_Ul_ResEvaluacion(
+				String problRespuestas, String opcionRespuestas,
+				String puntajeRespuestas, Long T_Ul_Estudiante_id,
+				Long T_Ul_PrgEvaluacion_id, Long T_Ul_Califi_id,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_ResEvaluacion returnValue =
+				T_Ul_ResEvaluacionServiceUtil.createT_Ul_ResEvaluacion(
+					problRespuestas, opcionRespuestas, puntajeRespuestas,
+					T_Ul_Estudiante_id, T_Ul_PrgEvaluacion_id, T_Ul_Califi_id,
+					serviceContext);
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap
+			updateT_Ul_ResEvaluacion(
+				long idRespuestas, String problRespuestas,
+				String opcionRespuestas, String puntajeRespuestas,
+				Long T_Ul_Estudiante_id, Long T_Ul_PrgEvaluacion_id,
+				Long T_Ul_Califi_id,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_ResEvaluacion returnValue =
+				T_Ul_ResEvaluacionServiceUtil.updateT_Ul_ResEvaluacion(
+					idRespuestas, problRespuestas, opcionRespuestas,
+					puntajeRespuestas, T_Ul_Estudiante_id,
+					T_Ul_PrgEvaluacion_id, T_Ul_Califi_id, serviceContext);
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap
+			deleteT_Ul_ResEvaluacion(long idRespuestas)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_ResEvaluacion returnValue =
+				T_Ul_ResEvaluacionServiceUtil.deleteT_Ul_ResEvaluacion(
+					idRespuestas);
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap
+			getT_Ul_ResEvaluacion(long idRespuestas)
+		throws RemoteException {
+
+		try {
+			com.aula.sb.model.T_Ul_ResEvaluacion returnValue =
+				T_Ul_ResEvaluacionServiceUtil.getT_Ul_ResEvaluacion(
+					idRespuestas);
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap[]
+			getT_Ul_ResEvaluacionByProblRespuestas(String problRespuestas)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_ResEvaluacion> returnValue =
+				T_Ul_ResEvaluacionServiceUtil.
+					getT_Ul_ResEvaluacionByProblRespuestas(problRespuestas);
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.aula.sb.model.T_Ul_ResEvaluacionSoap[]
+			getAllT_Ul_ResEvaluacion()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.aula.sb.model.T_Ul_ResEvaluacion> returnValue =
+				T_Ul_ResEvaluacionServiceUtil.getAllT_Ul_ResEvaluacion();
+
+			return com.aula.sb.model.T_Ul_ResEvaluacionSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		T_Ul_ResEvaluacionServiceSoap.class);
+
 }
