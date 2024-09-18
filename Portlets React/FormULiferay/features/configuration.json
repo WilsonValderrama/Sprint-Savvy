@@ -1,0 +1,30 @@
+{
+	"$schema": "https://raw.githubusercontent.com/liferay/liferay-js-toolkit/master/resources/schemas/configuration.schema.json",
+	"system": {
+		"category": "FormULiferay",
+		"name": "FormULiferay",
+		"fields": {
+			"fruit": {
+				"type": "string",
+				"name": "fruit",
+				"description": "fruit-help",
+				"default": "orange",
+				"options": {
+					"orange": "an-orange",
+					"pear": "a-pear",
+					"apple": "an-apple"
+				}
+			}
+		}
+	},
+	"portletInstance": {
+		"fields": {
+			"textoFijoFormularioContacto": {
+				"type": "string",
+				"name": "Texto fijo Formulario Contacto",
+				"description": "Campo para Texto fijo Formulario Contacto",
+				"default": "Descubre tu camino hacia el conocimiento en Uliferay. Nuestro dedicado equipo está listo para guiarte a través del emocionante proceso de inscripción, admisión y matrícula, personalizando cada paso para que tu viaje académico sea excepcional. ¡Comparte tus datos y comencemos esta increíble travesía juntos!"
+			}
+		}
+	}
+}

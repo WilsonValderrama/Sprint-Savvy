@@ -1,0 +1,215 @@
+.tag {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.value {
+    font-family: monospace;
+}
+
+.pre {
+    font-family: monospace;
+    white-space: pre;
+}
+
+
+/*  Estilos Formulario Contacto  */
+
+.contact-container {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+.contact-container-form {
+    min-width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contact-container-map {
+    display: block;
+    min-width: 50%;
+    min-height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contact-container-map iframe {
+    width: 80%;
+    height: 100%;
+    border: 0;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px rgba(0.5, 0.5, 0.5, 0.5);
+}
+
+.contact-container .form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 80%;
+    min-width: 70%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contact-container .title {
+    font-size: 28px;
+    color: #02637c;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.contact-container .title::before,
+.contact-container .title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: #02637c;
+}
+
+.contact-container .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: #02637c;
+}
+
+.contact-container .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+.contact-container .message,
+.contact-container .accept-terms,
+.contact-container .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+}
+
+.accept-terms {
+    display: flex;
+    align-items: center;
+}
+
+.accept-terms input[type="checkbox"] {
+    width: 10%;
+    min-width: 20px;
+}
+
+.accept-terms p {
+    width: 90%;
+    margin: 0;
+}
+
+.contact-container .signin {
+    text-align: center;
+}
+
+.contact-container .signin a {
+    color: #02637c;
+}
+
+.contact-container .signin a:hover {
+    text-decoration: underline #02637c;
+}
+
+.contact-container .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+
+.contact-container .form label {
+    position: relative;
+}
+
+.contact-container .form label .input,
+.contact-container .form label select {
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+.contact-container .form label .input+span,
+.contact-container .form label select+span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.contact-container .form label .input:placeholder-shown+span,
+.contact-container .form label select:placeholder-shown+span {
+    top: 10px;
+    font-size: 0.9em;
+}
+
+.contact-container .form label .input:focus+span,
+.contact-container .form label .input.has-content+span,
+.contact-container .form label select:focus+span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.contact-container .form label.checkbox-label {
+    display: flex;
+    align-items: center;
+}
+
+.contact-container .form label.checkbox-label input {
+    margin-right: 10px;
+}
+
+.contact-container .submit {
+    border: none;
+    outline: none;
+    background-color: #02637c;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+}
+
+.contact-container .submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
