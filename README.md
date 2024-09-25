@@ -9,6 +9,8 @@
 - Sergio Rincon
 - Wilson Valderrama
 
+Liferay 7.3.7-ga8
+
 <<<<<<< HEAD
 Prueba Actualización
 =======
