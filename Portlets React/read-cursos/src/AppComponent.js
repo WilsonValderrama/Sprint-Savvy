@@ -33,7 +33,7 @@ export default class extends React.Component {
 						<div className="card-ul-content">
 							<h4 className="text-middle">{course.nombreCurso}</h4>
 							<p className="text-bold">{`ID Curso: ${course.idCurso}`}</p>
-							<p className="text-middle">{`PRIMER SEMESTRE 2024`}</p>
+							<p className="text-middle">{`SEGUNDO SEMESTRE 2024`}</p>
 						</div>
 						<div className="card-ul-icons">
 							<a href="#" title="Alertas"><i className='bx bx-bell'></i></a>

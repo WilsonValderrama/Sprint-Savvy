@@ -1,7 +1,7 @@
 {
 	"translatorTextKey": "",
 	"supportedLocales": [],
-	"liferayDir": "C:\\Liferay\\liferay-ce-portal-7.3.7-ga8",
+	"liferayDir": "C:\\liferay-ce-portal-7.3.7-ga8",
 	"webpack": {
 		"rules": [
 			{
