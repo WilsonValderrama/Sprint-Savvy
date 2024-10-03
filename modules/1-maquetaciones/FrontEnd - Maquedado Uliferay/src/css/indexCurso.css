@@ -27,16 +27,18 @@ header {
 
 header h1 {
     font-size: 24px;
-    color: #007acc;
+    color: #265a88;
 }
 
 .tabs a {
     margin-left: 20px;
-    color: #007acc;
+    color: #265a88;
     text-decoration: none;
 }
 
-.tabs a:hover {
+.card-activity a:hover, 
+.tabs a:hover,
+.card-activity .title-general a:hover{
     text-decoration: underline;
 }
 
@@ -44,14 +46,111 @@ section {
     margin-top: 20px;
 }
 
-.card-curso {
-    background-color: #e6f7ff;
-    padding: 15px;
+
+.card-activity
+.title-general a {
+    font-size: 25px;
+    color: #265a88;
+    margin-bottom: 10px;
+    text-decoration: none;
+    
+}
+
+.card-activity p{
+    margin-top: 8px;
+}
+
+
+/* Cards de contenido */
+.card-activity {
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
 }
 
-.card-curso h2 {
-    color: #007acc;
-    margin-bottom: 10px;
+.card-header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #265a88;
+}
+
+.card-dates {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #757575;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.activity-icon {
+    flex: 0 0 60px;
+    margin-right: 20px;
+}
+
+.activity-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.activity-info h4 {
+    font-size: 1.2rem;
+    color: #424242;
+    margin-bottom: 5px;
+}
+
+.activity-info p {
+    color: #757575;
+}
+
+.card-status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status {
+    background-color: #e8f5e9;
+    color: #388e3c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.status a {
+    color: #388e3c;
+    text-decoration: none;
+}
+
+.status a:hover {
+    text-decoration: underline;
+}
+
+.card-activity a {
+    font-size: 15px;
+    color: #265a88;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+
